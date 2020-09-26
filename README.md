@@ -11,4 +11,8 @@ I'm going to start a series of clustering routines for fun. k-means, k-mediod, m
 
 To learn [Kotlin](https://kotlinlang.org), I'm building some of the code in Kotlin.
 
-#
+## Notes on Random Forest(tm) in Java
+
+[codebuff](https://github.com/antlr/codebuff) could really use a random forest so I'm playing with an implementation here.
+
+Notes as I try to implement this properly. There's a lot of handwaving out there as well as inc
