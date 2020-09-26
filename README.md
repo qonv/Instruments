@@ -15,4 +15,14 @@ To learn [Kotlin](https://kotlinlang.org), I'm building some of the code in Kotl
 
 [codebuff](https://github.com/antlr/codebuff) could really use a random forest so I'm playing with an implementation here.
 
-Notes as I try to implement this properly. There's a lot of handwaving out there as well as inc
+Notes as I try to implement this properly. There's a lot of handwaving out there as well as incorrect implementations. grrr.
+
+**Limitations**
+
+All `int` values but supports categorical and numerical values.
+
+**Notes from conversation with** [Jeremy Howard](https://www.usfca.edu/data-institute/about-us/researchers)
+
+select m = sqrt(M) vars at each node
+
+for discrete/categorical vars,
