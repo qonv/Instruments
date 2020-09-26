@@ -7,4 +7,8 @@ performance.
 
 Damn thing seems pretty good. Same or better accuracy on my tests than scikit-learn but infinitely easier to understand. Also faster on bigger elements sets.
 
-I'm going to start a series of clu
+I'm going to start a series of clustering routines for fun. k-means, k-mediod, mean shift, mediod shift.  Then I can use random forests to transform input space and cluster that with traditional methods.
+
+To learn [Kotlin](https://kotlinlang.org), I'm building some of the code in Kotlin.
+
+#
