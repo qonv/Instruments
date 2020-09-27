@@ -44,4 +44,13 @@ find optimal split point exhaustively.
 
 for discrete, try all (or treat as continuous)
 
-for continuous variables, sort by that variable and choose those split points at each unique 
+for continuous variables, sort by that variable and choose those split points at each unique value. each split has low variance of dependent variable
+
+I'm going to try encoding floats as int so int[] can always
+be the elements type of a row.
+
+<img src="images/whiteboard.jpg" width=300>
+
+More Jeremy notes from Jan 17, 2017:
+
+* Sorting is a 
