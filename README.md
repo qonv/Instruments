@@ -25,4 +25,8 @@ All `int` values but supports categorical and numerical values.
 
 select m = sqrt(M) vars at each node
 
-for discrete/categorical vars,
+for discrete/categorical vars, split in even sizes, as pure as possible.
+I ended up treating cat vars like continuous. We're separating hyperplanes not
+relying on two cat vars being less than or greater. It's like
+grouping cat vars: easiest thing is to sort them. Or, like
+binary search l
