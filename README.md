@@ -34,4 +34,14 @@ relationship is arbitrary but useful nonetheless for searching,
 which is what the random forest is doing. sweet.  Hmm... OOB error is huge.
 Jeremy clarified: "*Use one-hot encoding if cardinality <=5, otherwise treat it like an int.*"
 
-log likeliho
+log likelihood or p(1-p) per category
+
+each node as predicted var, cutoff val
+
+nodes are binary decisions
+
+find optimal split point exhaustively.
+
+for discrete, try all (or treat as continuous)
+
+for continuous variables, sort by that variable and choose those split points at each unique 
