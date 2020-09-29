@@ -55,4 +55,4 @@ More Jeremy notes from Jan 17, 2017:
 
 * Sorting is a huge bottleneck so choose perhaps 20 elements from the complete list associated with a particular node. make it a parameter.
 * Map dependent variable categories to 0..n-1 contiguous category encodings a priori; this lets us use a simple array for counting sets per category.
-* Don'
+* Don't need to sort actual elements; you can divide a column of independent variables into those values that are less than and greater than equal to the split. As you scan the column, can move values to the appropriate region. Hmm... still sounds like modifying the elements but Jeremy claim
