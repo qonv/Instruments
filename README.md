@@ -53,4 +53,6 @@ be the elements type of a row.
 
 More Jeremy notes from Jan 17, 2017:
 
-* Sorting is a 
+* Sorting is a huge bottleneck so choose perhaps 20 elements from the complete list associated with a particular node. make it a parameter.
+* Map dependent variable categories to 0..n-1 contiguous category encodings a priori; this lets us use a simple array for counting sets per category.
+* Don'
