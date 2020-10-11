@@ -69,3 +69,8 @@ More Jeremy notes from Jan 17, 2017:
 [patricklamle's python impl](http://www.patricklamle.com/Tutorials/Decision%20tree%20python/tuto_decision%20tree.html)
 
 Russell and Norvig's AI book says:
+
+> When an attribute has many possible values, the information
+gain measure gives an inappropriate indication of the attribute’s usefulness. In the extreme
+case, an attribute such as ExactTime has a different value for every example,
+whi
