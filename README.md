@@ -62,4 +62,10 @@ More Jeremy notes from Jan 17, 2017:
 
 **References**
 
-[ironmanMA](https://github.com/ironmanMA/Random-Fore
+[ironmanMA](https://github.com/ironmanMA/Random-Forest) has some nice notes.
+
+[Breiman's RF site](https://www.stat.berkeley.edu/~breiman/RandomForests/cc_home.htm)
+
+[patricklamle's python impl](http://www.patricklamle.com/Tutorials/Decision%20tree%20python/tuto_decision%20tree.html)
+
+Russell and Norvig's AI book says:
