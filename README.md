@@ -73,4 +73,6 @@ Russell and Norvig's AI book says:
 > When an attribute has many possible values, the information
 gain measure gives an inappropriate indication of the attribute’s usefulness. In the extreme
 case, an attribute such as ExactTime has a different value for every example,
-whi
+which means each subset of examples is a singleton with a unique classification, and
+the information gain measure would have its highest value for this attribute. But choosing
+this split first is unlikely to yield the best tree. One solution is to use the gain ratio
