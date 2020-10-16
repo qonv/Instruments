@@ -80,4 +80,10 @@ this split first is unlikely to yield the best tree. One solution is to use the 
 is, picking out just one of the possible values for an attribute, leaving the remaining
 values to possibly be tested later in the tree.  
 
-I don't think I have th
+I don't think I have this problem if I limit to binary decision nodes as it can't create singled subsets, one per discrete var value.
+
+Also:
+
+> Efficient methods exist for finding good split points: start by sorting the values
+of the attribute, and then consider only split points that are between two examples in
+sorted ord
