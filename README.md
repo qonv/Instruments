@@ -86,4 +86,7 @@ Also:
 
 > Efficient methods exist for finding good split points: start by sorting the values
 of the attribute, and then consider only split points that are between two examples in
-sorted ord
+sorted order that have different classifications, while keeping track of the running totals
+of positive and negative examples on each side of the split point.
+
+From *An Introduction to Statistical Learning* (Gareth James, Daniela Witten, Trevor Hasti
