@@ -98,4 +98,9 @@ accuracy of a statistical learning method is to take many training sets
 from the population, build a separate prediction model using each training
 set, and average the resulting predictions.
 
-The 2nd RF tweak over decision trees is to use a subset of the possible variables when trying to find a split variable at each no
+The 2nd RF tweak over decision trees is to use a subset of the possible variables when trying to find a split variable at each node.
+
+> ... each time a split in a tree is considered, a random sample of
+m predictors is chosen as split candidates from the full set of p predictors.
+The split is allowed to use only one of those m predictors. ... Suppose
+that there is one very strong predictor in the elements set, along wit
