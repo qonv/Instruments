@@ -94,4 +94,8 @@ From *An Introduction to Statistical Learning* (Gareth James, Daniela Witten, Tr
 1st RF tweak to decision trees. The following explains why we bootstrap a new elements set for each tree in forest (*bagging*): 
 
 > Hence a natural way to reduce the variance and hence increase the prediction
-accuracy of a statistical learning
+accuracy of a statistical learning method is to take many training sets
+from the population, build a separate prediction model using each training
+set, and average the resulting predictions.
+
+The 2nd RF tweak over decision trees is to use a subset of the possible variables when trying to find a split variable at each no
