@@ -103,4 +103,9 @@ The 2nd RF tweak over decision trees is to use a subset of the possible variable
 > ... each time a split in a tree is considered, a random sample of
 m predictors is chosen as split candidates from the full set of p predictors.
 The split is allowed to use only one of those m predictors. ... Suppose
-that there is one very strong predictor in the elements set, along wit
+that there is one very strong predictor in the elements set, along with a number
+of other moderately strong predictors. Then in the collection of bagged 
+trees, most or all of the trees will use this strong predictor in the top split.
+Consequently, all of the bagged trees will look quite similar to each other.
+
+## Notes on Mea
