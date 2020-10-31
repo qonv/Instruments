@@ -108,4 +108,6 @@ of other moderately strong predictors. Then in the collection of bagged
 trees, most or all of the trees will use this strong predictor in the top split.
 Consequently, all of the bagged trees will look quite similar to each other.
 
-## Notes on Mea
+## Notes on Mean shift
+
+In my mind, mean-shift is an expensive but straightforward algorithm that associates cluster centroids with density function maxima. We use kernel density estimation with a Gaussian kernel, derived from the original data, and fix that for all tim
