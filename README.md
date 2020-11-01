@@ -112,4 +112,4 @@ Consequently, all of the bagged trees will look quite similar to each other.
 
 In my mind, mean-shift is an expensive but straightforward algorithm that associates cluster centroids with density function maxima. We use kernel density estimation with a Gaussian kernel, derived from the original data, and fix that for all time. Now launch a swarm of particles on the surface that seek maxima. Where do you start the particles? At each data original point. The algorithm terminates when no particle is making much progress, possibly oscillating around a maximum.
 
-The prob
+The problem with gradient ascent/descent is that we need the partial derivatives of the surface function in each dimension, which can get hairy for complex kernels. Fortunately, we can ignore the density estimate itself and go straight to the gradient per [Mean 
