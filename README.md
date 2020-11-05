@@ -114,4 +114,6 @@ In my mind, mean-shift is an expensive but straightforward algorithm that associ
 
 The problem with gradient ascent/descent is that we need the partial derivatives of the surface function in each dimension, which can get hairy for complex kernels. Fortunately, we can ignore the density estimate itself and go straight to the gradient per [Mean Shift: A robust approach toward future space analysis](http://web.eecs.umich.edu/~silvio/teaching/EECS598/papers/mean_shift.pdf). They show that a "shadow kernel" is proportional to the gradient of the kernel used for kernel density estimation. And the good news is that the shadow of a Gaussian kernel is a Gaussian kernel.  If we choose a "top hat" flat/uniform kernel for the density estimate, we use a Epanichnikov kernel function as an estimate of the gradient. Note: the Comaniciu and Meer paper appears to have a boo-boo cut-and-paste error. Their equation (20) on page 606 says y<sub>j+1</sub> = blah where blah is not a function of y<sub>j</sub>. As the plain x in blah is not defined, I assume this should be y<sub>j</sub>. That formula blah is a cut-and-paste of (17) so likely they forgot to update it.
 
-**Problem**: do we update 
+**Problem**: do we update original data points or use separate particles that shift?
+
+I've been looking at a lot of algorithms and a few bits of code to implement mean shift. The majority of people compute mean shift vectors based upon the means, the "mean" particles that move through the data
