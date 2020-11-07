@@ -122,4 +122,8 @@ I looked at [Saravanan Thirumuruganathan's blog](https://saravananthirumuruganat
 
 1. Fix a window around each data point. 
 2. Compute the mean of data within the window. 
-3. Shift the windo
+3. Shift the window to the mean and repeat till convergence.
+
+Notice that it says it's computing the meaning of the data within the window not the meaning of the means. His Matlab code confirms.
+
+I note that the [formula in this stackexchange.com answer](http
