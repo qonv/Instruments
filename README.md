@@ -116,4 +116,6 @@ The problem with gradient ascent/descent is that we need the partial derivatives
 
 **Problem**: do we update original data points or use separate particles that shift?
 
-I've been looking at a lot of algorithms and a few bits of code to implement mean shift. The majority of people compute mean shift vectors based upon the means, the "mean" particles that move through the data space. In another words they compute distance from the current mean to X points but then update X for the next iteration. It's unclear to me that it gets the same clusters that a simple gradient ascent on the kernel density estimate would get. It seems like one should 
+I've been looking at a lot of algorithms and a few bits of code to implement mean shift. The majority of people compute mean shift vectors based upon the means, the "mean" particles that move through the data space. In another words they compute distance from the current mean to X points but then update X for the next iteration. It's unclear to me that it gets the same clusters that a simple gradient ascent on the kernel density estimate would get. It seems like one should keep the density estimate fixed and compute the difference between a "mean particle" that moves around to the *original* data points, not the other particles.  
+
+I looked at [Saravanan Thirumuruganathan's blog](https://saravananthirumuruganathan.wordpress.com/2010/04/01/introducti
