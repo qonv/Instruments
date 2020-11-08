@@ -126,4 +126,6 @@ I looked at [Saravanan Thirumuruganathan's blog](https://saravananthirumuruganat
 
 Notice that it says it's computing the meaning of the data within the window not the meaning of the means. His Matlab code confirms.
 
-I note that the [formula in this stackexchange.com answer](http
+I note that the [formula in this stackexchange.com answer](https://stats.stackexchange.com/questions/61743/understanding-the-mean-shift-algorithm-with-gaussian-kernel) also computes the next particle location using the original data, not the particles.
+
+Ah! In [Mean Shift, Mode Seeking, and Clustering](https://members.loria.fr/MOBe
