@@ -128,4 +128,6 @@ Notice that it says it's computing the meaning of the data within the window not
 
 I note that the [formula in this stackexchange.com answer](https://stats.stackexchange.com/questions/61743/understanding-the-mean-shift-algorithm-with-gaussian-kernel) also computes the next particle location using the original data, not the particles.
 
-Ah! In [Mean Shift, Mode Seeking, and Clustering](https://members.loria.fr/MOBe
+Ah! In [Mean Shift, Mode Seeking, and Clustering](https://members.loria.fr/MOBerger/Enseignement/Master2/Exposes/meanShiftCluster.pdf), I see that they move the data points, not a separate set of particles. But, they go on to say (T are the particles and S are the data points):
+
+> When T is S, the mean shift alg
