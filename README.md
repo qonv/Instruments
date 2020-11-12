@@ -130,4 +130,6 @@ I note that the [formula in this stackexchange.com answer](https://stats.stackex
 
 Ah! In [Mean Shift, Mode Seeking, and Clustering](https://members.loria.fr/MOBerger/Enseignement/Master2/Exposes/meanShiftCluster.pdf), I see that they move the data points, not a separate set of particles. But, they go on to say (T are the particles and S are the data points):
 
-> When T is S, the mean shift algorithm is called a blurring process, indicating the successive blurring of the data set, S. The original mean shift process proposed in [1], [3] is a blurring process, in which T = S. In Definition 2, it is generalized so that T and S may be separate sets with S 
+> When T is S, the mean shift algorithm is called a blurring process, indicating the successive blurring of the data set, S. The original mean shift process proposed in [1], [3] is a blurring process, in which T = S. In Definition 2, it is generalized so that T and S may be separate sets with S fixed through the process, although the initial T may be a copy of S.
+
+where [1] is the original work on mean shift [The estimation of the gradient of a density function, with applications in pattern recognition](https://www.researchgate.net/publication
