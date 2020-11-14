@@ -138,4 +138,12 @@ In [A review of mean-shift algorithms for clustering](https://pdfs.semanticschol
 
 > As will be shown below, Gaussian BMS [blurred mean shift] can be seen as an iterated filtering (in the signal processing sense) that **eventually leads to a dataset with all points coincident for any starting dataset and bandwidth.** However, before that happens, the dataset quickly collapses into meaningful, tight clusters which depend on σ (see fig. 6), and then these point-like clusters continue to move towards each other relatively slowly.
 
-In other words, the blurred mean shift would *not* converge and stop at the density function maxima. After we think it is found the maxima, we have t
+In other words, the blurred mean shift would *not* converge and stop at the density function maxima. After we think it is found the maxima, we have to artificially stop the iteration.
+
+### Results
+
+Heh, cool. Got some interesting clustering results. For example, here is 1000 points per cluster from 3 Gaussian samples:
+
+<img src="images/cluster3.png" width=400>
+
+The blurr
