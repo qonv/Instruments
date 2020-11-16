@@ -146,4 +146,4 @@ Heh, cool. Got some interesting clustering results. For example, here is 1000 po
 
 <img src="images/cluster3.png" width=400>
 
-The blurr
+The blurred mean shift converges very rapidly but continues to wiggle and it seems hard to get it to settle down without putting a maximum number of iterations, or a very loose delta tolerance. In contrast, the non-blurring version takes forever to converge, but probably gets a be
