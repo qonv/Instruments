@@ -98,4 +98,8 @@
 "97",59,1,"asymptomatic",110,239,0,2,142,1,1.2,2,1,"reversable","Yes"
 "98",60,0,"asymptomatic",150,258,0,2,157,0,2.6,2,2,"reversable","Yes"
 "99",52,1,"nontypical",134,201,0,0,158,0,0.8,1,1,"normal","No"
-"100",48,1,"asymp
+"100",48,1,"asymptomatic",122,222,0,2,186,0,0,1,0,"normal","No"
+"101",45,1,"asymptomatic",115,260,0,2,185,0,0,1,0,"normal","No"
+"102",34,1,"typical",118,182,0,2,174,0,0,1,0,"normal","No"
+"103",57,0,"asymptomatic",128,303,0,2,159,0,0,1,1,"normal","No"
+"104",71,0,"nonanginal",110,265,1,2,130
