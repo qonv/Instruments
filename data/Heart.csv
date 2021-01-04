@@ -114,4 +114,8 @@
 "113",52,1,"typical",118,186,0,2,190,0,0,2,0,"fixed","No"
 "114",43,0,"asymptomatic",132,341,1,2,136,1,3,2,0,"reversable","Yes"
 "115",62,0,"nonanginal",130,263,0,0,97,0,1.2,2,1,"reversable","Yes"
-"116",41,1,"nontypical",135,2
+"116",41,1,"nontypical",135,203,0,0,132,0,0,2,0,"fixed","No"
+"117",58,1,"nonanginal",140,211,1,2,165,0,0,1,0,"normal","No"
+"118",35,0,"asymptomatic",138,183,0,0,182,0,1.4,1,0,"normal","No"
+"119",63,1,"asymptomatic",130,330,1,2,132,1,1.8,1,3,"reversable","Yes"
+"120",65,1,"asymptomatic",135,254,0,2
