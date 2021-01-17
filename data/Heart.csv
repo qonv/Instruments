@@ -155,4 +155,8 @@
 "154",55,1,"asymptomatic",160,289,0,2,145,1,0.8,2,1,"reversable","Yes"
 "155",64,1,"asymptomatic",120,246,0,2,96,1,2.2,3,1,"normal","Yes"
 "156",70,1,"asymptomatic",130,322,0,2,109,0,2.4,2,3,"normal","Yes"
-"157",51,1,"asymptomatic",140
+"157",51,1,"asymptomatic",140,299,0,0,173,1,1.6,1,0,"reversable","Yes"
+"158",58,1,"asymptomatic",125,300,0,2,171,0,0,1,2,"reversable","Yes"
+"159",60,1,"asymptomatic",140,293,0,2,170,0,1.2,2,2,"reversable","Yes"
+"160",68,1,"nonanginal",118,277,0,0,151,0,1,1,1,"reversable","No"
+"161",46,1,"nont
