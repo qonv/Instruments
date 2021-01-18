@@ -172,4 +172,7 @@
 "171",70,1,"nonanginal",160,269,0,0,112,1,2.9,2,1,"reversable","Yes"
 "172",53,1,"asymptomatic",142,226,0,2,111,1,0,1,0,"reversable","No"
 "173",59,0,"asymptomatic",174,249,0,0,143,1,0,2,0,"normal","Yes"
-"174",62,0,"a
+"174",62,0,"asymptomatic",140,394,0,2,157,0,1.2,2,0,"normal","No"
+"175",64,1,"asymptomatic",145,212,0,2,132,0,2,2,2,"fixed","Yes"
+"176",57,1,"asymptomatic",152,274,0,0,88,1,1.2,2,1,"reversable","Yes"
+"177",52,1,"asymptomatic",108,233,1,0,147,0,0.1,1,3,"reve
