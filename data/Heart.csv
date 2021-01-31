@@ -220,4 +220,8 @@
 "219",64,0,"asymptomatic",130,303,0,0,122,0,2,2,2,"normal","No"
 "220",59,1,"asymptomatic",138,271,0,2,182,0,0,1,0,"normal","No"
 "221",41,0,"nonanginal",112,268,0,2,172,1,0,1,0,"normal","No"
-"222",54,0,"nonangina
+"222",54,0,"nonanginal",108,267,0,2,167,0,0,1,0,"normal","No"
+"223",39,0,"nonanginal",94,199,0,0,179,0,0,1,0,"normal","No"
+"224",53,1,"asymptomatic",123,282,0,0,95,1,2,2,2,"reversable","Yes"
+"225",63,0,"asymptomatic",108,269,0,0,169,1,1.8,2,2,"normal","Yes"
+"226",34,0,"nontypical"
