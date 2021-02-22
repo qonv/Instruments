@@ -285,4 +285,8 @@
 "284",35,1,"nontypical",122,192,0,0,174,0,0,1,0,"normal","No"
 "285",61,1,"asymptomatic",148,203,0,0,161,0,0,1,1,"reversable","Yes"
 "286",58,1,"asymptomatic",114,318,0,1,140,0,4.4,3,3,"fixed","Yes"
-"287",58,0,"asymptomatic",170,
+"287",58,0,"asymptomatic",170,225,1,2,146,1,2.8,2,2,"fixed","Yes"
+"288",58,1,"nontypical",125,220,0,0,144,0,0.4,2,NA,"reversable","No"
+"289",56,1,"nontypical",130,221,0,2,163,0,0,1,0,"reversable","No"
+"290",56,1,"nontypical",120,240,0,0,169,0,0,3,0,"normal","No"
+"291",67,1,"nonanginal",1
