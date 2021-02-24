@@ -296,4 +296,8 @@
 "295",63,0,"asymptomatic",124,197,0,0,136,1,0,2,0,"normal","Yes"
 "296",41,1,"nontypical",120,157,0,0,182,0,0,1,0,"normal","No"
 "297",59,1,"asymptomatic",164,176,1,2,90,0,1,2,2,"fixed","Yes"
-"298",57,0,"asymptomatic",140,241,0,0,123,1,0.2,2,0,"rever
+"298",57,0,"asymptomatic",140,241,0,0,123,1,0.2,2,0,"reversable","Yes"
+"299",45,1,"typical",110,264,0,0,132,0,1.2,2,0,"reversable","Yes"
+"300",68,1,"asymptomatic",144,193,1,0,141,0,3.4,2,2,"reversable","Yes"
+"301",57,1,"asymptomatic",130,131,0,0,115,1,1.2,2,1,"reversable","Yes"
+"302",57,0,"non
