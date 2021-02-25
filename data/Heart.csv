@@ -300,4 +300,5 @@
 "299",45,1,"typical",110,264,0,0,132,0,1.2,2,0,"reversable","Yes"
 "300",68,1,"asymptomatic",144,193,1,0,141,0,3.4,2,2,"reversable","Yes"
 "301",57,1,"asymptomatic",130,131,0,0,115,1,1.2,2,1,"reversable","Yes"
-"302",57,0,"non
+"302",57,0,"nontypical",130,236,0,2,174,0,0,2,1,"normal","Yes"
+"303",38,1,"nonanginal",138,175,0,0,173,0,0,1,NA,"normal","No"
