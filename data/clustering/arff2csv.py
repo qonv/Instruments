@@ -13,4 +13,5 @@ print meta
 print basename
 #data.tofile(basename[0]+".csv", sep=',', format='%10.5f')
 
-df = pandas.Dat
+df = pandas.DataFrame(data)
+df.to_csv(basename[0]+".csv", index=False)
