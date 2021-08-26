@@ -18,4 +18,16 @@
 		<url>http://parrt.cs.usfca.edu</url>
 	</organization>
 
-	
+	<prerequisites>
+		<maven>3.0</maven>
+	</prerequisites>
+
+	<dependencies>
+		<dependency>
+			<groupId>us.parr</groupId>
+			<artifactId>parrtlib</artifactId>
+			<version>0.5</version>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>j
