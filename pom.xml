@@ -8,4 +8,14 @@
 	<groupId>us.parr</groupId>
 	<artifactId>AniML</artifactId>
 	<version>0.1-SNAPSHOT</version>
+	<packaging>jar</packaging>
+
+	<name>AniML</name>
+	<description>Another machine learning lib in Java</description>
+	<url>https://github.com/parrt/AniML</url>
+	<organization>
+		<name>parr</name>
+		<url>http://parrt.cs.usfca.edu</url>
+	</organization>
+
 	
