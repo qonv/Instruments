@@ -48,4 +48,13 @@
 		</dependency>
 		<dependency>
 			<groupId>org.apache.commons</groupId>
-			<artifactId>commons-csv</ar
+			<artifactId>commons-csv</artifactId>
+			<version>1.4</version>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-collections4</artifactId>
+			<version>RELEASE</version>
+			<scope>compile</scope>
+		</d
