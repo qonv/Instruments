@@ -96,4 +96,14 @@
 		<!-- https://mvnrepository.com/artifact/org.knowm.xchart/xchart-demo -->
 		<dependency>
 		    <groupId>org.knowm.xchart</groupId>
-		    <artifactId>xcha
+		    <artifactId>xchart-demo</artifactId>
+		    <version>3.3.1</version>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<sourceDirectory>src</sourceDirectory>
+		<resources>
+			<resource><directory>data</directory></resource>
+		</resources>
+		<testSourceDirectory>test</testSourceDir
