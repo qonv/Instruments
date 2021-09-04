@@ -106,4 +106,12 @@
 		<resources>
 			<resource><directory>data</directory></resource>
 		</resources>
-		<testSourceDirectory>test</testSourceDir
+		<testSourceDirectory>test</testSourceDirectory>
+		<testResources>
+			<testResource><directory>test/us/parr/animl/samples</directory></testResource>
+			<testResource><directory>python</directory></testResource>
+		</testResources>
+		<plugins>
+			<plugin>
+				<artifactId>maven-assembly-plugin</artifactId>
+				<configuration>
