@@ -149,4 +149,18 @@
 			<plugin> <!-- create javadoc jar -->
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-javadoc-plugin</artifactId>
-				<version>2.10.4</
+				<version>2.10.4</version>
+				<configuration>
+					<javadocVersion>1.7</javadocVersion>
+					<failOnError>false</failOnError>
+				</configuration>
+				<executions>
+					<execution>
+						<goals>
+							<goal>javadoc</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<
