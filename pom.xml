@@ -208,4 +208,14 @@
 				</configuration>
 			</plugin>
 		</plugins>
-	</build
+	</build>
+
+	<scm>
+		<url>https://github.com/parrt/AniML</url>
+		<connection>scm:git:git://github.com/parrt/AniML.git</connection>
+		<developerConnection>scm:git:git@github.com:parrt/AniML.git</developerConnection>
+		<tag>HEAD</tag>
+	</scm>
+
+	<properties>
+		<kotlin.vers
