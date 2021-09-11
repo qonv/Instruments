@@ -17,4 +17,11 @@ import sys
 data = pandas.read_table("data/connect-4.csv", header=0, sep=",")
 
 cvt = data.columns
-targetcol
+targetcol = cvt[-1] # last col
+cvt = cvt[0:-1]     # don't convert last to dummy
+
+# print heart
+# cvt = [u'id', u'Age', u'Sex', u'ChestPain', u'RestBP', u'Chol', u'Fbs',
+#        u'RestECG', u'MaxHR', u'ExAng', u'Oldpeak', u'Slope', u'Ca', u'Thal']
+
+# encode target strings as int
