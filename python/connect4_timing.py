@@ -25,3 +25,7 @@ cvt = cvt[0:-1]     # don't convert last to dummy
 #        u'RestECG', u'MaxHR', u'ExAng', u'Oldpeak', u'Slope', u'Ca', u'Thal']
 
 # encode target strings as int
+data[[targetcol]] = data[[targetcol]].apply(lambda x : pandas.factorize(x)[0]) # encode target as int if string
+# one hot encode other strings
+dummied_data = pandas.get_dummies(data[cvt])
+data = pandas.concat([dummied_data, data[[targetcol]]], axis=
