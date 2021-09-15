@@ -45,4 +45,10 @@ y = v[:,target_index]
 
 random = 99 # pick reproducible pseudo-random sequence
 
-n_estima
+n_estimators = int(sys.argv[1])
+min_samples_leaf = int(sys.argv[2])
+
+start = time.clock()
+clf = RandomForestClassifier(n_estimators=n_estimators, oob_score=False,
+                             max_features="sqrt", bootstrap=True,
+                             min_samples_
