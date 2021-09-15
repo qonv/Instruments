@@ -28,4 +28,21 @@ cvt = cvt[0:-1]     # don't convert last to dummy
 data[[targetcol]] = data[[targetcol]].apply(lambda x : pandas.factorize(x)[0]) # encode target as int if string
 # one hot encode other strings
 dummied_data = pandas.get_dummies(data[cvt])
-data = pandas.concat([dummied_data, data[[targetcol]]], axis=
+data = pandas.concat([dummied_data, data[[targetcol]]], axis=1) # put party on the end
+
+colnames = data.columns
+
+v = data.values
+# print type(v)
+# print heart.columns
+# print len(heart.columns)
+
+dim = data.shape[1]
+target_index = dim-1
+
+X = v[:,0:target_index]
+y = v[:,target_index]
+
+random = 99 # pick reproducible pseudo-random sequence
+
+n_estima
