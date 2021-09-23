@@ -14,4 +14,10 @@ targetcol = cvt[-1] # last col
 cvt = cvt[0:-1]     # don't convert last to dummy
 
 # print heart
-# cvt = [u'id', u'Age', u'Sex', u'ChestPain', u'RestBP', u'C
+# cvt = [u'id', u'Age', u'Sex', u'ChestPain', u'RestBP', u'Chol', u'Fbs',
+#        u'RestECG', u'MaxHR', u'ExAng', u'Oldpeak', u'Slope', u'Ca', u'Thal']
+
+# encode target strings as int
+data[[targetcol]] = data[[targetcol]].apply(lambda x : pandas.factorize(x)[0]) # encode target as int if string
+# one hot encode other strings
+dumm
