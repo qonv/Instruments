@@ -20,4 +20,14 @@ cvt = cvt[0:-1]     # don't convert last to dummy
 # encode target strings as int
 data[[targetcol]] = data[[targetcol]].apply(lambda x : pandas.factorize(x)[0]) # encode target as int if string
 # one hot encode other strings
-dumm
+dummied_data = pandas.get_dummies(data[cvt])
+data = pandas.concat([dummied_data, data[[targetcol]]], axis=1) # put party on the end
+
+colnames = data.columns
+
+v = data.values
+# print type(v)
+# print heart.columns
+# print len(heart.columns)
+
+dim = d
