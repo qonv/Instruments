@@ -39,4 +39,11 @@ y = v[:,target_index]
 random = 99 # pick reproducible pseudo-random sequence
 
 clf = RandomForestClassifier(n_estimators=50, oob_score=True,
-                             max_features="sqrt", bootstrap=Tr
+                             max_features="sqrt", bootstrap=True,
+                             min_samples_leaf=20, criterion="entropy",
+                             random_state=random)
+clf = clf.fit(X, y)
+oob_error = 1 - clf.oob_score_
+tree.export_graphviz(clf.estimators_[0], out_file="/tmp/t0.dot", feature_names=colnames)
+
+kfold = KF
