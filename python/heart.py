@@ -30,4 +30,13 @@ v = data.values
 # print heart.columns
 # print len(heart.columns)
 
-dim = d
+dim = data.shape[1]
+target_index = dim-1
+
+X = v[:,0:target_index]
+y = v[:,target_index]
+
+random = 99 # pick reproducible pseudo-random sequence
+
+clf = RandomForestClassifier(n_estimators=50, oob_score=True,
+                             max_features="sqrt", bootstrap=Tr
