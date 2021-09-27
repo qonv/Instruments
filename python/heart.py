@@ -53,4 +53,8 @@ for train_index, test_index in kfold.split(X):
     # print("TRAIN:", train_index, "TEST:", test_index)
     X_train, X_test = X[train_index], X[test_index]
     y_train, y_test = y[train_index], y[test_index]
-  
+    clf = RandomForestClassifier(n_estimators=50, oob_score=False,
+                                 max_features="sqrt", bootstrap=True,
+                                 min_samples_leaf=20, criterion="entropy",
+                                 random_state=random)
+    clf = clf.fit(X_t
