@@ -46,4 +46,11 @@ clf = clf.fit(X, y)
 oob_error = 1 - clf.oob_score_
 tree.export_graphviz(clf.estimators_[0], out_file="/tmp/t0.dot", feature_names=colnames)
 
-kfold = KF
+kfold = KFold(n_splits=5, shuffle=True, random_state=random)
+
+avg_err = 0.0
+for train_index, test_index in kfold.split(X):
+    # print("TRAIN:", train_index, "TEST:", test_index)
+    X_train, X_test = X[train_index], X[test_index]
+    y_train, y_test = y[train_index], y[test_index]
+  
