@@ -65,4 +65,5 @@ for train_index, test_index in kfold.split(X):
     avg_err += err
     # print "5-fold error:", counts[False], '/', len(y_test), err
 
-print "oob %.5f" % oob_error, 
+print "oob %.5f" % oob_error, "kfold %5f" % (avg_err / 5.0)
+
