@@ -57,4 +57,12 @@ for train_index, test_index in kfold.split(X):
                                  max_features="sqrt", bootstrap=True,
                                  min_samples_leaf=20, criterion="entropy",
                                  random_state=random)
-    clf = clf.fit(X_t
+    clf = clf.fit(X_train, y_train)
+    # print "oob error", oob_error,
+    cats = clf.predict(X_test)
+    counts = collections.Counter(y_test==cats)
+    err = counts[False] / float(len(y_test))
+    avg_err += err
+    # print "5-fold error:", counts[False], '/', len(y_test), err
+
+print "oob %.5f" % oob_error, 
