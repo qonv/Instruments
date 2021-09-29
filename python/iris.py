@@ -29,4 +29,10 @@ for train_index, test_index in kfold.split(X):
     clf = RandomForestClassifier(n_estimators=20,
                                  bootstrap=True,
                                  oob_score=True,
-       
+                                 min_samples_leaf=20,
+                                 criterion="entropy")
+    clf = clf.fit(X_train, y_train)
+    oob_error = 1 - clf.oob_score_
+    print "oob error", oob_error,
+    cats = clf.predict(X_test)
+  
