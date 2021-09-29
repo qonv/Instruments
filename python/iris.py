@@ -35,4 +35,5 @@ for train_index, test_index in kfold.split(X):
     oob_error = 1 - clf.oob_score_
     print "oob error", oob_error,
     cats = clf.predict(X_test)
-  
+    counts = collections.Counter(y_test==cats)
+    print "5-fold error:", counts[False], '/', len(y_test), counts[False]/float(len(y_test))
