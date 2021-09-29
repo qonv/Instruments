@@ -11,4 +11,16 @@ enc = OneHotEncoder()
 data = pandas.read_table("../data/iris.csv", header=0, sep=",")
 
 # convert target column from string to int 0..2
-data = data[data.columns].apply(lambda x : pan
+data = data[data.columns].apply(lambda x : pandas.factorize(x)[0])
+data = data.values # to ndarray
+
+X = data[:,0:4]
+y = data[:,4]
+
+# print iris
+
+kfold = KFold(n_splits=5, shuffle=True)
+print kfold
+
+for train_index, test_index in kfold.split(X):
+    # print("TRAIN:", train_index, "TEST:", test_index)
