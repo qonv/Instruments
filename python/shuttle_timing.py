@@ -34,4 +34,14 @@ v = data.values
 dim = data.shape[1]
 target_index = dim-1
 
-X = v[:,0:target_index
+X = v[:,0:target_index]
+y = v[:,target_index]
+
+random = 99 # pick reproducible pseudo-random sequence
+
+n_estimators = int(sys.argv[1])
+min_samples_leaf = int(sys.argv[2])
+
+start = time.clock()
+clf = RandomForestClassifier(n_estimators=n_estimators, oob_score=False,
+   
