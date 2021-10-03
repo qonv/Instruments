@@ -21,4 +21,17 @@ targetcol = cvt[-1] # last col
 cvt = cvt[0:-1]     # don't convert last to dummy
 
 # one hot encode other strings
-d
+dummied_data = pandas.get_dummies(data[cvt])
+data = pandas.concat([dummied_data, data[[targetcol]]], axis=1) # put party on the end
+
+colnames = data.columns
+
+v = data.values
+# print type(v)
+# print heart.columns
+# print len(heart.columns)
+
+dim = data.shape[1]
+target_index = dim-1
+
+X = v[:,0:target_index
