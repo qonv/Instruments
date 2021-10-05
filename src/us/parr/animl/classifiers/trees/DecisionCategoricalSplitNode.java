@@ -6,4 +6,14 @@
 
 package us.parr.animl.classifiers.trees;
 
-import us
+import us.parr.animl.data.DataTable;
+
+import javax.json.Json;
+import javax.json.JsonObjectBuilder;
+import java.util.Map;
+
+import static us.parr.lib.ParrtMath.isClose;
+
+
+public class DecisionCategoricalSplitNode extends DecisionSplitNode {
+	/** Split according to what variable
