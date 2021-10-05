@@ -50,4 +50,4 @@ clf = RandomForestClassifier(n_estimators=n_estimators, oob_score=False,
 clf = clf.fit(X, y)
 stop = time.clock()
 
-print "Fitting %d es
+print "Fitting %d estimators %d min leaf size %f seconds\n" % (n_estimators,min_samples_leaf,stop-start)
