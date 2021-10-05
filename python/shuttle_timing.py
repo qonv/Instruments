@@ -44,4 +44,10 @@ min_samples_leaf = int(sys.argv[2])
 
 start = time.clock()
 clf = RandomForestClassifier(n_estimators=n_estimators, oob_score=False,
-   
+                             max_features="sqrt", bootstrap=True,
+                             min_samples_leaf=min_samples_leaf, criterion="entropy",
+                             random_state=random)
+clf = clf.fit(X, y)
+stop = time.clock()
+
+print "Fitting %d es
