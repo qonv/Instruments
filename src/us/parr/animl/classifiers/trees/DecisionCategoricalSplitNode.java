@@ -16,4 +16,11 @@ import static us.parr.lib.ParrtMath.isClose;
 
 
 public class DecisionCategoricalSplitNode extends DecisionSplitNode {
-	/** Split according to what variable
+	/** Split according to what variable category? An unknown matches category yes or no */
+	protected int splitCategory;
+
+	protected Object splitCategoryDisplayValue;
+
+	protected String variableName;
+
+	public DecisionCategoricalSplitNode(DataTable data, int splitVariable, DataTable.VariableType colType, int sp
