@@ -13,4 +13,8 @@ public interface ClassifierModel extends Classifier {
 	 *  In an effort not to store datasets in each model, we use a separate
 	 *  train() method to actually fit the model to the data.
 	 *
-	 *  Repeatedly calling this method, clears the model before 
+	 *  Repeatedly calling this method, clears the model before training
+	 *  each time.
+	 */
+	void train(DataTable data);
+}
