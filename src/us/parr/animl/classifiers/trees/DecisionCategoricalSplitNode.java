@@ -23,4 +23,11 @@ public class DecisionCategoricalSplitNode extends DecisionSplitNode {
 
 	protected String variableName;
 
-	public DecisionCategoricalSplitNode(DataTable data, int splitVariable, DataTable.VariableType colType, int sp
+	public DecisionCategoricalSplitNode(DataTable data, int splitVariable, DataTable.VariableType colType, int splitCategory) {
+		super(splitVariable, colType);
+		this.splitCategory = splitCategory;
+		this.splitCategoryDisplayValue = DataTable.getValue(data, splitCategory, splitVariable);
+		this.variableName = data.getColNames()[splitVariable];
+	}
+
+	public int 
