@@ -30,4 +30,15 @@ public class DecisionCategoricalSplitNode extends DecisionSplitNode {
 		this.variableName = data.getColNames()[splitVariable];
 	}
 
-	public int 
+	public int classify(int[] X) {
+		if ( X[splitVariable]==splitCategory ) { // if equal, choose left child
+			return left.classify(X);
+		}
+		else {
+			return right.classify(X);
+		}
+	}
+
+	@Override
+	public Map<Integer, Double> classProbabilities(int[] X) {
+		if ( X[splitVariable]==splitCategory ) { // if equal, c
