@@ -41,4 +41,16 @@ public class DecisionCategoricalSplitNode extends DecisionSplitNode {
 
 	@Override
 	public Map<Integer, Double> classProbabilities(int[] X) {
-		if ( X[splitVariable]==splitCategory ) { // if equal, c
+		if ( X[splitVariable]==splitCategory ) { // if equal, choose left child
+			return left.classProbabilities(X);
+		}
+		else {
+			return right.classProbabilities(X);
+		}
+	}
+
+	@Override
+	public JsonObjectBuilder getJSONData() {
+		JsonObjectBuilder builder =  Json.createObjectBuilder();
+		builder.add("var", variableName);
+		bui
