@@ -53,4 +53,14 @@ public class DecisionCategoricalSplitNode extends DecisionSplitNode {
 	public JsonObjectBuilder getJSONData() {
 		JsonObjectBuilder builder =  Json.createObjectBuilder();
 		builder.add("var", variableName);
-		bui
+		builder.add("cat", splitCategoryDisplayValue.toString()); // has to be categorical
+		builder.add("n", numRecords);
+		if ( !isClose(entropy,0.0) ) {
+			builder.add("E", String.format("%.2f",entropy));
+		}
+		return builder;
+	}
+
+	@Override
+	public String getDOTLeftEdge() {
+	
