@@ -63,4 +63,11 @@ public class DecisionCategoricalSplitNode extends DecisionSplitNode {
 
 	@Override
 	public String getDOTLeftEdge() {
-	
+		int id = System.identityHashCode(this);
+		return String.format("n%s -> n%s [label=\"%s\"];", id, System.identityHashCode(left), splitCategoryDisplayValue.toString());
+	}
+
+	@Override
+	public String getDOTRightEdge() {
+		int id = System.identityHashCode(this);
+		retur
