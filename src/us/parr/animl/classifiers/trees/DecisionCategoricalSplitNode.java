@@ -76,4 +76,7 @@ public class DecisionCategoricalSplitNode extends DecisionSplitNode {
 	@Override
 	public String getDOTNodeDef() {
 		int id = System.identityHashCode(this);
-		return String.format("n%d [label=\"%s\\nn=%d\\nE=
+		return String.format("n%d [label=\"%s\\nn=%d\\nE=%.2f\"];",
+		                     id, variableName, numRecords, entropy);
+	}
+}
