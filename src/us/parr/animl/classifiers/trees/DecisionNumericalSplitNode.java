@@ -65,4 +65,15 @@ public class DecisionNumericalSplitNode extends DecisionSplitNode {
 	public JsonObjectBuilder getJSONData() {
 		JsonObjectBuilder builder =  Json.createObjectBuilder();
 		builder.add("var", variableName);
-		builder.ad
+		builder.add("val", splitValue);
+		builder.add("n", numRecords);
+		if ( !isClose(entropy,0.0) ) {
+			builder.add("E", String.format("%.2f",entropy));
+		}
+		return builder;
+	}
+
+	@Override
+	public String getDOTNodeDef() {
+		int id = System.identityHashCode(this);
+		return String.format("n
