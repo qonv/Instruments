@@ -21,4 +21,12 @@ public class DecisionNumericalSplitNode extends DecisionSplitNode {
 
 	protected String variableName;
 
-	public DecisionNumericalSplitNode(DataTable data, int
+	public DecisionNumericalSplitNode(DataTable data, int splitVariable, DataTable.VariableType colType, double splitValue) {
+		super(splitVariable, colType);
+		this.splitValue = splitValue;
+		this.variableName = data.getColNames()[splitVariable];
+	}
+
+	public int classify(int[] X) {
+		double v;
+		if ( colType==DataTable.VariableTyp
