@@ -53,4 +53,16 @@ public class DecisionNumericalSplitNode extends DecisionSplitNode {
 		else {
 			v = Float.intBitsToFloat(X[splitVariable]);
 		}
-		if ( v < splitVa
+		if ( v < splitValue ) {
+			return left.classProbabilities(X);
+		}
+		else {
+			return right.classProbabilities(X);
+		}
+	}
+
+	@Override
+	public JsonObjectBuilder getJSONData() {
+		JsonObjectBuilder builder =  Json.createObjectBuilder();
+		builder.add("var", variableName);
+		builder.ad
