@@ -76,4 +76,11 @@ public class DecisionNumericalSplitNode extends DecisionSplitNode {
 	@Override
 	public String getDOTNodeDef() {
 		int id = System.identityHashCode(this);
-		return String.format("n
+		return String.format("n%d [label=\"%s\\nn=%d\\nE=%.2f\"];",
+		                     id, variableName, numRecords, entropy);
+	}
+
+	@Override
+	public String getDOTLeftEdge() {
+		int id = System.identityHashCode(this);
+		return String.format("n%s -> n%s [label=\"<%.2f\"];", id, System.identityHashCode(lef
