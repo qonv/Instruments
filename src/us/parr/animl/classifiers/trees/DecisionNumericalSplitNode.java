@@ -12,4 +12,13 @@ import javax.json.Json;
 import javax.json.JsonObjectBuilder;
 import java.util.Map;
 
-im
+import static us.parr.lib.ParrtMath.isClose;
+
+
+public class DecisionNumericalSplitNode extends DecisionSplitNode {
+	/** Split at what variable value? */
+	protected double splitValue;
+
+	protected String variableName;
+
+	public DecisionNumericalSplitNode(DataTable data, int
