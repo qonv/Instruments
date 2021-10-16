@@ -29,4 +29,19 @@ public class DecisionNumericalSplitNode extends DecisionSplitNode {
 
 	public int classify(int[] X) {
 		double v;
-		if ( colType==DataTable.VariableTyp
+		if ( colType==DataTable.VariableType.NUMERICAL_INT ) {
+			v = X[splitVariable];
+		}
+		else {
+			v = Float.intBitsToFloat(X[splitVariable]);
+		}
+		if ( v < splitValue ) {
+			return left.classify(X);
+		}
+		else {
+			return right.classify(X);
+		}
+	}
+
+	@Override
+	public Map<Integer, Double> c
