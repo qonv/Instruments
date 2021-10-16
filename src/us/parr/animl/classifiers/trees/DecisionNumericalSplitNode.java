@@ -44,4 +44,13 @@ public class DecisionNumericalSplitNode extends DecisionSplitNode {
 	}
 
 	@Override
-	public Map<Integer, Double> c
+	public Map<Integer, Double> classProbabilities(int[] X) {
+		// TODO: hideous duplication with classify()
+		double v;
+		if ( colType==DataTable.VariableType.NUMERICAL_INT ) {
+			v = X[splitVariable];
+		}
+		else {
+			v = Float.intBitsToFloat(X[splitVariable]);
+		}
+		if ( v < splitVa
