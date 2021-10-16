@@ -83,4 +83,12 @@ public class DecisionNumericalSplitNode extends DecisionSplitNode {
 	@Override
 	public String getDOTLeftEdge() {
 		int id = System.identityHashCode(this);
-		return String.format("n%s -> n%s [label=\"<%.2f\"];", id, System.identityHashCode(lef
+		return String.format("n%s -> n%s [label=\"<%.2f\"];", id, System.identityHashCode(left), splitValue);
+	}
+
+	@Override
+	public String getDOTRightEdge() {
+		int id = System.identityHashCode(this);
+		return String.format("n%s -> n%s [label=\">=%.2f\"];", id, System.identityHashCode(right), splitValue);
+	}
+}
