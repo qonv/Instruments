@@ -286,3 +286,113 @@ public class DecisionTree implements ClassifierModel {
 				Object p = DataTable.getValue(data, colCat, j);
 				System.out.printf("Entropies var=%13s cat=%-13s r1=%2d/%3d*%.2f r2=%2d/%3d*%.2f, ExpEntropy=%.2f gain=%.2f\n",
 				                  var, p, n1, n1+n2, r1_entropy, n2, n1+n2, r2_entropy,
+				                  expectedEntropyValue, gain);
+			}
+		}
+
+		return best;
+	}
+
+	public static double expectedEntropy(int[] region1CatCounts, int n1,
+	                                     int[] region2CatCounts, int n2)
+	{
+		double r1_entropy = ParrtStats.entropy(region1CatCounts);
+		double r2_entropy = ParrtStats.entropy(region2CatCounts);
+		double p1 = ((double) n1)/(n1+n2);
+		double p2 = ((double) n2)/(n1+n2);
+		return p1*r1_entropy+p2*r2_entropy;
+	}
+
+	public boolean isLeaf() { return root instanceof DecisionLeafNode; }
+
+	public static DataPair numericalIntSplit_old(DataTable X, int splitVariable, double splitValue) {
+		DataTable a = X.filter(x -> x[splitVariable] < splitValue);
+		DataTable b = X.filter(x -> x[splitVariable] >= splitValue);
+		return new DataPair(a,b);
+	}
+
+	public static DataPair numericalFloatSplit_old(DataTable X, int splitVariable, double splitValue) {
+		DataTable a = X.filter(x -> Float.intBitsToFloat(x[splitVariable]) < splitValue);
+		DataTable b = X.filter(x -> Float.intBitsToFloat(x[splitVariable]) >= splitValue);
+		return new DataPair(a,b);
+	}
+
+	public static DataPair categoricalSplit_old(DataTable X, int splitVariable, int splitCategory) {
+//		DataTable a = X.filter(x -> x[splitVariable] == splitCategory);
+//		DataTable b = X.filter(x -> x[splitVariable] != splitCategory);
+//		return new DataPair(a,b);
+		List<int[]> eq = new ArrayList<>();
+		List<int[]> notEq = new ArrayList<>();
+		for (int[] row : X.getRows()) {
+			if ( row[splitVariable] == splitCategory ) {
+				eq.add(row);
+			}
+			else {
+				notEq.add(row);
+			}
+		}
+		return new DataPair(new DataTable(X, eq), new DataTable(X, notEq));
+	}
+
+	public static DataPair numericalIntSplit(DataTable X, int splitVariable, double splitValue) {
+		List<int[]> rows = X.getRows();
+		int splitIndex = DataTable.numericalIntPartition(rows, splitVariable, splitValue, 0, X.size()-1);
+		List<int[]> less = rows.subList(0, splitIndex);
+		List<int[]> greater = rows.subList(splitIndex, rows.size());
+		return new DataPair(new DataTable(X, less), new DataTable(X, greater));
+	}
+
+	public static DataPair numericalFloatSplit(DataTable X, int splitVariable, double splitValue) {
+		List<int[]> rows = X.getRows();
+		int splitIndex = DataTable.numericalFloatPartition(rows, splitVariable, splitValue, 0, X.size()-1);
+		List<int[]> less = rows.subList(0, splitIndex);
+		List<int[]> greater = rows.subList(splitIndex, rows.size());
+		return new DataPair(new DataTable(X, less), new DataTable(X, greater));
+	}
+
+	public static DataPair categoricalSplit(DataTable X, int splitVariable, int splitCategory) {
+		List<int[]> rows = X.getRows();
+		int splitIndex = DataTable.categoricalPartition(rows, splitVariable, splitCategory, 0, X.size()-1);
+		List<int[]> eq = rows.subList(0, splitIndex);
+		List<int[]> notEq = rows.subList(splitIndex, rows.size());
+		return new DataPair(new DataTable(X, eq), new DataTable(X, notEq));
+	}
+
+	public JsonObject toJSON() { return root!=null ? root.toJSON() : Json.createObjectBuilder().build(); }
+
+	public String toDOT() {
+		StringBuilder buf = new StringBuilder();
+		buf.append("digraph dtree {\n");
+		List<String> nodes = new ArrayList<>();
+		getDOTNodeNames(root, nodes);
+		for (String node : nodes) {
+			buf.append("\t"+node+"\n");
+		}
+		List<String> edges = new ArrayList<>();
+		getDOTEdges(root, edges);
+		for (String edge : edges) {
+			buf.append("\t"+edge+"\n");
+		}
+		buf.append("}\n");
+		return buf.toString();
+	}
+
+	protected static void getDOTNodeNames(DecisionTreeNode t, List<String> nodes) {
+		nodes.add(t.getDOTNodeDef());
+		if ( t instanceof DecisionSplitNode ) {
+			DecisionSplitNode s = (DecisionSplitNode)t;
+			getDOTNodeNames(s.left, nodes);
+			getDOTNodeNames(s.right, nodes);
+		}
+	}
+
+	protected static void getDOTEdges(DecisionTreeNode t, List<String> edges) {
+		if ( t instanceof DecisionSplitNode ) {
+			DecisionSplitNode s = (DecisionSplitNode) t;
+			edges.add(s.getDOTLeftEdge());
+			edges.add(s.getDOTRightEdge());
+			getDOTEdges(s.left, edges);
+			getDOTEdges(s.right, edges);
+		}
+	}
+}
