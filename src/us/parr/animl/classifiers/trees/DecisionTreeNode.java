@@ -21,4 +21,14 @@ public abstract class DecisionTreeNode implements Classifier {
 	public abstract JsonObjectBuilder getJSONData();
 
 	public static JsonObject toJSON(DecisionTreeNode t) {
-		JsonObjectBuilder 
+		JsonObjectBuilder builder = t.getJSONData();
+		if ( t instanceof DecisionSplitNode ) {
+			DecisionSplitNode s = (DecisionSplitNode)t;
+			builder.add("left", s.left.toJSON());
+			builder.add("right", s.right.toJSON());
+		}
+		return builder.build();
+	}
+
+	public abstract String getDOTNodeDef();
+}
