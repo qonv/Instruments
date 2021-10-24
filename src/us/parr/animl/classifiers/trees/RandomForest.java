@@ -15,3 +15,13 @@ import java.util.Collection;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
+
+import static us.parr.lib.ParrtStats.majorityVote;
+
+
+/** A Random Forest classifier operating on categorical and numerical
+ *  values. Predicts integer categories only. -1 is an invalid predicted
+ *  category value.
+ */
+public class
