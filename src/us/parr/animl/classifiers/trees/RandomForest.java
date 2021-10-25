@@ -24,4 +24,13 @@ import static us.parr.lib.ParrtStats.majorityVote;
  *  values. Predicts integer categories only. -1 is an invalid predicted
  *  category value.
  */
-public class
+public class RandomForest implements ClassifierModel {
+	/** How many trees to create in the forest */
+	protected int numEstimators;
+
+	protected int minLeafSize;
+
+	/** How much of data to examine at each node to find split point */
+	protected int nodeSampleSize = 20;
+
+	/** From 0..1, how many observ
