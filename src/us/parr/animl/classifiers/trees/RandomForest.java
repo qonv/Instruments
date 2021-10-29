@@ -41,4 +41,10 @@ public class RandomForest implements ClassifierModel {
 	/** The forest of trees */
 	protected List<DecisionTree> trees;
 
-	/** Which observations (inde
+	/** Which observations (indexes) were out-of-bag for each tree trained on data? */
+	protected List<Set<Integer>> treeOutOfBagSampleIndexes;
+
+	/** Constructors for classifiers / regressors should capture all parameters
+	 *  needed to train except for the actual data, which could vary.
+	 */
+	public RandomFor
