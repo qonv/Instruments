@@ -33,4 +33,12 @@ public class RandomForest implements ClassifierModel {
 	/** How much of data to examine at each node to find split point */
 	protected int nodeSampleSize = 20;
 
-	/** From 0..1, how many observ
+	/** From 0..1, how many observations to sample from table for each tree. 1.0 implies all.
+	 *  0.5 implies bootstrap a sample of size .5 * data.size().
+	 */
+	protected double bootstrapSampleRate = 1.0;
+
+	/** The forest of trees */
+	protected List<DecisionTree> trees;
+
+	/** Which observations (inde
