@@ -47,4 +47,7 @@ public class RandomForest implements ClassifierModel {
 	/** Constructors for classifiers / regressors should capture all parameters
 	 *  needed to train except for the actual data, which could vary.
 	 */
-	public RandomFor
+	public RandomForest(int numEstimators, int minLeafSize, int nodeSampleSize, double bootstrapSampleRate) {
+		this.numEstimators = numEstimators;
+		this.minLeafSize = minLeafSize;
+		this.nodeSampleSize = Math.max(nodeSampleSize, minLeafSize+1); // can't be smaller than min node or we get a si
