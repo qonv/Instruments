@@ -50,4 +50,14 @@ public class RandomForest implements ClassifierModel {
 	public RandomForest(int numEstimators, int minLeafSize, int nodeSampleSize, double bootstrapSampleRate) {
 		this.numEstimators = numEstimators;
 		this.minLeafSize = minLeafSize;
-		this.nodeSampleSize = Math.max(nodeSampleSize, minLeafSize+1); // can't be smaller than min node or we get a si
+		this.nodeSampleSize = Math.max(nodeSampleSize, minLeafSize+1); // can't be smaller than min node or we get a single root node
+		this.bootstrapSampleRate = bootstrapSampleRate;
+	}
+
+	public RandomForest(int numEstimators, int minLeafSize) {
+		this(numEstimators, minLeafSize, 20, 1.0);
+	}
+
+
+	/** Train on this data. Wipe out any existing trees etc... */
+	public void train(DataTable data) {
