@@ -61,3 +61,8 @@ public class RandomForest implements ClassifierModel {
 
 	/** Train on this data. Wipe out any existing trees etc... */
 	public void train(DataTable data) {
+		this.trees = new ArrayList<>(numEstimators);
+		this.treeOutOfBagSampleIndexes = new ArrayList<>(numEstimators);
+		if ( data==null || data.size()==0 || numEstimators==0 ) return;
+		int M = data.getNumberOfPredictorVar();
+		// Number
