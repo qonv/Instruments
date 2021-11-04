@@ -65,4 +65,7 @@ public class RandomForest implements ClassifierModel {
 		this.treeOutOfBagSampleIndexes = new ArrayList<>(numEstimators);
 		if ( data==null || data.size()==0 || numEstimators==0 ) return;
 		int M = data.getNumberOfPredictorVar();
-		// Number
+		// Number of variables to select at random at each decision node to find best split
+		int m = (int)Math.round(Math.sqrt(M));
+		List<int[]> bootstrap = new ArrayList<>(data.size()); // reuse for each tree
+		for (int i = 1; i<=numEstimators; i++) {
