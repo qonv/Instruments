@@ -76,4 +76,15 @@ public class RandomForest implements ClassifierModel {
 			ParrtStats.bootstrapWithRepl(data.getRows(), sampleSize, bootstrap, null);
 			DataTable table = new DataTable(data, bootstrap);
 //			System.out.println("bootstrap:\n"+table.toString());
-			DecisionTree tree = new DecisionTree(m, minL
+			DecisionTree tree = new DecisionTree(m, minLeafSize, nodeSampleSize);
+			tree.train(table);
+			trees.add(tree);
+			treeOutOfBagSampleIndexes.add(outOfBagSamples);
+		}
+	}
+
+	public int classify(int[] unknown) {
+		return classify(trees, unknown);
+	}
+
+	/* 	From: http://scikit-learn.org/stable/modules/generated/s
