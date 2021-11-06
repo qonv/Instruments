@@ -145,4 +145,12 @@ public class RandomForest implements ClassifierModel {
 	public double getErrorEstimate(DataTable data) {
 		int mismatches = 0;
 		int n = 0; // how many rows had oob estimators?
-		Set<DecisionTree>[] outOfBagEstimators = getOutOfBagEstimatorSets(data)
+		Set<DecisionTree>[] outOfBagEstimators = getOutOfBagEstimatorSets(data);
+		List<Integer> misses = new ArrayList<>();
+		for (int i = 0; i<data.size(); i++) {
+			if ( outOfBagEstimators[i]==null ) {
+				continue; // for small number of trees, some data rows might not appear in oob set
+			}
+			n++;
+			int[] row = data.getRow(i);
+			int oobPrediction = classif
