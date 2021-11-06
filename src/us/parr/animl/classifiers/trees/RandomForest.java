@@ -118,4 +118,12 @@ public class RandomForest implements ClassifierModel {
 		if ( unknown==null ) {
 			return INVALID_CATEGORY;
 		}
-		MultiValuedMap<Integer, Double> catToProbList = new ArrayListValuedH
+		MultiValuedMap<Integer, Double> catToProbList = new ArrayListValuedHashMap<>();
+		for (DecisionTree tree : trees) {
+			Map<Integer, Double> classProbs = tree.classProbabilities(unknown);
+			for (Integer catI : classProbs.keySet()) {
+				Double catProb = classProbs.get(catI);
+				catToProbList.put(catI, catProb);
+			}
+		}
+		// compute average prob for each
