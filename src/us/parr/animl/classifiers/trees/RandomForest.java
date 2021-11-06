@@ -108,4 +108,14 @@ public class RandomForest implements ClassifierModel {
 		if ( unknown==null ) {
 			return DecisionTree.INVALID_CATEGORY;
 		}
-		List<In
+		List<Integer> predictions = new ArrayList<>();
+		for (DecisionTree tree : trees) {
+			predictions.add( tree.classify(unknown) );
+		}
+		return majorityVote(predictions);
+
+		/*
+		if ( unknown==null ) {
+			return INVALID_CATEGORY;
+		}
+		MultiValuedMap<Integer, Double> catToProbList = new ArrayListValuedH
