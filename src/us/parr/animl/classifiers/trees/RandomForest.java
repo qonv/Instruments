@@ -153,4 +153,14 @@ public class RandomForest implements ClassifierModel {
 			}
 			n++;
 			int[] row = data.getRow(i);
-			int oobPrediction = classif
+			int oobPrediction = classify(outOfBagEstimators[i], row);
+			int actualCategory = row[data.getPredictedCol()];
+			if ( oobPrediction!=actualCategory ) {
+				mismatches++;
+			}
+		}
+		return ((float)mismatches) / n;
+	}
+
+	/** For each observation in data, (X_i,y_i), compute set of trees that were not
+	 *  trai
