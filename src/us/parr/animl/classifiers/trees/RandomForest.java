@@ -137,4 +137,12 @@ public class RandomForest implements ClassifierModel {
 				catOfMax = catI;
 			}
 		}
-		re
+		return catOfMax;
+		*/
+	}
+
+	/** Return the out-of-bag error estimate */
+	public double getErrorEstimate(DataTable data) {
+		int mismatches = 0;
+		int n = 0; // how many rows had oob estimators?
+		Set<DecisionTree>[] outOfBagEstimators = getOutOfBagEstimatorSets(data)
