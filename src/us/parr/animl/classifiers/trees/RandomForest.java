@@ -126,4 +126,15 @@ public class RandomForest implements ClassifierModel {
 				catToProbList.put(catI, catProb);
 			}
 		}
-		// compute average prob for each
+		// compute average prob for each cat/class
+		double max = 0.0;
+		int catOfMax = INVALID_CATEGORY;
+		for (Integer catI : catToProbList.keySet()) {
+			Collection<Double> probs = catToProbList.get(catI);
+			double m = mean(probs);
+			if ( m>max ) {
+				max = m;
+				catOfMax = catI;
+			}
+		}
+		re
