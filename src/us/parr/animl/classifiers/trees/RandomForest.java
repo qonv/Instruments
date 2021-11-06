@@ -91,4 +91,14 @@ public class RandomForest implements ClassifierModel {
 	   "The predicted class probabilities of an input sample are computed
 		as the mean predicted class probabilities of the trees in the forest.
 		The class probability of a single tree is the fraction of samples of
-		the same class in a leaf
+		the same class in a leaf."
+	*/
+	@Override
+	public Map<Integer, Double> classProbabilities(int[] X) {
+		return null;
+	}
+
+	/**
+	TODO: from http://scikit-learn.org/stable/modules/ensemble.html#forest
+	"In contrast to the original publication [B2001], the scikit-learn
+	implementation combine
