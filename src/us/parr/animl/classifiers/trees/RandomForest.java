@@ -167,4 +167,10 @@ public class RandomForest implements ClassifierModel {
 	 *  and is called the out-of-bag sample for that tree.  What we need to
 	 *  estimate OOB error is a classifier for (X_i,y_i) that combines all
 	 *  trees that were NOT trained on (X_i,y_i).
-	
+	 *
+	 *  The ith element of the result array is the set of trees not trained on ith data row.
+	 *
+	 *  We rely on the default System identity hash for DecisionTree here
+	 *  for the set so all trees are different and can coexist in set.
+	 */
+	public Set<DecisionTre
