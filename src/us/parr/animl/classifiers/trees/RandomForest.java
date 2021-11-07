@@ -163,4 +163,8 @@ public class RandomForest implements ClassifierModel {
 	}
 
 	/** For each observation in data, (X_i,y_i), compute set of trees that were not
-	 *  trai
+	 *  trained on (X_i,y_i).  Each bootstrap leaves out about 1/3 of data rows
+	 *  and is called the out-of-bag sample for that tree.  What we need to
+	 *  estimate OOB error is a classifier for (X_i,y_i) that combines all
+	 *  trees that were NOT trained on (X_i,y_i).
+	
