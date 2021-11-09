@@ -173,4 +173,8 @@ public class RandomForest implements ClassifierModel {
 	 *  We rely on the default System identity hash for DecisionTree here
 	 *  for the set so all trees are different and can coexist in set.
 	 */
-	public Set<DecisionTre
+	public Set<DecisionTree>[] getOutOfBagEstimatorSets(DataTable data) {
+		Set<DecisionTree>[] outOfBagEstimators = new HashSet[data.size()];
+		int numEstimators = treeOutOfBagSampleIndexes.size();
+		for (int k = 0; k<numEstimators; k++) { //
+			Set<Integer> oobIndexe
