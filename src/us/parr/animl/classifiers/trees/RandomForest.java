@@ -177,4 +177,9 @@ public class RandomForest implements ClassifierModel {
 		Set<DecisionTree>[] outOfBagEstimators = new HashSet[data.size()];
 		int numEstimators = treeOutOfBagSampleIndexes.size();
 		for (int k = 0; k<numEstimators; k++) { //
-			Set<Integer> oobIndexe
+			Set<Integer> oobIndexes = treeOutOfBagSampleIndexes.get(k);
+			for (Integer i : oobIndexes) { // for each observation not used to build tree k
+				if ( outOfBagEstimators[i]==null ) {
+					outOfBagEstimators[i] = new HashSet<>();
+				}
+				// add kth tree to oob 
