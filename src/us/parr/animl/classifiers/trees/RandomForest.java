@@ -182,4 +182,15 @@ public class RandomForest implements ClassifierModel {
 				if ( outOfBagEstimators[i]==null ) {
 					outOfBagEstimators[i] = new HashSet<>();
 				}
-				// add kth tree to oob 
+				// add kth tree to oob estimator set for data row i
+				outOfBagEstimators[i].add(trees.get(k));
+			}
+		}
+		return outOfBagEstimators;
+	}
+
+	public DecisionTree getTree(int i) {
+		if ( trees==null || i<0 || i>=trees.size() ) return null;
+		return trees.get(i);
+	}
+}
