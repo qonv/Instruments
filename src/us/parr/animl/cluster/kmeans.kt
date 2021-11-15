@@ -11,4 +11,11 @@ import us.parr.animl.data.*
  *  return a list of k centroids and a list of clusters (lists of vectors).
  */
 fun kmeans(data : List<DoubleVector>, initialCentroids: List<DoubleVector>, k : Int)
-        : Pair<List<DoubleVector>, List<List<DoubleV
+        : Pair<List<DoubleVector>, List<List<DoubleVector>>>
+{
+    var prev_centroids = initialCentroids
+    var centroids = initialCentroids
+    var clusters : List<List<DoubleVector>>
+    do {
+        prev_centroids = centroids
+        clusters = `reassign vectors to clusters`(data, centroids, ::euclidean_dis
