@@ -18,4 +18,11 @@ fun kmeans(data : List<DoubleVector>, initialCentroids: List<DoubleVector>, k : 
     var clusters : List<List<DoubleVector>>
     do {
         prev_centroids = centroids
-        clusters = `reassign vectors to clusters`(data, centroids, ::euclidean_dis
+        clusters = `reassign vectors to clusters`(data, centroids, ::euclidean_distance)
+        centroids = clusters.map(::centroid)
+    } while ( !isclose(prev_centroids, centroids) )
+    return Pair(centroids,clusters)
+}
+
+/** Assign all vectors in data to a cluster associated with a centroid.
+ *  Re
