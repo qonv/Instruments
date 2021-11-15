@@ -25,4 +25,9 @@ fun kmeans(data : List<DoubleVector>, initialCentroids: List<DoubleVector>, k : 
 }
 
 /** Assign all vectors in data to a cluster associated with a centroid.
- *  Re
+ *  Return the list of clusters.
+ */
+private fun `reassign vectors to clusters`(data : List<DoubleVector>,
+                                           centroids : List<DoubleVector>,
+                                           distance : (DoubleVector,DoubleVector) -> Double)
+        : List<Lis
