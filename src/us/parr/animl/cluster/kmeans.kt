@@ -30,4 +30,15 @@ fun kmeans(data : List<DoubleVector>, initialCentroids: List<DoubleVector>, k : 
 private fun `reassign vectors to clusters`(data : List<DoubleVector>,
                                            centroids : List<DoubleVector>,
                                            distance : (DoubleVector,DoubleVector) -> Double)
-        : List<Lis
+        : List<List<DoubleVector>>
+{
+    val k = centroids.size
+    var clusters = List<MutableList<DoubleVector>>(k, init = {mutableListOf()})
+    for (v in data) {
+        val i = closestVector(centroids, v, distance)
+        clusters[i].add(v)
+    }
+    return clusters
+}
+
+/** Given a lis
