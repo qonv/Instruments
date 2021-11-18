@@ -41,4 +41,10 @@ private fun `reassign vectors to clusters`(data : List<DoubleVector>,
     return clusters
 }
 
-/** Given a lis
+/** Given a list of vectors, return a vector that is the mean of all vectors.
+ *  The ith value of result is the mean of ith column, data[][i], for
+ *  all vectors.
+ */
+private fun centroid(data : List<DoubleVector>) : DoubleVector {
+    val colIndices = data[0].elements.indices
+    val ncols = colIndices
