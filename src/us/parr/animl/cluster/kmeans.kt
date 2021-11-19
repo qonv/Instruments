@@ -47,4 +47,14 @@ private fun `reassign vectors to clusters`(data : List<DoubleVector>,
  */
 private fun centroid(data : List<DoubleVector>) : DoubleVector {
     val colIndices = data[0].elements.indices
-    val ncols = colIndices
+    val ncols = colIndices.count()
+    val centroid = DoubleVector(ncols)
+    for (i in colIndices) {
+        val col : List<Double> = data.map { v -> v[i] }
+        centroid[i] = mean(DoubleVector(col))
+    }
+    return centroid
+}
+
+/** Return index of vector in data closest to x */
+private fun c
