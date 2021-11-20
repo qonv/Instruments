@@ -57,4 +57,7 @@ private fun centroid(data : List<DoubleVector>) : DoubleVector {
 }
 
 /** Return index of vector in data closest to x */
-private fun c
+private fun closestVector(data : List<DoubleVector>, x : DoubleVector, distance : (DoubleVector,DoubleVector) -> Double) : Int {
+    val distances : List<Double> = data.map {v -> distance(x,v)}
+    return argmin(DoubleVector(distances))
+}
