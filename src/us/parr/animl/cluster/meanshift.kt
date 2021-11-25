@@ -21,4 +21,8 @@ import java.util.concurrent.TimeUnit
  *  and k (number of clusters).
  *
  *  The blurred meaning-shift mechanism rapidly converges but it's
- *  harder to tell when to stop iterating (using
+ *  harder to tell when to stop iterating (using particle deltas)
+ *  because the points will eventually merge together.  My approach is
+ *  to use the blurred shift to get good approximations as a head start
+ *  for the particles. Then, using the regular mean-shift, iterate more
+ *  stably to the cluster maxi
