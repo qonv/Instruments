@@ -16,4 +16,9 @@ import java.util.concurrent.Callable
 import java.util.concurrent.Executors
 import java.util.concurrent.TimeUnit
 
-/** Mean shift algorithm. Given a list of vectors, return a 
+/** Mean shift algorithm. Given a list of vectors, return a list of density
+ *  estimate maxima, a mapping of data point index to cluster number 0..k-1,
+ *  and k (number of clusters).
+ *
+ *  The blurred meaning-shift mechanism rapidly converges but it's
+ *  harder to tell when to stop iterating (using
