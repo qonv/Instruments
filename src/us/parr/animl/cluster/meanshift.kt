@@ -25,4 +25,7 @@ import java.util.concurrent.TimeUnit
  *  because the points will eventually merge together.  My approach is
  *  to use the blurred shift to get good approximations as a head start
  *  for the particles. Then, using the regular mean-shift, iterate more
- *  stably to the cluster maxi
+ *  stably to the cluster maxima. We don't actually need very precise
+ *  Maxima estimates because all we really care about is assigning
+ *  vectors to clusters. If the maxima are off even by as much as 0.01,
+ *  that's probably still good enough to cluster. That said, if th
