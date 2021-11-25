@@ -28,4 +28,11 @@ import java.util.concurrent.TimeUnit
  *  stably to the cluster maxima. We don't actually need very precise
  *  Maxima estimates because all we really care about is assigning
  *  vectors to clusters. If the maxima are off even by as much as 0.01,
- *  that's probably still good enough to cluster. That said, if th
+ *  that's probably still good enough to cluster. That said, if the
+ *  cluster maxima are very close together, then a higher tolerance should be
+ *  used.
+ *
+ *  Note: you should normalize the range of your features since this function
+ *  uses euclidean distance to compute data point density.
+ *
+ *  Note: From "A revi
