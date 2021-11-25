@@ -35,4 +35,8 @@ import java.util.concurrent.TimeUnit
  *  Note: you should normalize the range of your features since this function
  *  uses euclidean distance to compute data point density.
  *
- *  Note: From "A revi
+ *  Note: From "A review of mean-shift algorithms for clustering" by
+ *  Miguel Á. Carreira-Perpińan
+ *  https://pdfs.semanticscholar.org/399e/00c8a1cc5c3d98d3ce76747d3e0fe57c88f5.pdf
+ *  "KDEs break down in high dimensions ... Indeed, most successful
+ *  applications of mean-shift h
