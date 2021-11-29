@@ -39,4 +39,11 @@ import java.util.concurrent.TimeUnit
  *  Miguel Á. Carreira-Perpińan
  *  https://pdfs.semanticscholar.org/399e/00c8a1cc5c3d98d3ce76747d3e0fe57c88f5.pdf
  *  "KDEs break down in high dimensions ... Indeed, most successful
- *  applications of mean-shift h
+ *  applications of mean-shift have been in low-dimensional problems,
+ *  in particular image segmentation (using a few features
+ *  per pixel, such as color in LAB space)"
+ */
+fun meanShift(data : List<DoubleVector>,
+              bandwidth : Double,
+              tolerance : Double = 1e-2,
+     
