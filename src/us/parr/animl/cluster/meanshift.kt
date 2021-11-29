@@ -61,4 +61,11 @@ fun meanShift(data : List<DoubleVector>,
             val new_particles: MutableList<DoubleVector> = particles.map { shift(it, particles, bandwidth) }.toMutableList()
             println("num distinct particles "+ distinct(particles, 3).size)
             val done = count == max_blurred_iterations ||
-                       isclose(parti
+                       isclose(particles, new_particles, tolerance = tolerance)
+            particles = new_particles
+        } while (!done)  // until we converge
+//    println("Iterations "+count)
+//    println("blurred left on here: "+particles.distinct())
+    }
+
+    var stillShifting = Bool
