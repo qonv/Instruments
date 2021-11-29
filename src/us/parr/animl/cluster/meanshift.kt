@@ -88,4 +88,7 @@ fun meanShift(data : List<DoubleVector>,
             particles[i] = p
         }
 //        val new_particles: List<DoubleVector> = particles.map { shift(it, data, bandwidth) }
-//        println("
+//        println("particles "+particles.joinToString { it.toString(3) })
+        println("distinct particles "+ distinct(particles, 3))
+        // Keep refining when particles move by at least tolerance; they slow down as they approach maxima
+//        println("num distinct p
