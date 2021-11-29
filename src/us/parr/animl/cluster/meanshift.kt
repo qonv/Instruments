@@ -81,4 +81,11 @@ fun meanShift(data : List<DoubleVector>,
             val d = euclidean_distance(p, particles[i])
             if ( d > maxMinDistance ) {
                 maxMinDistance = d
-          
+            }
+            if ( d < tolerance ) {
+                stillShifting[i] = false
+            }
+            particles[i] = p
+        }
+//        val new_particles: List<DoubleVector> = particles.map { shift(it, data, bandwidth) }
+//        println("
