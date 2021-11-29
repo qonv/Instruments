@@ -76,4 +76,9 @@ fun meanShift(data : List<DoubleVector>,
         // update each particle, moving towards nearest density maximum
 //        var new_particles = particles.toMutableList()
         for (i in data.indices) {
-      
+            if ( !stillShifting[i] ) continue
+            val p = shift(particles[i], data, bandwidth)
+            val d = euclidean_distance(p, particles[i])
+            if ( d > maxMinDistance ) {
+                maxMinDistance = d
+          
