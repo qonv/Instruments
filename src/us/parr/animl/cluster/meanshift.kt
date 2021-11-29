@@ -68,4 +68,12 @@ fun meanShift(data : List<DoubleVector>,
 //    println("blurred left on here: "+particles.distinct())
     }
 
-    var stillShifting = Bool
+    var stillShifting = BooleanArray(data.size, {true})
+    count = 0
+    do {
+        var maxMinDistance = 0.0
+        count++
+        // update each particle, moving towards nearest density maximum
+//        var new_particles = particles.toMutableList()
+        for (i in data.indices) {
+      
