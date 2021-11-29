@@ -51,4 +51,11 @@ fun meanShift(data : List<DoubleVector>,
         : Triple<List<DoubleVector>, IntArray, Int>
 {
     val start = System.nanoTime()
-    // first use blurred mean-shift with max_blurred_iterations ite
+    // first use blurred mean-shift with max_blurred_iterations iterations to get faster
+    // initial movement of particles. See comments on that method
+    var particles = data.toMutableList() // start particles at all data points
+    var count = 0
+    if (max_blurred_iterations > 0) {
+        do {
+            count++
+            val new_par
