@@ -46,4 +46,9 @@ import java.util.concurrent.TimeUnit
 fun meanShift(data : List<DoubleVector>,
               bandwidth : Double,
               tolerance : Double = 1e-2,
-     
+              mergeTolerance : Double = 1e-2,
+              max_blurred_iterations : Int = 20)
+        : Triple<List<DoubleVector>, IntArray, Int>
+{
+    val start = System.nanoTime()
+    // first use blurred mean-shift with max_blurred_iterations ite
