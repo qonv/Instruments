@@ -91,4 +91,8 @@ fun meanShift(data : List<DoubleVector>,
 //        println("particles "+particles.joinToString { it.toString(3) })
         println("distinct particles "+ distinct(particles, 3))
         // Keep refining when particles move by at least tolerance; they slow down as they approach maxima
-//        println("num distinct p
+//        println("num distinct particles "+ distinct(particles, 3).size)
+//        val done = isclose(particles, new_particles, tolerance = tolerance)
+//        particles = new_particles
+        // stop when the max distance a particle travels is < tolerance
+    } while (maxMinDistance > tolerance
