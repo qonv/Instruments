@@ -95,4 +95,11 @@ fun meanShift(data : List<DoubleVector>,
 //        val done = isclose(particles, new_particles, tolerance = tolerance)
 //        particles = new_particles
         // stop when the max distance a particle travels is < tolerance
-    } while (maxMinDistance > tolerance
+    } while (maxMinDistance > tolerance)  // until we converge
+    val stop = System.nanoTime()
+    println("Iterations " + count+", time "+(stop-start)/1_000_000+"ms")
+
+    // At this point, particles[i] has converged on maxima for cluster k
+    // and the goal is now to assign data[i] to cluster k
+
+    // merge cluster maxima tha
