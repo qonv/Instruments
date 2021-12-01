@@ -107,4 +107,11 @@ fun meanShift(data : List<DoubleVector>,
     return mapVectorsToClusters(particles, data, ndecimals = round(-log10(mergeTolerance)).toInt())
 }
 
-fun parallelMean
+fun parallelMeanShift(data : List<DoubleVector>,
+                      bandwidth : Double,
+                      tolerance : Double = 1e-2,
+                      mergeTolerance : Double = 1e-2)
+        : Triple<List<DoubleVector>, IntArray, Int>
+{
+    val n = data.size
+   
