@@ -120,4 +120,9 @@ fun parallelMeanShift(data : List<DoubleVector>,
     val start = System.nanoTime()
 
     // first use blurred mean-shift with max_blurred_iterations iterations to get faster
-   
+    // initial movement of particles. See comments on that method
+    var particles = data.toMutableList() // start particles at all data points
+    var count = 0
+    val max_blurred_iterations = 20
+    if (max_blurred_iterations > 0) {
+        // we operate on pa
