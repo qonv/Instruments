@@ -114,4 +114,10 @@ fun parallelMeanShift(data : List<DoubleVector>,
         : Triple<List<DoubleVector>, IntArray, Int>
 {
     val n = data.size
+    val ncpu = Runtime.getRuntime().availableProcessors()
+    val chunkSize = n / ncpu
+    val pool = Executors.newFixedThreadPool(ncpu - 1)
+    val start = System.nanoTime()
+
+    // first use blurred mean-shift with max_blurred_iterations iterations to get faster
    
