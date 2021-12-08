@@ -125,4 +125,9 @@ fun parallelMeanShift(data : List<DoubleVector>,
     var count = 0
     val max_blurred_iterations = 20
     if (max_blurred_iterations > 0) {
-        // we operate on pa
+        // we operate on particles and create new_particles list ala pure functional
+        var new_particles: MutableList<DoubleVector> = data.toMutableList()
+        do {
+            count++
+            val jobs = ArrayList<Callable<Unit>>()
+            for (i in 0..n-1 step 
