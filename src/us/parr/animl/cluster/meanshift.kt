@@ -149,4 +149,7 @@ fun parallelMeanShift(data : List<DoubleVector>,
 
 //            val new_particles: List<DoubleVector> = particles.map { shift(it, particles, bandwidth) }
             println("num distinct particles "+ distinct(new_particles, 3).size)
-            val done = count == max_b
+            val done = count == max_blurred_iterations ||
+                       isclose(particles, new_particles, tolerance = tolerance)
+            // We can't point particles at new_particles (same list) since then we'd be
+            // updating the particles as we compute density from them during parallel
