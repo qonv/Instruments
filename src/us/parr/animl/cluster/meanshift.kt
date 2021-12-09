@@ -166,4 +166,10 @@ fun parallelMeanShift(data : List<DoubleVector>,
         count++
         // update each particle, moving towards nearest density maximum
         val jobs = ArrayList<Callable<Unit>>()
-      
+        for (i in 0..n-1 step chunkSize) {
+            val job = Callable<Unit> {
+                try {
+                    val end = min(n-1, i+chunkSize)
+//                    println("j = $i..$end")
+                    for (j in i..end) {
+                
