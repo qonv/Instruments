@@ -152,4 +152,12 @@ fun parallelMeanShift(data : List<DoubleVector>,
             val done = count == max_blurred_iterations ||
                        isclose(particles, new_particles, tolerance = tolerance)
             // We can't point particles at new_particles (same list) since then we'd be
-            // updating the particles as we compute density from them during parallel
+            // updating the particles as we compute density from them during parallel computation
+            particles = new_particles.toMutableList() // dup
+        } while (!done)  // until we converge
+        println("Iterations "+count)
+//    println("blurred left on here: "+particles.distinct())
+    }
+
+    count = 0
+    // we ope
