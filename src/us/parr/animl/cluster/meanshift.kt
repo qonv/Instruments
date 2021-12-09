@@ -144,4 +144,9 @@ fun parallelMeanShift(data : List<DoubleVector>,
                     }
                 }
                 jobs.add(job)
-    
+            }
+            pool.invokeAll<Unit>(jobs)
+
+//            val new_particles: List<DoubleVector> = particles.map { shift(it, particles, bandwidth) }
+            println("num distinct particles "+ distinct(new_particles, 3).size)
+            val done = count == max_b
