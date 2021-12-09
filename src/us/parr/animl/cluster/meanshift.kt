@@ -160,4 +160,10 @@ fun parallelMeanShift(data : List<DoubleVector>,
     }
 
     count = 0
-    // we ope
+    // we operate on particles and create new_particles list ala pure functional
+    var new_particles: MutableList<DoubleVector> = data.toMutableList()
+    do {
+        count++
+        // update each particle, moving towards nearest density maximum
+        val jobs = ArrayList<Callable<Unit>>()
+      
