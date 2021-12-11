@@ -172,4 +172,12 @@ fun parallelMeanShift(data : List<DoubleVector>,
                     val end = min(n-1, i+chunkSize)
 //                    println("j = $i..$end")
                     for (j in i..end) {
-                
+                        new_particles[j] = shift(particles[j], data, bandwidth)
+                    }
+                }
+                catch (t : Throwable) {
+                    t.printStackTrace(System.err)
+                }
+            }
+            jobs.add(job)
+        
