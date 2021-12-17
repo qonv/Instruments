@@ -197,4 +197,9 @@ fun parallelMeanShift(data : List<DoubleVector>,
     // At this point, particles[i] has converged on maxima for cluster k
     // and the goal is now to assign data[i] to cluster k
 
-    // merge cluster maxima that are within mergeTolerance;
+    // merge cluster maxima that are within mergeTolerance; unlike the tolerance for
+    // continued iteration above, we want to merge maxima that are pretty close.
+    return mapVectorsToClusters(particles, data, ndecimals = round(-log10(mergeTolerance)).toInt())
+}
+
+/** Blurred mean shift algorithm that computes density on pa
