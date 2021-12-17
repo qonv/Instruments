@@ -192,4 +192,9 @@ fun parallelMeanShift(data : List<DoubleVector>,
     println("Iterations " + count+", time "+(stop-start)/1_000_000+"ms")
 
     pool.shutdown()
-    poo
+    pool.awaitTermination(60, TimeUnit.MINUTES)
+
+    // At this point, particles[i] has converged on maxima for cluster k
+    // and the goal is now to assign data[i] to cluster k
+
+    // merge cluster maxima that are within mergeTolerance;
