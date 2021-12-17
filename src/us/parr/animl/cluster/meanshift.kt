@@ -185,4 +185,11 @@ fun parallelMeanShift(data : List<DoubleVector>,
 
         println("distinct particles "+ distinct(particles, 3).size)
         // Keep refining when particles move by at least tolerance; they slow down as they approach maxima
-        val done = isclose(particles
+        val done = isclose(particles, new_particles, tolerance = tolerance)
+        particles = new_particles.toMutableList() // dup
+    } while (!done)  // until we converge
+    val stop = System.nanoTime()
+    println("Iterations " + count+", time "+(stop-start)/1_000_000+"ms")
+
+    pool.shutdown()
+    poo
