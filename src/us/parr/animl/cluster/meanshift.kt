@@ -180,4 +180,9 @@ fun parallelMeanShift(data : List<DoubleVector>,
                 }
             }
             jobs.add(job)
-        
+        }
+        pool.invokeAll<Unit>(jobs)
+
+        println("distinct particles "+ distinct(particles, 3).size)
+        // Keep refining when particles move by at least tolerance; they slow down as they approach maxima
+        val done = isclose(particles
