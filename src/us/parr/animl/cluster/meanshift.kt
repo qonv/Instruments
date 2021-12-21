@@ -202,4 +202,9 @@ fun parallelMeanShift(data : List<DoubleVector>,
     return mapVectorsToClusters(particles, data, ndecimals = round(-log10(mergeTolerance)).toInt())
 }
 
-/** Blurred mean shift algorithm that computes density on pa
+/** Blurred mean shift algorithm that computes density on particles in
+ *  motion not the static original data points. This converges much faster
+ *  than vanilla mean-shift by an order of magnitude since the particles
+ *  are collapsing together into a "gravity well."
+ *
+ *  From "A review of mean-shift algorithms for c
