@@ -207,4 +207,10 @@ fun parallelMeanShift(data : List<DoubleVector>,
  *  than vanilla mean-shift by an order of magnitude since the particles
  *  are collapsing together into a "gravity well."
  *
- *  From "A review of mean-shift algorithms for c
+ *  From "A review of mean-shift algorithms for clustering" by
+ *  Miguel Á. Carreira-Perpińan
+ *  https://pdfs.semanticscholar.org/399e/00c8a1cc5c3d98d3ce76747d3e0fe57c88f5.pdf
+ *
+ *  "Gaussian BMS can be seen as an iterated filtering
+ *   (in the signal processing sense) that eventually leads to a dataset
+ *   with al
