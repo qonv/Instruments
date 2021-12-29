@@ -213,4 +213,8 @@ fun parallelMeanShift(data : List<DoubleVector>,
  *
  *  "Gaussian BMS can be seen as an iterated filtering
  *   (in the signal processing sense) that eventually leads to a dataset
- *   with al
+ *   with all points coincident for any starting dataset and bandwidth.
+ *   However, before that happens, the dataset quickly collapses into
+ *   meaningful, tight clusters which depend on [bandwidth] sigma."
+ *
+ *  So we terminate iteration when particles are within tolerance of each oth
