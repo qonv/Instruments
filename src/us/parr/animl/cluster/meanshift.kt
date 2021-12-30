@@ -217,4 +217,10 @@ fun parallelMeanShift(data : List<DoubleVector>,
  *   However, before that happens, the dataset quickly collapses into
  *   meaningful, tight clusters which depend on [bandwidth] sigma."
  *
- *  So we terminate iteration when particles are within tolerance of each oth
+ *  So we terminate iteration when particles are within tolerance of each other or
+ *  when we hit arg iterations.
+ *
+ *  Given a list of vectors, return a list of density
+ *  estimate maxima, a mapping of data point index to cluster number 0..k-1,
+ *  and k (number of clusters). It is the same as meanShift except that
+ *  we compute dens
