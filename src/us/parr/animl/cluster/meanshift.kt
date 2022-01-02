@@ -223,4 +223,10 @@ fun parallelMeanShift(data : List<DoubleVector>,
  *  Given a list of vectors, return a list of density
  *  estimate maxima, a mapping of data point index to cluster number 0..k-1,
  *  and k (number of clusters). It is the same as meanShift except that
- *  we compute dens
+ *  we compute density based upon the particles as we move around, not the
+ *  original data set.
+ *
+ *  Note: you should normalize the range of your features since this function
+ *  uses euclidean distance to compute data point density.
+ */
+fun blurre
