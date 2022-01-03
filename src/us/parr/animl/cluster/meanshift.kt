@@ -234,4 +234,11 @@ fun blurredMeanShift(data : List<DoubleVector>,
                      tolerance : Double = 1e-2,
                      mergeTolerance : Double = 1e-2,
                      iterations : Int = 30)
-        : Triple<List<DoubleV
+        : Triple<List<DoubleVector>, IntArray, Int>
+{
+    var particles = data.toList() // start particles at all data points
+    var count = 0
+    do {
+        count++
+        // update each particle, moving towards nearest density maximum
+        val new_particles: List<Do
