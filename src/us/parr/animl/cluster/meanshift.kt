@@ -229,4 +229,9 @@ fun parallelMeanShift(data : List<DoubleVector>,
  *  Note: you should normalize the range of your features since this function
  *  uses euclidean distance to compute data point density.
  */
-fun blurre
+fun blurredMeanShift(data : List<DoubleVector>,
+                     bandwidth : Double,
+                     tolerance : Double = 1e-2,
+                     mergeTolerance : Double = 1e-2,
+                     iterations : Int = 30)
+        : Triple<List<DoubleV
