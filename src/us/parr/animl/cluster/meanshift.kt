@@ -241,4 +241,7 @@ fun blurredMeanShift(data : List<DoubleVector>,
     do {
         count++
         // update each particle, moving towards nearest density maximum
-        val new_particles: List<Do
+        val new_particles: List<DoubleVector> = particles.map { shift(it, particles, bandwidth) }
+        println("${particles.distinct().size} ${new_particles.distinct().size}")
+        // Iterate only until numbers match up to 3 decimals; even 4 seems
+        // to be too high of a tolerance. I
