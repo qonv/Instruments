@@ -244,4 +244,10 @@ fun blurredMeanShift(data : List<DoubleVector>,
         val new_particles: List<DoubleVector> = particles.map { shift(it, particles, bandwidth) }
         println("${particles.distinct().size} ${new_particles.distinct().size}")
         // Iterate only until numbers match up to 3 decimals; even 4 seems
-        // to be too high of a tolerance. I
+        // to be too high of a tolerance. It keeps iterating very slowly
+        // shifting one or more clusters
+        val done = count==iterations ||
+                   isclose(particles, new_particles, tolerance = tolerance)
+        particles = new_particles
+    } while ( !done )  // until we converge
+    p
