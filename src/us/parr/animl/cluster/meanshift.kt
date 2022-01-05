@@ -250,4 +250,12 @@ fun blurredMeanShift(data : List<DoubleVector>,
                    isclose(particles, new_particles, tolerance = tolerance)
         particles = new_particles
     } while ( !done )  // until we converge
-    p
+    println("Iterations "+count)
+
+    // At this point, particles[i] has converged on maxima for cluster k
+    // and the goal is now to assign data[i] to cluster k
+
+    return mapVectorsToClusters(particles, data, ndecimals = round(-log10(mergeTolerance)).toInt())
+}
+
+/** R
