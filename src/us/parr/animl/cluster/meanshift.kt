@@ -258,4 +258,11 @@ fun blurredMeanShift(data : List<DoubleVector>,
     return mapVectorsToClusters(particles, data, ndecimals = round(-log10(mergeTolerance)).toInt())
 }
 
-/** R
+/** Return a shifted particle that is the weighted mean relative to
+ *  the particle and data arg.
+ *
+ *  The weighted mean of particle vector within data set is:
+ *
+ *  Sum over i gaussian((x_i - particle)^2) * x_i
+ *  ----------------------------------
+ *  Sum over i
