@@ -270,4 +270,10 @@ fun blurredMeanShift(data : List<DoubleVector>,
  *  For example, if we replace the Gaussian with 1, then we
  *  our computing the unweighted centroid of all data points.
  *  (Not a good idea of course but illustrates that is just a
- *  weighted average where the 
+ *  weighted average where the distance falls off to zero as you
+ *  move away from the particle.)
+ *
+ *  We compute this all in a single loop over the data for efficiency.
+ */
+private fun shift(particle: DoubleVector, data: List<DoubleVector>, bandwidth : Double) : DoubleVector {
+    var 
