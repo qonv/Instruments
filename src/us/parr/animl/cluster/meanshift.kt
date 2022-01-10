@@ -265,4 +265,9 @@ fun blurredMeanShift(data : List<DoubleVector>,
  *
  *  Sum over i gaussian((x_i - particle)^2) * x_i
  *  ----------------------------------
- *  Sum over i
+ *  Sum over i gaussian((x_i - particle)^2)
+ *
+ *  For example, if we replace the Gaussian with 1, then we
+ *  our computing the unweighted centroid of all data points.
+ *  (Not a good idea of course but illustrates that is just a
+ *  weighted average where the 
