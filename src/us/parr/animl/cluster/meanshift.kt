@@ -282,4 +282,13 @@ private fun shift(particle: DoubleVector, data: List<DoubleVector>, bandwidth : 
 //    data.forEach {
         val x_i = data[i]
         val ed = euclidean_distance(particle, x_i)
-//        if ( ed > bandwidth ) conti
+//        if ( ed > bandwidth ) continue
+        val gd = gaussianKernel(ed, bandwidth)
+        normalizing_weight += gd
+        weighted_vector += x_i * gd
+    }
+    val v = weighted_vector.map { x -> x / normalizing_weight }
+    return v
+}
+
+private fun mapVectorsToClusters(particles: List<Double
