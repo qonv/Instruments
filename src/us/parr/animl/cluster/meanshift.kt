@@ -276,4 +276,10 @@ fun blurredMeanShift(data : List<DoubleVector>,
  *  We compute this all in a single loop over the data for efficiency.
  */
 private fun shift(particle: DoubleVector, data: List<DoubleVector>, bandwidth : Double) : DoubleVector {
-    var 
+    var normalizing_weight = 0.0
+    var weighted_vector = DoubleVector(particle.dims())
+    for (i in data.indices) {
+//    data.forEach {
+        val x_i = data[i]
+        val ed = euclidean_distance(particle, x_i)
+//        if ( ed > bandwidth ) conti
