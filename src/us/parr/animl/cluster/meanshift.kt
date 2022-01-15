@@ -291,4 +291,10 @@ private fun shift(particle: DoubleVector, data: List<DoubleVector>, bandwidth : 
     return v
 }
 
-private fun mapVectorsToClusters(particles: List<Double
+private fun mapVectorsToClusters(particles: List<DoubleVector>, data: List<DoubleVector>, ndecimals : Int)
+        : Triple<List<DoubleVector>, IntArray, Int>
+{
+    // Maximas are unique values in particle list
+    val uniqueMaxima: Set<DoubleVector> = distinct(particles, ndecimals)
+    val k = uniqueMaxima.size
+   
