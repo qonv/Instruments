@@ -311,4 +311,11 @@ private fun mapVectorsToClusters(particles: List<DoubleVector>, data: List<Doubl
     return Triple(uniqueMaxima.toList(), pointToCluster, k)
 }
 
-private fun gaussianKernel(d: Double, bandwi
+private fun gaussianKernel(d: Double, bandwidth: Double) : Double {
+    return exp(-0.5 * pow(d / bandwidth, 2.0))// / (bandwidth * sqrt(2 * PI))
+}
+
+fun sum(data : List<Double>) : Double {
+    return data.reduce { s, x -> s + x }
+}
+
