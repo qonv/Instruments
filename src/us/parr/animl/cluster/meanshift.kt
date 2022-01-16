@@ -303,4 +303,12 @@ private fun mapVectorsToClusters(particles: List<DoubleVector>, data: List<Doubl
     uniqueMaxima.forEach { maximaToClusterMap[it] = cluster++ }
 
     val pointToCluster = IntArray(data.size)
-    for (i in data.i
+    for (i in data.indices) {
+        pointToCluster[i] = maximaToClusterMap.getOrDefault(particles[i].rounded(ndecimals), -1)
+    }
+    println(uniqueMaxima)
+//    println(Arrays.toString(pointToCluster))
+    return Triple(uniqueMaxima.toList(), pointToCluster, k)
+}
+
+private fun gaussianKernel(d: Double, bandwi
