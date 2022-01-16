@@ -297,4 +297,10 @@ private fun mapVectorsToClusters(particles: List<DoubleVector>, data: List<Doubl
     // Maximas are unique values in particle list
     val uniqueMaxima: Set<DoubleVector> = distinct(particles, ndecimals)
     val k = uniqueMaxima.size
-   
+    // Map those maxima to cluster numbers 0, 1, 2, 3, ...
+    val maximaToClusterMap = mutableMapOf<DoubleVector, Int>()
+    var cluster = 0
+    uniqueMaxima.forEach { maximaToClusterMap[it] = cluster++ }
+
+    val pointToCluster = IntArray(data.size)
+    for (i in data.i
