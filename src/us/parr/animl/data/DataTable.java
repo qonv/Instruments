@@ -6,4 +6,11 @@
 
 package us.parr.animl.data;
 
-import org.ap
+import org.apache.commons.csv.CSVFormat;
+import org.apache.commons.csv.CSVParser;
+import org.apache.commons.csv.CSVRecord;
+import org.apache.commons.io.input.BOMInputStream;
+import org.apache.commons.lang3.StringUtils;
+import sun.misc.FloatingDecimal;
+import us.parr.lib.ParrtCollections;
+import us.parr.li
