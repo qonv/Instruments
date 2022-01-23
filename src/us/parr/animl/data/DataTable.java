@@ -37,4 +37,8 @@ import java.util.regex.Pattern;
 
 import static java.util.Collections.max;
 import static us.parr.animl.data.DataTable.VariableFormat.CENTER;
-import static us.parr.animl.data.DataTable.Var
+import static us.parr.animl.data.DataTable.VariableFormat.RIGHT;
+import static us.parr.animl.data.DataTable.VariableType.CATEGORICAL_INT;
+import static us.parr.animl.data.DataTable.VariableType.CATEGORICAL_STRING;
+import static us.parr.animl.data.DataTable.VariableType.INVALID;
+import static us.parr.animl.data.DataTable.Varia
