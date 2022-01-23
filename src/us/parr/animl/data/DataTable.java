@@ -41,4 +41,7 @@ import static us.parr.animl.data.DataTable.VariableFormat.RIGHT;
 import static us.parr.animl.data.DataTable.VariableType.CATEGORICAL_INT;
 import static us.parr.animl.data.DataTable.VariableType.CATEGORICAL_STRING;
 import static us.parr.animl.data.DataTable.VariableType.INVALID;
-import static us.parr.animl.data.DataTable.Varia
+import static us.parr.animl.data.DataTable.VariableType.NUMERICAL_FLOAT;
+import static us.parr.animl.data.DataTable.VariableType.NUMERICAL_INT;
+import static us.parr.animl.data.DataTable.VariableType.TARGET_CATEGORICAL_INT;
+import static us.parr.animl.data.DataTable.VariableType.TARG
