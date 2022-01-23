@@ -30,4 +30,11 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
 import java.util.Set;
-import java.util.Spliterato
+import java.util.Spliterator;
+import java.util.function.Consumer;
+import java.util.function.Predicate;
+import java.util.regex.Pattern;
+
+import static java.util.Collections.max;
+import static us.parr.animl.data.DataTable.VariableFormat.CENTER;
+import static us.parr.animl.data.DataTable.Var
