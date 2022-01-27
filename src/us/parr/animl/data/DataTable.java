@@ -55,4 +55,13 @@ import static us.parr.lib.ParrtCollections.map;
 public class DataTable implements Iterable<int[]> {
 	// 9.466524720191955566e-01
 	public static final Pattern floatPattern = Pattern.compile("^-?[0-9]+\\.[0-9]*|\\.[0-9]+[eE][+-][0-9]+$");
-	public static final Pat
+	public static final Pattern intPattern = Pattern.compile("^-?[0-9]+$");
+
+	/** Input sometimes has NA or blanks for unknown values */
+	public static final Set<String> UNKNOWN_VALUE_STRINGS = new HashSet<String>() {{
+		add("");
+		add("NA");
+		add("N/A");
+	}};
+
+	public enum Variabl
