@@ -49,4 +49,10 @@ import static us.parr.animl.data.DataTable.VariableType.UNUSED_FLOAT;
 import static us.parr.animl.data.DataTable.VariableType.UNUSED_INT;
 import static us.parr.animl.data.DataTable.VariableType.UNUSED_STRING;
 import static us.parr.lib.ParrtCollections.indexOf;
-import s
+import static us.parr.lib.ParrtCollections.join;
+import static us.parr.lib.ParrtCollections.map;
+
+public class DataTable implements Iterable<int[]> {
+	// 9.466524720191955566e-01
+	public static final Pattern floatPattern = Pattern.compile("^-?[0-9]+\\.[0-9]*|\\.[0-9]+[eE][+-][0-9]+$");
+	public static final Pat
