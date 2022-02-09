@@ -64,4 +64,16 @@ public class DataTable implements Iterable<int[]> {
 		add("N/A");
 	}};
 
-	public enum Variabl
+	public enum VariableType {
+		CATEGORICAL_INT, CATEGORICAL_STRING, NUMERICAL_INT, NUMERICAL_FLOAT,
+		TARGET_CATEGORICAL_INT, TARGET_CATEGORICAL_STRING,
+		UNUSED_INT,
+		UNUSED_FLOAT,
+		UNUSED_STRING,
+		INVALID
+	}
+	public enum VariableFormat {
+		LEFT, CENTER, RIGHT
+	}
+
+	public 
