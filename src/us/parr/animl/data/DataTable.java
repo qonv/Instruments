@@ -84,4 +84,10 @@ public class DataTable implements Iterable<int[]> {
 		varTypeShortNames[NUMERICAL_INT.ordinal()] = "int";
 		varTypeShortNames[NUMERICAL_FLOAT.ordinal()] = "float";
 		varTypeShortNames[TARGET_CATEGORICAL_INT.ordinal()] = "target";
-		varTypeShortNames[TARGET_CATEGORIC
+		varTypeShortNames[TARGET_CATEGORICAL_STRING.ordinal()] = "target-string";
+		varTypeShortNames[UNUSED_INT.ordinal()] = "unused";
+		varTypeShortNames[UNUSED_FLOAT.ordinal()] = "unused";
+		varTypeShortNames[UNUSED_STRING.ordinal()] = "unused";
+
+		defaultVarFormats[CATEGORICAL_INT.ordinal()] = RIGHT;
+		defaultVarFormats[CATEGORICAL_S
