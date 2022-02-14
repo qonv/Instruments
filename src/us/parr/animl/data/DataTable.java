@@ -79,4 +79,9 @@ public class DataTable implements Iterable<int[]> {
 	public static final String[] varTypeShortNames = new String[VariableType.values().length];
 	public static final VariableFormat[] defaultVarFormats = new VariableFormat[VariableType.values().length];
 	static {
-		varTypeShortNames[CATEGORICAL_INT.ordinal()] = "cat
+		varTypeShortNames[CATEGORICAL_INT.ordinal()] = "cat";
+		varTypeShortNames[CATEGORICAL_STRING.ordinal()] = "string";
+		varTypeShortNames[NUMERICAL_INT.ordinal()] = "int";
+		varTypeShortNames[NUMERICAL_FLOAT.ordinal()] = "float";
+		varTypeShortNames[TARGET_CATEGORICAL_INT.ordinal()] = "target";
+		varTypeShortNames[TARGET_CATEGORIC
