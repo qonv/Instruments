@@ -90,4 +90,8 @@ public class DataTable implements Iterable<int[]> {
 		varTypeShortNames[UNUSED_STRING.ordinal()] = "unused";
 
 		defaultVarFormats[CATEGORICAL_INT.ordinal()] = RIGHT;
-		defaultVarFormats[CATEGORICAL_S
+		defaultVarFormats[CATEGORICAL_STRING.ordinal()] = CENTER;
+		defaultVarFormats[NUMERICAL_INT.ordinal()] = RIGHT;
+		defaultVarFormats[NUMERICAL_FLOAT.ordinal()] = RIGHT;
+		defaultVarFormats[TARGET_CATEGORICAL_INT.ordinal()] = RIGHT;
+		defaultVarFormats[TARGET_CATEGORICAL_STRING.ordina
