@@ -94,4 +94,10 @@ public class DataTable implements Iterable<int[]> {
 		defaultVarFormats[NUMERICAL_INT.ordinal()] = RIGHT;
 		defaultVarFormats[NUMERICAL_FLOAT.ordinal()] = RIGHT;
 		defaultVarFormats[TARGET_CATEGORICAL_INT.ordinal()] = RIGHT;
-		defaultVarFormats[TARGET_CATEGORICAL_STRING.ordina
+		defaultVarFormats[TARGET_CATEGORICAL_STRING.ordinal()] = CENTER;
+		defaultVarFormats[UNUSED_INT.ordinal()] = RIGHT;
+		defaultVarFormats[UNUSED_FLOAT.ordinal()] = RIGHT;
+		defaultVarFormats[UNUSED_STRING.ordinal()] = CENTER;
+	}
+
+	// TODO: this should be int[j][i] stored in columnar form; first index is the c
