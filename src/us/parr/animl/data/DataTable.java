@@ -107,4 +107,14 @@ public class DataTable implements Iterable<int[]> {
 	protected StringTable[] colStringToIntMap;
 	protected int[] colMaxes;
 
-	protected Set<Integer> cachedPredictio
+	protected Set<Integer> cachedPredictionCategories;
+	protected int cachedMaxPredictionCategoryValue = -1;
+
+	public DataTable() {
+	}
+
+	public DataTable(List<int[]> rows, VariableType[] colTypes, String[] colNames, int[] colMaxes) {
+		this(rows, colTypes, colNames, colMaxes, null);
+	}
+
+	public DataT
