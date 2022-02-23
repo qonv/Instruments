@@ -117,4 +117,9 @@ public class DataTable implements Iterable<int[]> {
 		this(rows, colTypes, colNames, colMaxes, null);
 	}
 
-	public DataT
+	public DataTable(List<int[]> rows, VariableType[] colTypes, String[] colNames, int[] colMaxes, StringTable[] colStringToIntMap) {
+		this.rows = rows;
+		this.colMaxes = colMaxes;
+		this.colNames = colNames;
+		this.colTypes = colTypes;
+		this.colStringToIntMap = colStringToIntMap;
