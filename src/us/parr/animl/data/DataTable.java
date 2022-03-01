@@ -132,4 +132,10 @@ public class DataTable implements Iterable<int[]> {
 		return new DataTable(new ArrayList<>(), colTypes, colNames, null, null);
 	}
 
-	/** Make a
+	/** Make a new table from an old table with a subset of rows */
+	public DataTable(DataTable old, List<int[]> rows) {
+		this(rows, old.colTypes, old.colNames, old.colMaxes, old.colStringToIntMap);
+	}
+
+	/** Make a new table from an old table with shallow copy of rows */
+	public 
