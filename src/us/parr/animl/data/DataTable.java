@@ -123,3 +123,13 @@ public class DataTable implements Iterable<int[]> {
 		this.colNames = colNames;
 		this.colTypes = colTypes;
 		this.colStringToIntMap = colStringToIntMap;
+		if ( this.colMaxes==null ) {
+			computeColMaxes();
+		}
+	}
+
+	public static DataTable empty(VariableType[] colTypes, String[] colNames) {
+		return new DataTable(new ArrayList<>(), colTypes, colNames, null, null);
+	}
+
+	/** Make a
