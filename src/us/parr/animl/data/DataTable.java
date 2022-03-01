@@ -138,4 +138,10 @@ public class DataTable implements Iterable<int[]> {
 	}
 
 	/** Make a new table from an old table with shallow copy of rows */
-	public 
+	public DataTable(DataTable old) {
+		this.rows = new ArrayList<>(old.rows.size());
+		this.rows.addAll(old.rows);
+		this.colNames = old.colNames;
+		System.arraycopy(old.colMaxes, 0, this.colMaxes, 0, old.colMaxes.length);
+		this.colTypes = old.colTypes;
+		this.colStringToIntMap 
