@@ -144,4 +144,10 @@ public class DataTable implements Iterable<int[]> {
 		this.colNames = old.colNames;
 		System.arraycopy(old.colMaxes, 0, this.colMaxes, 0, old.colMaxes.length);
 		this.colTypes = old.colTypes;
-		this.colStringToIntMap 
+		this.colStringToIntMap = old.colStringToIntMap;
+	}
+
+	public static DataTable fromInts(List<int[]> rows, VariableType[] colTypes, String[] colNames) {
+		if ( rows==null ) return empty(colTypes, colNames);
+		if ( rows.size()==0 && colTypes==null ) {
+			return empty(colTypes, colNames);
