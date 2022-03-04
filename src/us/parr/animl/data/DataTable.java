@@ -151,3 +151,13 @@ public class DataTable implements Iterable<int[]> {
 		if ( rows==null ) return empty(colTypes, colNames);
 		if ( rows.size()==0 && colTypes==null ) {
 			return empty(colTypes, colNames);
+		}
+
+		int dim = rows.size()>0 ? rows.get(0).length : colTypes.length;
+		if ( colTypes==null ) {
+			colTypes = getDefaultColTypes(dim);
+		}
+		if ( colNames==null ) {
+			colNames = getDefaultColNames(colTypes, dim);
+		}
+		return new DataTable(r
