@@ -160,4 +160,14 @@ public class DataTable implements Iterable<int[]> {
 		if ( colNames==null ) {
 			colNames = getDefaultColNames(colTypes, dim);
 		}
-		return new DataTable(r
+		return new DataTable(rows, colTypes, colNames, null);
+	}
+
+	public static DataTable fromStrings(List<String[]> rows) {
+		if ( rows==null ) return empty(null, null);
+		if ( rows.size()==0 ) {
+			return empty(null, null);
+		}
+		String[] headerRow = rows.get(0);
+		if ( headerRow==null ) {
+			return em
