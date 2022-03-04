@@ -170,4 +170,15 @@ public class DataTable implements Iterable<int[]> {
 		}
 		String[] headerRow = rows.get(0);
 		if ( headerRow==null ) {
-			return em
+			return empty(null, null);
+		}
+		int numCols = headerRow.length;
+		if ( rows.size()==1 ) { // just header row?
+			return empty(null, headerRow);
+		}
+
+		rows = rows.subList(1, rows.size()); // don't use first row.
+
+		VariableType[] actualTypes = computeColTypes(rows, numCols);
+
+		return fromStrings(rows,
