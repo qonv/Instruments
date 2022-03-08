@@ -181,4 +181,9 @@ public class DataTable implements Iterable<int[]> {
 
 		VariableType[] actualTypes = computeColTypes(rows, numCols);
 
-		return fromStrings(rows,
+		return fromStrings(rows, actualTypes, headerRow, false);
+	}
+
+	public static DataTable fromStrings(List<String[]> rows, VariableType[] colTypes, String[] colNames, boolean hasHeaderRow) {
+		if ( rows==null || rows.size()==0 ) return empty(colTypes, colNames);
+		if ( rows.size()==1 && hasHeader
