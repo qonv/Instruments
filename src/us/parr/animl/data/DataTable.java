@@ -204,4 +204,10 @@ public class DataTable implements Iterable<int[]> {
 		StringTable[] colStringToIntMap = new StringTable[colTypes.length];
 		// don't waste space on string tables unless we need to
 		for (int j = 0; j < colTypes.length; j++) {
-			if ( colTypes[j]==CATEGORICAL_STRING || c
+			if ( colTypes[j]==CATEGORICAL_STRING || colTypes[j]==TARGET_CATEGORICAL_STRING ) {
+				colStringToIntMap[j] = new StringTable();
+			}
+		}
+		// process strings into ints using appropriate conversion
+		List<int[]> rows2 = new ArrayList<>();
+		for (int i = hasHeaderRow ? 1 : 0; i < rows.size();
