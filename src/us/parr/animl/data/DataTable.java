@@ -199,4 +199,9 @@ public class DataTable implements Iterable<int[]> {
 			colTypes = getDefaultColTypes(dim);
 		}
 		if ( colNames==null ) {
-			colNames = getDe
+			colNames = getDefaultColNames(colTypes, dim);
+		}
+		StringTable[] colStringToIntMap = new StringTable[colTypes.length];
+		// don't waste space on string tables unless we need to
+		for (int j = 0; j < colTypes.length; j++) {
+			if ( colTypes[j]==CATEGORICAL_STRING || c
