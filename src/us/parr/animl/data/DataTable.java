@@ -186,4 +186,17 @@ public class DataTable implements Iterable<int[]> {
 
 	public static DataTable fromStrings(List<String[]> rows, VariableType[] colTypes, String[] colNames, boolean hasHeaderRow) {
 		if ( rows==null || rows.size()==0 ) return empty(colTypes, colNames);
-		if ( rows.size()==1 && hasHeader
+		if ( rows.size()==1 && hasHeaderRow ) {
+			return empty(colTypes, colNames);
+		}
+
+		if ( hasHeaderRow && colNames==null ) {
+			colNames = rows.get(0);
+		}
+
+		int dim = rows.get(0).length;
+		if ( colTypes==null ) {
+			colTypes = getDefaultColTypes(dim);
+		}
+		if ( colNames==null ) {
+			colNames = getDe
