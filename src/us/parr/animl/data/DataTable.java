@@ -210,4 +210,12 @@ public class DataTable implements Iterable<int[]> {
 		}
 		// process strings into ints using appropriate conversion
 		List<int[]> rows2 = new ArrayList<>();
-		for (int i = hasHeaderRow ? 1 : 0; i < rows.size();
+		for (int i = hasHeaderRow ? 1 : 0; i < rows.size(); i++) {
+			String[] row = rows.get(i);
+			int[] rowAsInts = new int[row.length];
+			for (int j = 0; j < row.length; j++) {
+				int col=0;
+				VariableType colType = colTypes[j];
+				String colValue = row[j];
+				switch ( colType ) {
+					case 
