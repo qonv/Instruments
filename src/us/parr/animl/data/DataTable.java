@@ -218,4 +218,13 @@ public class DataTable implements Iterable<int[]> {
 				VariableType colType = colTypes[j];
 				String colValue = row[j];
 				switch ( colType ) {
-					case 
+					case CATEGORICAL_INT :
+					case NUMERICAL_INT :
+					case UNUSED_INT:
+					case TARGET_CATEGORICAL_INT:
+						if ( !UNKNOWN_VALUE_STRINGS.contains(row[j]) ) {
+							col = Integer.valueOf(colValue);
+						}
+						break;
+					case CATEGORICAL_STRING :
+					c
