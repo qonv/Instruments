@@ -227,4 +227,12 @@ public class DataTable implements Iterable<int[]> {
 						}
 						break;
 					case CATEGORICAL_STRING :
-					c
+					case TARGET_CATEGORICAL_STRING:
+					case UNUSED_STRING :
+						if ( !UNKNOWN_VALUE_STRINGS.contains(row[j]) ) {
+							col = colStringToIntMap[j].add(colValue);
+						}
+						break;
+					case NUMERICAL_FLOAT :
+					case UNUSED_FLOAT :
+						if ( !UNKNOWN_VALUE_STRINGS.co
