@@ -246,4 +246,10 @@ public class DataTable implements Iterable<int[]> {
 		}
 		DataTable t = new DataTable(rows2, colTypes, colNames, null);
 		t.colStringToIntMap = colStringToIntMap;
-		
+		return t;
+	}
+
+	public static DataTable loadCSV(String fileName, String formatType, VariableType[] colTypesOverride, String[] colNamesOverride, boolean hasHeaderRow) {
+		try {
+			// use apache commons io + csv to load but convert to list of String[]
+			// byte-order markers are han
