@@ -235,4 +235,15 @@ public class DataTable implements Iterable<int[]> {
 						break;
 					case NUMERICAL_FLOAT :
 					case UNUSED_FLOAT :
-						if ( !UNKNOWN_VALUE_STRINGS.co
+						if ( !UNKNOWN_VALUE_STRINGS.contains(row[j]) ) {
+							col = Float.floatToIntBits(Float.valueOf(colValue));
+						}
+						break;
+				}
+				rowAsInts[j] = col;
+			}
+			rows2.add(rowAsInts);
+		}
+		DataTable t = new DataTable(rows2, colTypes, colNames, null);
+		t.colStringToIntMap = colStringToIntMap;
+		
