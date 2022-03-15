@@ -252,4 +252,9 @@ public class DataTable implements Iterable<int[]> {
 	public static DataTable loadCSV(String fileName, String formatType, VariableType[] colTypesOverride, String[] colNamesOverride, boolean hasHeaderRow) {
 		try {
 			// use apache commons io + csv to load but convert to list of String[]
-			// byte-order markers are han
+			// byte-order markers are handled if present at start of file.
+			FileInputStream fis = new FileInputStream(fileName);
+			final Reader reader = new InputStreamReader(new BOMInputStream(fis), "UTF-8");
+			CSVFormat format;
+			if ( formatType==null ) {
+				format = 
