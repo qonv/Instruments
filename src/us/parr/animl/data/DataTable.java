@@ -257,4 +257,12 @@ public class DataTable implements Iterable<int[]> {
 			final Reader reader = new InputStreamReader(new BOMInputStream(fis), "UTF-8");
 			CSVFormat format;
 			if ( formatType==null ) {
-				format = 
+				format = hasHeaderRow ? CSVFormat.RFC4180.withHeader() : CSVFormat.RFC4180;
+			}
+			else {
+				switch ( formatType.toLowerCase() ) {
+					case "tsv":
+						format = hasHeaderRow ? CSVFormat.TDF.withHeader() : CSVFormat.TDF;
+						break;
+					case "mysql":
+						format = hasH
