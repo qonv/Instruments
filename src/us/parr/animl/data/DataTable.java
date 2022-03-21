@@ -281,4 +281,18 @@ public class DataTable implements Iterable<int[]> {
 			int numHeaderNames = parser.getHeaderMap().size();
 			try {
 				for (final CSVRecord record : parser) {
-					String[] row = new String[record.
+					String[] row = new String[record.size()];
+					for (int j = 0; j<record.size(); j++) {
+						row[j] = record.get(j);
+					}
+					rows.add(row);
+				}
+			}
+			finally {
+				parser.close();
+				reader.close();
+			}
+
+			VariableType[] actualTypes = computeColTypes(rows, numHeaderNames);
+
+			Set<String> colNameSet = parser.getH
