@@ -265,4 +265,11 @@ public class DataTable implements Iterable<int[]> {
 						format = hasHeaderRow ? CSVFormat.TDF.withHeader() : CSVFormat.TDF;
 						break;
 					case "mysql":
-						format = hasH
+						format = hasHeaderRow ? CSVFormat.MYSQL.withHeader() : CSVFormat.MYSQL;
+						break;
+					case "excel":
+						format = hasHeaderRow ? CSVFormat.EXCEL.withHeader() : CSVFormat.EXCEL;
+						break;
+					case "rfc4180":
+					default:
+						format = hasHeaderRow ? CSVFormat.RFC4180.withH
