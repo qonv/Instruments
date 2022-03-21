@@ -272,4 +272,13 @@ public class DataTable implements Iterable<int[]> {
 						break;
 					case "rfc4180":
 					default:
-						format = hasHeaderRow ? CSVFormat.RFC4180.withH
+						format = hasHeaderRow ? CSVFormat.RFC4180.withHeader() : CSVFormat.RFC4180;
+						break;
+				}
+			}
+			final CSVParser parser = new CSVParser(reader, format);
+			List<String[]> rows = new ArrayList<>();
+			int numHeaderNames = parser.getHeaderMap().size();
+			try {
+				for (final CSVRecord record : parser) {
+					String[] row = new String[record.
