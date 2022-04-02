@@ -295,4 +295,12 @@ public class DataTable implements Iterable<int[]> {
 
 			VariableType[] actualTypes = computeColTypes(rows, numHeaderNames);
 
-			Set<String> colNameSet = parser.getH
+			Set<String> colNameSet = parser.getHeaderMap().keySet();
+			String[] colNames = colNameSet.toArray(new String[colNameSet.size()]);
+			if ( colNamesOverride!=null ) {
+				colNames = colNamesOverride;
+			}
+			if ( colTypesOverride!=null ) {
+				actualTypes = colTypesOverride;
+			}
+			return fromSt
