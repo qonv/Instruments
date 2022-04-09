@@ -303,4 +303,11 @@ public class DataTable implements Iterable<int[]> {
 			if ( colTypesOverride!=null ) {
 				actualTypes = colTypesOverride;
 			}
-			return fromSt
+			return fromStrings(rows, actualTypes, colNames, false);
+		}
+		catch (Exception e) {
+			throw new IllegalArgumentException("Can't open and/or read "+fileName, e);
+		}
+	}
+
+	public static DataTable loadCSV(String fileName, VariableType[] colTypes, boolean hasHeaderRow) {
