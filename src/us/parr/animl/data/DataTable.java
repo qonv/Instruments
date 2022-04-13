@@ -311,3 +311,10 @@ public class DataTable implements Iterable<int[]> {
 	}
 
 	public static DataTable loadCSV(String fileName, VariableType[] colTypes, boolean hasHeaderRow) {
+		int numCols = colTypes.length;
+		try {
+			final FileInputStream fis = new FileInputStream(fileName);
+			final Reader r = new InputStreamReader(new BOMInputStream(fis), "UTF-8");
+			final BufferedReader bf = new BufferedReader(r);
+			List<int[]> rows = new ArrayList<>();
+		
