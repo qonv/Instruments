@@ -317,4 +317,13 @@ public class DataTable implements Iterable<int[]> {
 			final Reader r = new InputStreamReader(new BOMInputStream(fis), "UTF-8");
 			final BufferedReader bf = new BufferedReader(r);
 			List<int[]> rows = new ArrayList<>();
-		
+			String line;
+			String[] colNames = null;
+			if ( hasHeaderRow ) {
+				line=bf.readLine();
+				if ( line!=null ) {
+					line = line.trim();
+					if ( line.length()>0 ) {
+						colNames = line.split(",");
+						for (int i = 0; i<colNames.length; i++) {
+							colNames[i] = col
