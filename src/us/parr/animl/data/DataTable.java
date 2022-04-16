@@ -347,3 +347,14 @@ public class DataTable implements Iterable<int[]> {
 					prev = comma+1;
 					comma = line.indexOf(',', comma+1);
 					col++;
+				}
+				// grab last element after last comma
+				String lastv = line.substring(prev, line.length());
+				row[col] = getValue(colTypes[col], lastv);
+
+//				System.out.println();
+				rows.add(row);
+				n++;
+			}
+
+			DataTable data = new DataTable(rows, colTypes, 
