@@ -357,4 +357,14 @@ public class DataTable implements Iterable<int[]> {
 				n++;
 			}
 
-			DataTable data = new DataTable(rows, colTypes, 
+			DataTable data = new DataTable(rows, colTypes, colNames, null);
+			return data;
+		}
+		catch (IOException ioe) {
+			throw new IllegalArgumentException("Can't open and/or read "+fileName, ioe);
+		}
+	}
+
+	protected static int getValue(VariableType colType, String v) {
+		switch ( colType ) {
+			case
