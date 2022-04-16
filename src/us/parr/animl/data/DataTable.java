@@ -326,4 +326,15 @@ public class DataTable implements Iterable<int[]> {
 					if ( line.length()>0 ) {
 						colNames = line.split(",");
 						for (int i = 0; i<colNames.length; i++) {
-							colNames[i] = col
+							colNames[i] = colNames[i].trim();
+						}
+					}
+				}
+			}
+			int n = 0;
+			while ( (line=bf.readLine())!=null ) {
+				if ( n>0 && n % 10000 == 0 ) System.out.println(n);
+				line = line.trim();
+				if ( line.length()==0 ) continue;
+				int[] row = new int[numCols];
+				int com
