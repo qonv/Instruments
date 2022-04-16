@@ -337,4 +337,13 @@ public class DataTable implements Iterable<int[]> {
 				line = line.trim();
 				if ( line.length()==0 ) continue;
 				int[] row = new int[numCols];
-				int com
+				int comma = line.indexOf(',', 0);
+				int prev = 0;
+				int col = 0;
+				while ( comma>=0 ) {
+					String v = line.substring(prev, comma);
+					row[col] = getValue(colTypes[col], v);
+
+					prev = comma+1;
+					comma = line.indexOf(',', comma+1);
+					col++;
