@@ -373,4 +373,12 @@ public class DataTable implements Iterable<int[]> {
 			case NUMERICAL_INT :
 			case TARGET_CATEGORICAL_INT :
 				return Integer.valueOf(v);
-//						System.out.print(ro
+//						System.out.print(row[col]);
+			default :
+				throw new UnsupportedOperationException("can't handle strings yet");
+		}
+	}
+
+
+	protected static VariableType[] computeColTypes(List<String[]> rows, int numCols) {
+		VariableType[] actualTypes = new Var
