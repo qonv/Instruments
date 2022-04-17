@@ -367,4 +367,10 @@ public class DataTable implements Iterable<int[]> {
 
 	protected static int getValue(VariableType colType, String v) {
 		switch ( colType ) {
-			case
+			case NUMERICAL_FLOAT :
+				return Float.floatToIntBits(FloatingDecimal.parseFloat(v));
+//						System.out.print(Float.intBitsToFloat(row[col]));
+			case NUMERICAL_INT :
+			case TARGET_CATEGORICAL_INT :
+				return Integer.valueOf(v);
+//						System.out.print(ro
