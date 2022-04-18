@@ -388,4 +388,10 @@ public class DataTable implements Iterable<int[]> {
 		for (String[] row : rows) {
 			for (int j = 0; j<numCols; j++) {
 				if ( intPattern.matcher(row[j]).find() ) {
-					if ( actualTypes[j]==INVALID ) { // only choose int if first ty
+					if ( actualTypes[j]==INVALID ) { // only choose int if first type seen
+						actualTypes[j] = NUMERICAL_INT;
+					}
+				}
+				else if ( floatPattern.matcher(row[j]).find() ) { // let int become float but not vice versa
+					if ( actualTypes[j]==INVALID || actualTypes[j]==NUMERICAL_INT ) {
+						act
