@@ -381,4 +381,11 @@ public class DataTable implements Iterable<int[]> {
 
 
 	protected static VariableType[] computeColTypes(List<String[]> rows, int numCols) {
-		VariableType[] actualTypes = new Var
+		VariableType[] actualTypes = new VariableType[numCols];
+		for (int j = 0; j<numCols; j++) {
+			actualTypes[j] = INVALID;
+		}
+		for (String[] row : rows) {
+			for (int j = 0; j<numCols; j++) {
+				if ( intPattern.matcher(row[j]).find() ) {
+					if ( actualTypes[j]==INVALID ) { // only choose int if first ty
