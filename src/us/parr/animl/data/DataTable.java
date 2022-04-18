@@ -394,4 +394,10 @@ public class DataTable implements Iterable<int[]> {
 				}
 				else if ( floatPattern.matcher(row[j]).find() ) { // let int become float but not vice versa
 					if ( actualTypes[j]==INVALID || actualTypes[j]==NUMERICAL_INT ) {
-						act
+						actualTypes[j] = NUMERICAL_FLOAT;
+					}
+				}
+				else { // anything else is a string
+					if ( !UNKNOWN_VALUE_STRINGS.contains(row[j]) ) { // if NA, N/A don't know type
+						// if we ever see a string, convert and don't change back
+						if ( actualTypes[j]==INVALID || actualType
