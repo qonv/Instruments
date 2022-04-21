@@ -400,4 +400,19 @@ public class DataTable implements Iterable<int[]> {
 				else { // anything else is a string
 					if ( !UNKNOWN_VALUE_STRINGS.contains(row[j]) ) { // if NA, N/A don't know type
 						// if we ever see a string, convert and don't change back
-						if ( actualTypes[j]==INVALID || actualType
+						if ( actualTypes[j]==INVALID || actualTypes[j]==NUMERICAL_INT ) {
+							if ( j==row.length-1 ) { // assume last column is predicted var
+								actualTypes[j] = TARGET_CATEGORICAL_STRING;
+							}
+							else {
+								actualTypes[j] = CATEGORICAL_STRING;
+							}
+						}
+					}
+				}
+			}
+		}
+		return actualTypes;
+	}
+
+	p
