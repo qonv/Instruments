@@ -445,4 +445,7 @@ public class DataTable implements Iterable<int[]> {
 		return cachedPredictionCategories;
 	}
 
-	public Se
+	public Set<Integer> getUniqueValues(int colIndex) {
+		DenseIntSet values = new DenseIntSet(colMaxes[colIndex]);
+		for (int i = 0; i<size(); i++) { // for each row, count different values for col splitVariable
+			values.add( getAsInt(i,colIndex) ); // pretend everything i
