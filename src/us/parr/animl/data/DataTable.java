@@ -422,4 +422,17 @@ public class DataTable implements Iterable<int[]> {
 			VariableType colType = colTypes[j];
 			int max = 0;
 			for (int i = 0; i<size(); i++) {
-				int[] row = g
+				int[] row = getRow(i);
+				if ( compare(row[j], max, colType)==1 ) {
+					max = row[j];
+				}
+			}
+			colMaxes[j] = max;
+		}
+	}
+
+	public int getMaxPredictionCategoryValue() {
+		if ( cachedMaxPredictionCategoryValue == -1 ) {
+			cachedMaxPredictionCategoryValue = max(getPredictionCategories());
+		}
+		ret
