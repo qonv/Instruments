@@ -435,4 +435,14 @@ public class DataTable implements Iterable<int[]> {
 		if ( cachedMaxPredictionCategoryValue == -1 ) {
 			cachedMaxPredictionCategoryValue = max(getPredictionCategories());
 		}
-		ret
+		return cachedMaxPredictionCategoryValue;
+	}
+
+	public Set<Integer> getPredictionCategories() {
+		if ( cachedPredictionCategories==null ) {
+			cachedPredictionCategories = getUniqueValues(getPredictedCol());
+		}
+		return cachedPredictionCategories;
+	}
+
+	public Se
