@@ -455,4 +455,15 @@ public class DataTable implements Iterable<int[]> {
 
 	public CountingSet<Integer> getColValueCounts(int colIndex) {
 		CountingDenseIntSet values = new CountingDenseIntSet(colMaxes[colIndex]);
-		for (int i = 0; i<size(); i++) { // for each row, count different values for col splitVari
+		for (int i = 0; i<size(); i++) { // for each row, count different values for col splitVariable
+			values.add( getAsInt(i,colIndex) ); // pretend everything is an int
+		}
+		return values;
+	}
+
+	public int[] getColValues(int colIndex) {
+		int[] values = new int[size()];
+		for (int i = 0; i<size(); i++) {
+			values[i] = getAsInt(i,colIndex);
+		}
+		return v
