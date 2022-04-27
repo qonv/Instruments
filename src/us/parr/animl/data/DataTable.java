@@ -475,4 +475,12 @@ public class DataTable implements Iterable<int[]> {
 	}
 
 	public double entropy(int colIndex) {
-		CountingSet<Integer> valueCounts = valueCountsInCol
+		CountingSet<Integer> valueCounts = valueCountsInColumn(colIndex);
+		return valueCounts.entropy();
+	}
+
+	public List<Integer> getSubsetOfVarIndexes(int m, Random random) {
+		// create set of all predictor vars
+		List<Integer> indexes = new ArrayList<>(colTypes.length);
+		for (int i = 0; i<colTypes.length; i++) {
+			if ( is
