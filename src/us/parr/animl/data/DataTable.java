@@ -466,4 +466,13 @@ public class DataTable implements Iterable<int[]> {
 		for (int i = 0; i<size(); i++) {
 			values[i] = getAsInt(i,colIndex);
 		}
-		return v
+		return values;
+	}
+
+	public DataTable filter(Predicate<int[]> pred) {
+		List<int[]> filtered = ParrtCollections.filter(rows, pred);
+		return new DataTable(this, filtered);
+	}
+
+	public double entropy(int colIndex) {
+		CountingSet<Integer> valueCounts = valueCountsInCol
