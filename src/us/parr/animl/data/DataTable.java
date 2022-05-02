@@ -483,4 +483,16 @@ public class DataTable implements Iterable<int[]> {
 		// create set of all predictor vars
 		List<Integer> indexes = new ArrayList<>(colTypes.length);
 		for (int i = 0; i<colTypes.length; i++) {
-			if ( is
+			if ( isPredictorVar(colTypes[i]) ) {
+				indexes.add(i);
+			}
+		}
+		int M = indexes.size(); // number of usable predictor variables M
+		if ( m<=0 ) m = M;
+		if ( m>M ) m = M;
+		if ( m==M ) {
+			// don't bother to shuffle then sort
+			return indexes;
+		}
+		if ( random==null ) {
+			r
