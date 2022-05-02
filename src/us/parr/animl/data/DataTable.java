@@ -495,4 +495,13 @@ public class DataTable implements Iterable<int[]> {
 			return indexes;
 		}
 		if ( random==null ) {
-			r
+			random = new Random();
+		}
+		Collections.shuffle(indexes, random);
+		indexes = indexes.subList(0, m);
+		Collections.sort(indexes);
+		return indexes;
+	}
+
+	/** Partition rows in-place per splitVariable and splitCategory. Use
+	 *  left/right cursors moving in f
