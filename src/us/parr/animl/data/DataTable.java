@@ -510,3 +510,8 @@ public class DataTable implements Iterable<int[]> {
 	 *
 	 *  https://en.wikipedia.org/wiki/Quicksort#Hoare_partition_scheme
 	 *
+	 *  says
+	 *
+	 *  "The original partition scheme described by C.A.R. Hoare uses two indices that
+	 *  start at the ends of the array being partitioned, then move toward each other,
+	 *  until they detect an inversion: a pair of elements, one greater or equal tha
