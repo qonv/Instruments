@@ -514,4 +514,9 @@ public class DataTable implements Iterable<int[]> {
 	 *
 	 *  "The original partition scheme described by C.A.R. Hoare uses two indices that
 	 *  start at the ends of the array being partitioned, then move toward each other,
-	 *  until they detect an inversion: a pair of elements, one greater or equal tha
+	 *  until they detect an inversion: a pair of elements, one greater or equal than
+	 *  the pivot, one lesser or equal, that are in the wrong order relative to each
+	 *  other. The inverted elements are then swapped.[16] When the indices meet,
+	 *  the algorithm stops and returns the final index."
+	 */
+	public static int categoricalPartition(List<int[]>
