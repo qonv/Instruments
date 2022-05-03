@@ -504,4 +504,9 @@ public class DataTable implements Iterable<int[]> {
 	}
 
 	/** Partition rows in-place per splitVariable and splitCategory. Use
-	 *  left/right cursors moving in f
+	 *  left/right cursors moving in from edges until they cross. Return
+	 *  the index of the first element not in category. Everthing to left
+	 *  is == to splitCategory and everthing >= that index is != splitCategory.
+	 *
+	 *  https://en.wikipedia.org/wiki/Quicksort#Hoare_partition_scheme
+	 *
