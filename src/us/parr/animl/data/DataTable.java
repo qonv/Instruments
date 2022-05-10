@@ -519,4 +519,12 @@ public class DataTable implements Iterable<int[]> {
 	 *  other. The inverted elements are then swapped.[16] When the indices meet,
 	 *  the algorithm stops and returns the final index."
 	 */
-	public static int categoricalPartition(List<int[]>
+	public static int categoricalPartition(List<int[]> rows,
+	                                       int splitVariable, int splitCategory,
+	                                       int low, int high)
+	{
+		int i = low-1;
+		int j = high+1;
+		int n = rows.size();
+		while ( true ) {
+			do { i++; } while ( i<n && rows.get(i)
