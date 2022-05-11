@@ -527,4 +527,14 @@ public class DataTable implements Iterable<int[]> {
 		int j = high+1;
 		int n = rows.size();
 		while ( true ) {
-			do { i++; } while ( i<n && rows.get(i)
+			do { i++; } while ( i<n && rows.get(i)[splitVariable]==splitCategory );
+			do { j--; } while ( j>=0 && rows.get(j)[splitVariable]!=splitCategory );
+			if ( i >= j ) { return i; }
+			// swap elements at i and j
+			int[] savei = rows.get(i);
+			rows.set(i, rows.get(j));
+			rows.set(j, savei);
+		}
+	}
+
+	public static int numer
