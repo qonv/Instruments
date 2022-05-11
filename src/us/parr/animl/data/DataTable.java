@@ -545,4 +545,8 @@ public class DataTable implements Iterable<int[]> {
 		int j = high+1;
 		int n = rows.size();
 		while ( true ) {
-			do { i++; } while ( i<n && 
+			do { i++; } while ( i<n && Float.intBitsToFloat(rows.get(i)[splitVariable])<splitValue );
+			do { j--; } while ( j>=0 && Float.intBitsToFloat(rows.get(j)[splitVariable])>=splitValue );
+			if ( i >= j ) { return i; }
+			// swap elements at i and j
+			int[] savei = rows.get(i);
