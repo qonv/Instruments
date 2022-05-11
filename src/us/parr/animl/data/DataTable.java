@@ -550,3 +550,11 @@ public class DataTable implements Iterable<int[]> {
 			if ( i >= j ) { return i; }
 			// swap elements at i and j
 			int[] savei = rows.get(i);
+			rows.set(i, rows.get(j));
+			rows.set(j, savei);
+		}
+	}
+
+	public static int numericalIntPartition(List<int[]> rows,
+	                                        int splitVariable, double splitValue,
+	                                        int lo
