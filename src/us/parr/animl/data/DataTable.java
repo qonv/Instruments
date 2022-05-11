@@ -537,4 +537,12 @@ public class DataTable implements Iterable<int[]> {
 		}
 	}
 
-	public static int numer
+	public static int numericalFloatPartition(List<int[]> rows,
+	                                          int splitVariable, double splitValue,
+	                                          int low, int high)
+	{
+		int i = low-1;
+		int j = high+1;
+		int n = rows.size();
+		while ( true ) {
+			do { i++; } while ( i<n && 
