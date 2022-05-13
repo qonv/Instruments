@@ -565,4 +565,14 @@ public class DataTable implements Iterable<int[]> {
 		while ( true ) {
 			do { i++; } while ( i<n && rows.get(i)[splitVariable]<splitValue );
 			do { j--; } while ( j>=0 && rows.get(j)[splitVariable]>=splitValue );
-			i
+			if ( i >= j ) { return i; }
+			// swap elements at i and j
+			int[] savei = rows.get(i);
+			rows.set(i, rows.get(j));
+			rows.set(j, savei);
+		}
+	}
+
+	/** Return new table with [i1..i2] inclusive in new table */
+	public DataTable subset(int i1, int i2) {
+		return new 
