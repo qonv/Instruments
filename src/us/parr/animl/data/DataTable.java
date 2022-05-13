@@ -557,4 +557,12 @@ public class DataTable implements Iterable<int[]> {
 
 	public static int numericalIntPartition(List<int[]> rows,
 	                                        int splitVariable, double splitValue,
-	                                        int lo
+	                                        int low, int high)
+	{
+		int i = low-1;
+		int j = high+1;
+		int n = rows.size();
+		while ( true ) {
+			do { i++; } while ( i<n && rows.get(i)[splitVariable]<splitValue );
+			do { j--; } while ( j>=0 && rows.get(j)[splitVariable]>=splitValue );
+			i
