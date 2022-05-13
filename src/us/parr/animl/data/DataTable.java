@@ -575,4 +575,11 @@ public class DataTable implements Iterable<int[]> {
 
 	/** Return new table with [i1..i2] inclusive in new table */
 	public DataTable subset(int i1, int i2) {
-		return new 
+		return new DataTable(this, rows.subList(i1, i2+1));
+	}
+
+	/** Return new table with all data except [i1..i2] inclusive in new table */
+	public DataTable subsetNot(int i1, int i2) {
+		List<int[]> missingChunk = new ArrayList<>();
+		for (int i = 0; i<i1; i++) {
+			missingChunk
