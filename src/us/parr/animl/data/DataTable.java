@@ -582,4 +582,13 @@ public class DataTable implements Iterable<int[]> {
 	public DataTable subsetNot(int i1, int i2) {
 		List<int[]> missingChunk = new ArrayList<>();
 		for (int i = 0; i<i1; i++) {
-			missingChunk
+			missingChunk.add(rows.get(i));
+		}
+		for (int i = i2+1; i<rows.size(); i++) {
+			missingChunk.add(rows.get(i));
+		}
+		return new DataTable(this, missingChunk);
+	}
+
+	/** Return new table with row i missing from table; makes shallow copy to do so. */
+	public DataT
