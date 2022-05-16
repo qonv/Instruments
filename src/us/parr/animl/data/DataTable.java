@@ -591,4 +591,12 @@ public class DataTable implements Iterable<int[]> {
 	}
 
 	/** Return new table with row i missing from table; makes shallow copy to do so. */
-	public DataT
+	public DataTable subsetNot(int i) {
+		List<int[]> lessOne = new ArrayList<>();
+		lessOne.addAll(rows);
+		lessOne.remove(i);
+		return new DataTable(this, lessOne);
+	}
+
+	/** Get a random subset of size n from the rows (with replacement)
+	 *  and return new 
