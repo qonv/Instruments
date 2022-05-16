@@ -599,4 +599,12 @@ public class DataTable implements Iterable<int[]> {
 	}
 
 	/** Get a random subset of size n from the rows (with replacement)
-	 *  and return new 
+	 *  and return new DataTable.
+	 */
+	public DataTable randomSubset(int n) {
+		return new DataTable(this, ParrtStats.bootstrapWithRepl(this.rows, n));
+	}
+
+	public int getNumberOfPredictorVar() { return getSubsetOfVarIndexes(getNumberOfColumns(), null).size(); }
+
+	public int getNumberOfColumns() { return colTy
