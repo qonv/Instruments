@@ -620,4 +620,11 @@ public class DataTable implements Iterable<int[]> {
 			);
 	}
 
-	public static boolean is
+	public static boolean isCategoricalVar(VariableType colType) {
+		return
+			colType==DataTable.VariableType.CATEGORICAL_INT ||
+			colType==DataTable.VariableType.CATEGORICAL_STRING;
+	}
+
+	/** Create a set that counts how many of each value in colIndex there is. Only
+	 *  works on int-valued co
