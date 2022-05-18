@@ -627,4 +627,10 @@ public class DataTable implements Iterable<int[]> {
 	}
 
 	/** Create a set that counts how many of each value in colIndex there is. Only
-	 *  works on int-valued co
+	 *  works on int-valued columns.
+	 */
+	public CountingSet<Integer> valueCountsInColumn(int colIndex) {
+		CountingSet<Integer> valueCounts = new CountingDenseIntSet(colMaxes[colIndex]);
+		if ( !(colTypes[colIndex]==NUMERICAL_INT ||
+			colTypes[colIndex]==CATEGORICAL_INT ||
+			colTypes[colIndex]==CATEGOR
