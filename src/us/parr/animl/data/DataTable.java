@@ -633,4 +633,10 @@ public class DataTable implements Iterable<int[]> {
 		CountingSet<Integer> valueCounts = new CountingDenseIntSet(colMaxes[colIndex]);
 		if ( !(colTypes[colIndex]==NUMERICAL_INT ||
 			colTypes[colIndex]==CATEGORICAL_INT ||
-			colTypes[colIndex]==CATEGOR
+			colTypes[colIndex]==CATEGORICAL_STRING ||
+			colTypes[colIndex]==TARGET_CATEGORICAL_INT ||
+			colTypes[colIndex]==TARGET_CATEGORICAL_STRING) )
+		{
+			throw new IllegalArgumentException(colNames[colIndex]+" is not an int-based column; type is "+colTypes[colIndex]);
+		}
+		fo
