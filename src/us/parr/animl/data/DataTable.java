@@ -639,4 +639,13 @@ public class DataTable implements Iterable<int[]> {
 		{
 			throw new IllegalArgumentException(colNames[colIndex]+" is not an int-based column; type is "+colTypes[colIndex]);
 		}
-		fo
+		for (int i = 0; i<size(); i++) { // for each row, count different values for col splitVariable
+			int[] row = getRow(i);
+			int col = row[colIndex];
+			valueCounts.add(col);
+		}
+		return valueCounts;
+	}
+
+	public void sortBy(int colIndex) {
+		switch ( colTypes[colIndex
