@@ -648,4 +648,12 @@ public class DataTable implements Iterable<int[]> {
 	}
 
 	public void sortBy(int colIndex) {
-		switch ( colTypes[colIndex
+		switch ( colTypes[colIndex] ) {
+			case CATEGORICAL_INT :
+			case NUMERICAL_INT :
+			case CATEGORICAL_STRING : // strings are encoded as ints
+			case TARGET_CATEGORICAL_STRING:
+			case TARGET_CATEGORICAL_INT:
+			case UNUSED_INT :
+			case UNUSED_STRING :
+				Collections.sort(rows, (ra, rb) -> {
