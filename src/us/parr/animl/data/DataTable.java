@@ -664,4 +664,16 @@ public class DataTable implements Iterable<int[]> {
 			case UNUSED_FLOAT :
 				Collections.sort(rows, (ra, rb) -> {
 					return Float.compare(Float.intBitsToFloat(ra[colIndex]),
-					               
+					                     Float.intBitsToFloat(rb[colIndex]));
+				});
+				break;
+		}
+	}
+
+	public void shuffle(Random random) {
+		Collections.shuffle(rows, random);
+	}
+
+	public int size() { return rows.size(); }
+
+	/** Return the data[i,j] item as an appropriate ob
