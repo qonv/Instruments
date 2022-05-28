@@ -657,3 +657,11 @@ public class DataTable implements Iterable<int[]> {
 			case UNUSED_INT :
 			case UNUSED_STRING :
 				Collections.sort(rows, (ra, rb) -> {
+					return Integer.compare(ra[colIndex], rb[colIndex]);
+				});
+				break;
+			case NUMERICAL_FLOAT :
+			case UNUSED_FLOAT :
+				Collections.sort(rows, (ra, rb) -> {
+					return Float.compare(Float.intBitsToFloat(ra[colIndex]),
+					               
