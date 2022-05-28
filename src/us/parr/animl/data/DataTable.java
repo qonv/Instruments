@@ -676,4 +676,17 @@ public class DataTable implements Iterable<int[]> {
 
 	public int size() { return rows.size(); }
 
-	/** Return the data[i,j] item as an appropriate ob
+	/** Return the data[i,j] item as an appropriate object: Integer, Float, String */
+	public Object get(int i, int j) {
+		return getValue(i,j);
+	}
+
+	public int getAsInt(int i, int j) {
+		return rows.get(i)[j];
+	}
+
+	public float getAsFloat(int i, int j) {
+		return getAsFloat(rows.get(i)[j]);
+	}
+
+	public sta
