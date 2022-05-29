@@ -689,4 +689,14 @@ public class DataTable implements Iterable<int[]> {
 		return getAsFloat(rows.get(i)[j]);
 	}
 
-	public sta
+	public static float getAsFloat(int a) {
+		return Float.intBitsToFloat(a);
+	}
+
+	public int[] getRow(int i) { return rows.get(i); }
+	public void removeRow(int i) { rows.remove(i); }
+
+	public List<int[]> getRows() { return rows; }
+
+	public String[] getColNames() {
+		return colN
