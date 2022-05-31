@@ -711,4 +711,13 @@ public class DataTable implements Iterable<int[]> {
 	}
 
 	public void setColType(int colIndex, VariableType colType) {
-		this.colTypes[colIndex] = col
+		this.colTypes[colIndex] = colType;
+	}
+
+	public void setColType(String colName, VariableType colType) {
+		int j = indexOf(colNames, colName);
+		if ( j>=0 && j<colTypes.length ) {
+			this.colTypes[j] = colType;
+		}
+		else {
+			throw new IllegalArgumentException("Column "+colName+" unk
