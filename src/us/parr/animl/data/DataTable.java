@@ -720,4 +720,17 @@ public class DataTable implements Iterable<int[]> {
 			this.colTypes[j] = colType;
 		}
 		else {
-			throw new IllegalArgumentException("Column "+colName+" unk
+			throw new IllegalArgumentException("Column "+colName+" unknown");
+		}
+	}
+
+	public Number getColMax(int j) {
+		if ( colTypes[j]==NUMERICAL_FLOAT ) {
+			return getAsFloat(colMaxes[j]);
+		}
+		return colMaxes[j];
+	}
+
+	public Object getValue(int rowi, int colj) {
+		int[] row = this.rows.get(rowi);
+		return getValue(t
