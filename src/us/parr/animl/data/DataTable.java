@@ -742,4 +742,13 @@ public class DataTable implements Iterable<int[]> {
 	public static Object getValue(DataTable data, int value, int colj) {
 		switch ( data.colTypes[colj] ) {
 			case CATEGORICAL_INT :
-			case NUMERICAL_I
+			case NUMERICAL_INT :
+			case TARGET_CATEGORICAL_INT:
+			case UNUSED_INT:
+				return value;
+			case CATEGORICAL_STRING :
+			case TARGET_CATEGORICAL_STRING:
+			case UNUSED_STRING :
+				return data.colStringToIntMap[colj].get(value);
+			case NUMERICAL_FLOAT :
+			case UNUSED_FLOAT :
