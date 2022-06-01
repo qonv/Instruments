@@ -733,4 +733,13 @@ public class DataTable implements Iterable<int[]> {
 
 	public Object getValue(int rowi, int colj) {
 		int[] row = this.rows.get(rowi);
-		return getValue(t
+		return getValue(this, row[colj], colj);
+	}
+
+	/** Return an object representing the true value of 'value'
+	 *  relative to colj in table 'data'.
+	 */
+	public static Object getValue(DataTable data, int value, int colj) {
+		switch ( data.colTypes[colj] ) {
+			case CATEGORICAL_INT :
+			case NUMERICAL_I
