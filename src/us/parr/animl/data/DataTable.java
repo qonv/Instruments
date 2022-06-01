@@ -752,3 +752,12 @@ public class DataTable implements Iterable<int[]> {
 				return data.colStringToIntMap[colj].get(value);
 			case NUMERICAL_FLOAT :
 			case UNUSED_FLOAT :
+				return Float.intBitsToFloat(value);
+			default :
+				throw new IllegalArgumentException(data.colNames[colj]+" has invalid type: "+data.colTypes[colj]);
+		}
+	}
+
+	public Object[] getValues(int rowi) {
+		int dim = colTypes.length;
+		Obj
