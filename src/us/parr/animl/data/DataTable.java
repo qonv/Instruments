@@ -760,4 +760,16 @@ public class DataTable implements Iterable<int[]> {
 
 	public Object[] getValues(int rowi) {
 		int dim = colTypes.length;
-		Obj
+		Object[] o = new Object[dim];
+		for (int j = 0; j<dim; j++) {
+			o[j] = getValue(rowi, j);
+		}
+		return o;
+	}
+
+	public int compare(int rowi, int rowj, int colIndex) {
+		VariableType colType = colTypes[colIndex];
+		switch ( colType ) {
+			case CATEGORICAL_INT:
+			case NUMERICAL_INT:
+			case
