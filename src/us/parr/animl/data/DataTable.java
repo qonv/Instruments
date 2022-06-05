@@ -772,4 +772,9 @@ public class DataTable implements Iterable<int[]> {
 		switch ( colType ) {
 			case CATEGORICAL_INT:
 			case NUMERICAL_INT:
-			case
+			case CATEGORICAL_STRING: // strings are encoded as ints
+			case TARGET_CATEGORICAL_STRING:
+			case TARGET_CATEGORICAL_INT:
+			case UNUSED_INT:
+			case UNUSED_STRING :
+				return Integer.compare(getAsInt(rowi, colIndex), getAsInt(rowj, colIn
