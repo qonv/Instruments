@@ -777,4 +777,11 @@ public class DataTable implements Iterable<int[]> {
 			case TARGET_CATEGORICAL_INT:
 			case UNUSED_INT:
 			case UNUSED_STRING :
-				return Integer.compare(getAsInt(rowi, colIndex), getAsInt(rowj, colIn
+				return Integer.compare(getAsInt(rowi, colIndex), getAsInt(rowj, colIndex));
+			case NUMERICAL_FLOAT:
+			case UNUSED_FLOAT :
+				float a = getAsFloat(rowi, colIndex);
+				float b = getAsFloat(rowj, colIndex);
+				return Float.compare(a, b);
+			default :
+				throw new IllegalArgumentException(colNames[colIndex]+" has i
