@@ -784,4 +784,15 @@ public class DataTable implements Iterable<int[]> {
 				float b = getAsFloat(rowj, colIndex);
 				return Float.compare(a, b);
 			default :
-				throw new IllegalArgumentException(colNames[colIndex]+" has i
+				throw new IllegalArgumentException(colNames[colIndex]+" has invalid type: "+colType);
+		}
+	}
+
+	public int compare(int a, int b, VariableType colType) {
+		switch ( colType ) {
+			case CATEGORICAL_INT:
+			case NUMERICAL_INT:
+			case CATEGORICAL_STRING: // strings are encoded as ints
+			case TARGET_CATEGORICAL_STRING:
+			case TARGET_CATEGORICAL_INT:
+			
