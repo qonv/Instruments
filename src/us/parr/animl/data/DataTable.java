@@ -813,4 +813,16 @@ public class DataTable implements Iterable<int[]> {
 		return firstCol>=0 ? firstCol : getNumberOfColumns() - 1; // default to last column
 	}
 
-	@Over
+	@Override
+	public Iterator<int[]> iterator() {
+		return new DataTableIterator(this);
+	}
+
+	@Override
+	public void forEach(Consumer<? super int[]> action) {
+		throw new UnsupportedOperationException();
+	}
+
+	@Override
+	public Spliterator<int[]> spliterator() {
+		throw new Uns
