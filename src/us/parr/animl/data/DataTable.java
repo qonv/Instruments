@@ -825,4 +825,11 @@ public class DataTable implements Iterable<int[]> {
 
 	@Override
 	public Spliterator<int[]> spliterator() {
-		throw new Uns
+		throw new UnsupportedOperationException();
+	}
+
+	public static String[] getDefaultColNames(VariableType[] colTypes, int dim) {
+		String[] colNames;
+		colNames = new String[dim];
+		for (int i = 0; i < dim; i++) {
+			if ( colTypes[i]==TARGET_CATEGORICAL_INT || colTypes[i]==TARGET_CATE
