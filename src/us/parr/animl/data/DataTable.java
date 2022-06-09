@@ -795,4 +795,13 @@ public class DataTable implements Iterable<int[]> {
 			case CATEGORICAL_STRING: // strings are encoded as ints
 			case TARGET_CATEGORICAL_STRING:
 			case TARGET_CATEGORICAL_INT:
-			
+			case UNUSED_INT:
+			case UNUSED_STRING :
+				return Integer.compare(a, b);
+			case NUMERICAL_FLOAT:
+			case UNUSED_FLOAT :
+				float af = getAsFloat(a);
+				float bf = getAsFloat(b);
+				return Float.compare(af, bf);
+			default :
+				throw new Illega
