@@ -804,4 +804,13 @@ public class DataTable implements Iterable<int[]> {
 				float bf = getAsFloat(b);
 				return Float.compare(af, bf);
 			default :
-				throw new Illega
+				throw new IllegalArgumentException("invalid type: "+colType);
+		}
+	}
+
+	public int getPredictedCol() {
+		int firstCol = indexOf(colTypes, t -> t==TARGET_CATEGORICAL_STRING || t==TARGET_CATEGORICAL_INT);
+		return firstCol>=0 ? firstCol : getNumberOfColumns() - 1; // default to last column
+	}
+
+	@Over
