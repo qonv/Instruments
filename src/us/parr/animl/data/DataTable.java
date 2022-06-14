@@ -846,4 +846,14 @@ public class DataTable implements Iterable<int[]> {
 		VariableType[] colTypes;
 		colTypes = new VariableType[dim];
 		for (int i = 0; i<dim-1; i++) {
-			colTypes[i] 
+			colTypes[i] = NUMERICAL_INT;
+		}
+		colTypes[dim-1] = TARGET_CATEGORICAL_INT;
+		return colTypes;
+	}
+
+	public String toTestString() {
+		StringBuilder buf = new StringBuilder();
+		if ( colNames!=null ) {
+			List<String> strings = map(colNames, Object::toString);
+			if ( c
