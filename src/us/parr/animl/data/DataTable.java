@@ -832,4 +832,18 @@ public class DataTable implements Iterable<int[]> {
 		String[] colNames;
 		colNames = new String[dim];
 		for (int i = 0; i < dim; i++) {
-			if ( colTypes[i]==TARGET_CATEGORICAL_INT || colTypes[i]==TARGET_CATE
+			if ( colTypes[i]==TARGET_CATEGORICAL_INT || colTypes[i]==TARGET_CATEGORICAL_STRING ) {
+				colNames[i] = "y";
+			}
+			else {
+				colNames[i] = "x" + i;
+			}
+		}
+		return colNames;
+	}
+
+	public static VariableType[] getDefaultColTypes(int dim) {
+		VariableType[] colTypes;
+		colTypes = new VariableType[dim];
+		for (int i = 0; i<dim-1; i++) {
+			colTypes[i] 
