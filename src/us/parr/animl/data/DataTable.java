@@ -878,4 +878,8 @@ public class DataTable implements Iterable<int[]> {
 	}
 
 	public String toString(VariableFormat[] colFormats) {
-		StringBuilder buf =
+		StringBuilder buf = new StringBuilder();
+		List<Integer> colWidths = map(colNames, n -> n.length());
+		// compute column widths as max of col name or widest value in column
+		for (int j = 0; j<colWidths.size(); j++) {
+			int w = Math.max(colWidths.get(j), g
