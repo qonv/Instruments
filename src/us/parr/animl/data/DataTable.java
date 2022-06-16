@@ -864,4 +864,18 @@ public class DataTable implements Iterable<int[]> {
 			buf.append(join(strings, ", "));
 			buf.append("\n");
 		}
-		for (int i = 0; 
+		for (int i = 0; i<rows.size(); i++) {
+			Object[] values = getValues(i);
+			buf.append(join(values, ", "));
+			buf.append("\n");
+		}
+		return buf.toString();
+	}
+
+	@Override
+	public String toString() {
+		return toString(defaultVarFormats);
+	}
+
+	public String toString(VariableFormat[] colFormats) {
+		StringBuilder buf =
