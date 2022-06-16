@@ -856,4 +856,12 @@ public class DataTable implements Iterable<int[]> {
 		StringBuilder buf = new StringBuilder();
 		if ( colNames!=null ) {
 			List<String> strings = map(colNames, Object::toString);
-			if ( c
+			if ( colTypes!=null ) {
+				for (int j = 0; j<strings.size(); j++) {
+					strings.set(j, strings.get(j)+"("+varTypeShortNames[colTypes[j].ordinal()]+")");
+				}
+			}
+			buf.append(join(strings, ", "));
+			buf.append("\n");
+		}
+		for (int i = 0; 
