@@ -893,4 +893,10 @@ public class DataTable implements Iterable<int[]> {
 		buf.append("\n");
 		for (int i = 0; i<rows.size(); i++) {
 			Object[] values = getValues(i);
-			for (int j = 0; 
+			for (int j = 0; j<colWidths.size(); j++) {
+				int colWidth = colWidths.get(j);
+				String colValue = values[j].toString();
+				switch ( colFormats[colTypes[j].ordinal()] ) {
+					case LEFT :
+						colValue = String.format("%-"+colWidth+"s", colValue);
+					
