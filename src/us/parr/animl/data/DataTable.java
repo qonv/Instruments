@@ -882,4 +882,15 @@ public class DataTable implements Iterable<int[]> {
 		List<Integer> colWidths = map(colNames, n -> n.length());
 		// compute column widths as max of col name or widest value in column
 		for (int j = 0; j<colWidths.size(); j++) {
-			int w = Math.max(colWidths.get(j), g
+			int w = Math.max(colWidths.get(j), getColumnMaxWidth(j));
+			colWidths.set(j, w);
+			String name = StringUtils.center(colNames[j], w);
+			if ( j>0 ) {
+				buf.append(" ");
+			}
+			buf.append(name);
+		}
+		buf.append("\n");
+		for (int i = 0; i<rows.size(); i++) {
+			Object[] values = getValues(i);
+			for (int j = 0; 
