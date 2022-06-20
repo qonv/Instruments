@@ -912,4 +912,15 @@ public class DataTable implements Iterable<int[]> {
 				}
 				buf.append(colValue);
 			}
-			buf.a
+			buf.append("\n");
+		}
+		return buf.toString();
+	}
+
+	public int getColumnMaxWidth(int colIndex) {
+		int w = 0;
+		// scan column, find max width
+		for (int i = 0; i<rows.size(); i++) {
+			String v = getValue(i, colIndex).toString();
+			if ( v.length()>w ) {
+				w = v.length()
