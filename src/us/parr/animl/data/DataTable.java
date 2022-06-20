@@ -923,4 +923,9 @@ public class DataTable implements Iterable<int[]> {
 		for (int i = 0; i<rows.size(); i++) {
 			String v = getValue(i, colIndex).toString();
 			if ( v.length()>w ) {
-				w = v.length()
+				w = v.length();
+			}
+		}
+		return w;
+	}
+}
