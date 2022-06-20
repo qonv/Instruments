@@ -899,4 +899,17 @@ public class DataTable implements Iterable<int[]> {
 				switch ( colFormats[colTypes[j].ordinal()] ) {
 					case LEFT :
 						colValue = String.format("%-"+colWidth+"s", colValue);
-					
+						break;
+					case CENTER :
+						colValue = StringUtils.center(colValue, colWidth);
+						break;
+					case RIGHT :
+						colValue = String.format("%"+colWidth+"s", colValue);
+						break;
+				}
+				if ( j>0 ) {
+					buf.append(" ");
+				}
+				buf.append(colValue);
+			}
+			buf.a
