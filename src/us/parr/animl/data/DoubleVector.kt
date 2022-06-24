@@ -34,4 +34,10 @@ class DoubleVector {
     override fun equals(other: Any?): Boolean = equals(other, 1e-9)
 
     fun equals(other: Any?, tolerance: Double): Boolean {
-        return oth
+        return other is DoubleVector &&
+                this.dims()==other.dims() &&
+                isclose(this, other, tolerance)
+    }
+
+//    fun isclose(other: DoubleVector, ndec : Int = NUM_DECIMALS_TOLERANCE_FOR_EQUALS) : Boolean {
+//        for (i in elements.indices
