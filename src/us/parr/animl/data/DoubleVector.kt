@@ -26,3 +26,12 @@ class DoubleVector {
             elements[i] = x[i].toDouble()
         }
     }
+    constructor(vararg x : Double) {
+        elements = x.copyOf()
+    }
+
+    /** Two vectors are equal if their elements are isclose() */
+    override fun equals(other: Any?): Boolean = equals(other, 1e-9)
+
+    fun equals(other: Any?, tolerance: Double): Boolean {
+        return oth
