@@ -17,4 +17,12 @@ class DoubleVector {
     constructor(n : Int) {
         elements = kotlin.DoubleArray(n)
     }
-    constructor(v : Doub
+    constructor(v : DoubleVector) {
+        elements = v.elements.copyOf()
+    }
+    constructor(x : List<Number>) {
+        elements = kotlin.DoubleArray(x.size)
+        for (i in elements.indices) {
+            elements[i] = x[i].toDouble()
+        }
+    }
