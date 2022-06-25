@@ -40,4 +40,12 @@ class DoubleVector {
     }
 
 //    fun isclose(other: DoubleVector, ndec : Int = NUM_DECIMALS_TOLERANCE_FOR_EQUALS) : Boolean {
-//        for (i in elements.indices
+//        for (i in elements.indices) {
+//            if ( !isclose(this[i], other[i], ndec) ) return false
+//        }
+//        return true
+//    }
+
+
+    /** Hash of this vector is derived from element values rounded to ndec decimal places */
+    override fun hashCode(): Int = hashCode(NUM_DECIMALS_TOL
