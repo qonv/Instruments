@@ -48,4 +48,11 @@ class DoubleVector {
 
 
     /** Hash of this vector is derived from element values rounded to ndec decimal places */
-    override fun hashCode(): Int = hashCode(NUM_DECIMALS_TOL
+    override fun hashCode(): Int = hashCode(NUM_DECIMALS_TOLERANCE_FOR_EQUALS)
+
+    fun hashCode(ndec : Int): Int {
+        var hash : Int = 1
+        for (element in elements) {
+            var rounded = BigDecimal(element)
+            rounded = rounded.setScale(ndec, RoundingMode.HALF_UP)
+            val bits = java.l
