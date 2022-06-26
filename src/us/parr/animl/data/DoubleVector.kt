@@ -55,4 +55,12 @@ class DoubleVector {
         for (element in elements) {
             var rounded = BigDecimal(element)
             rounded = rounded.setScale(ndec, RoundingMode.HALF_UP)
-            val bits = java.l
+            val bits = java.lang.Double.doubleToLongBits(rounded.toDouble())
+            hash = 31 * hash + (bits xor (bits ushr 32)).toInt()
+        }
+
+        return hash
+    }
+
+    fun rounded(ndec : Int = NUM_DECIMALS_TOLERANCE_FOR_EQUALS) : DoubleVector {
+        val dup = Dou
