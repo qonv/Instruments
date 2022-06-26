@@ -63,4 +63,12 @@ class DoubleVector {
     }
 
     fun rounded(ndec : Int = NUM_DECIMALS_TOLERANCE_FOR_EQUALS) : DoubleVector {
-        val dup = Dou
+        val dup = DoubleVector(this)
+        dup.round(ndec)
+        return dup
+    }
+
+    /** Round to ndec decimals rounding to nearest "neighbor" */
+    fun round(ndec : Int = NUM_DECIMALS_TOLERANCE_FOR_EQUALS) {
+        for (i in elements.indices) {
+            var d
