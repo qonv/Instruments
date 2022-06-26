@@ -71,4 +71,14 @@ class DoubleVector {
     /** Round to ndec decimals rounding to nearest "neighbor" */
     fun round(ndec : Int = NUM_DECIMALS_TOLERANCE_FOR_EQUALS) {
         for (i in elements.indices) {
-            var d
+            var d = BigDecimal(elements[i])
+            d = d.setScale(ndec, RoundingMode.HALF_UP)
+            elements[i] = d.toDouble()
+        }
+    }
+
+    operator fun get(i : Int) : Double = elements.get(i)
+
+    operator fun set(i : Int, v : Double) { elements[i] = v }
+
+    fun c
