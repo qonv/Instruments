@@ -93,4 +93,14 @@ class DoubleVector {
         return sum
     }
 
-    fun sum() : Double 
+    fun sum() : Double {
+        var sum : Double = 0.0
+        for(i in elements.indices) {
+            sum += elements[i]
+        }
+        return sum
+    }
+
+    operator infix fun plus(b:DoubleVector) : DoubleVector {
+        val r = DoubleVector(b)
+        for(i in el
