@@ -81,4 +81,16 @@ class DoubleVector {
 
     operator fun set(i : Int, v : Double) { elements[i] = v }
 
-    fun c
+    fun copy() : DoubleVector = DoubleVector(elements.toList())
+
+    fun dims() = elements.size
+
+    infix fun dot(b:DoubleVector) : Double {
+        var sum : Double = 0.0
+        for(i in elements.indices) {
+            sum += elements[i] * b.elements[i]
+        }
+        return sum
+    }
+
+    fun sum() : Double 
