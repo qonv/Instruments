@@ -103,4 +103,13 @@ class DoubleVector {
 
     operator infix fun plus(b:DoubleVector) : DoubleVector {
         val r = DoubleVector(b)
-        for(i in el
+        for(i in elements.indices) {
+            r.elements[i] = elements[i] + b.elements[i]
+        }
+        return r
+    }
+
+    operator infix fun minus(b:DoubleVector) : DoubleVector {
+        val r = DoubleVector(b)
+        for(i in elements.indices) {
+            r.elements[i] =
