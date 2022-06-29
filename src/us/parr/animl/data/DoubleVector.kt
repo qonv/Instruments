@@ -112,4 +112,14 @@ class DoubleVector {
     operator infix fun minus(b:DoubleVector) : DoubleVector {
         val r = DoubleVector(b)
         for(i in elements.indices) {
-            r.elements[i] =
+            r.elements[i] = elements[i] - b.elements[i]
+        }
+        return r
+    }
+
+    operator infix fun times(b:Double) : DoubleVector {
+        return DoubleVector(elements.map { it * b })
+    }
+
+    operator infix fun div(b:Double) : DoubleVector {
+        return DoubleVecto
