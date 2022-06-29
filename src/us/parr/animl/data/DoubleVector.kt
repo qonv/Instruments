@@ -122,4 +122,15 @@ class DoubleVector {
     }
 
     operator infix fun div(b:Double) : DoubleVector {
-        return DoubleVecto
+        return DoubleVector(elements.map { it / b })
+    }
+
+    operator fun unaryMinus() : DoubleVector {
+        return DoubleVector(elements.map { -it })
+    }
+
+    fun abs() : DoubleVector {
+        return DoubleVector(elements.map { Math.abs(it) })
+    }
+
+    infix fun map(trans
