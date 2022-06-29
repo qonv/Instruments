@@ -141,4 +141,13 @@ class DoubleVector {
         return result
     }
 
-    fun toString(ndec : Int = NUM_DECIM
+    fun toString(ndec : Int = NUM_DECIMALS_TOLERANCE_FOR_EQUALS) =
+        '[' +
+            elements.joinToString(", ",
+            transform = {
+                e -> BigDecimal(e).setScale(ndec,RoundingMode.HALF_UP).toString()
+            }
+            ) +
+        ']'
+
+    override fun toSt
