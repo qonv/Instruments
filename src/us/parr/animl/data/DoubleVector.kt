@@ -133,4 +133,12 @@ class DoubleVector {
         return DoubleVector(elements.map { Math.abs(it) })
     }
 
-    infix fun map(trans
+    infix fun map(transform: (Double) -> Double): DoubleVector {
+        val result = DoubleVector(dims())
+        for (i in this.elements.indices) {
+            result.elements[i] = transform(this.elements[i])
+        }
+        return result
+    }
+
+    fun toString(ndec : Int = NUM_DECIM
