@@ -150,4 +150,15 @@ class DoubleVector {
             ) +
         ']'
 
-    override fun toSt
+    override fun toString() = toString(NUM_DECIMALS_TOLERANCE_FOR_EQUALS)
+}
+
+fun sum(v : DoubleVector) = v.sum()
+
+fun sum(data : List<DoubleVector>) : DoubleVector {
+    return data.reduce { s, x -> s + x }
+}
+
+fun mean(v : DoubleVector) = v.sum() / v.dims()
+
+/** Return L2 euclidean dis
