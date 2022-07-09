@@ -161,4 +161,11 @@ fun sum(data : List<DoubleVector>) : DoubleVector {
 
 fun mean(v : DoubleVector) = v.sum() / v.dims()
 
-/** Return L2 euclidean dis
+/** Return L2 euclidean distance between scalars or vectors x and y */
+fun euclidean_distance(x : DoubleVector, y : DoubleVector) : Double {
+//    var sum : Double = 0.0
+//    for (i in x.elements.indices) { // for each dimension
+//        val d = x[i]-y[i]
+//        sum += d*d
+//    }
+    return Ma
