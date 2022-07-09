@@ -168,4 +168,14 @@ fun euclidean_distance(x : DoubleVector, y : DoubleVector) : Double {
 //        val d = x[i]-y[i]
 //        sum += d*d
 //    }
-    return Ma
+    return Math.sqrt(sum((x - y) map { it * it }))
+}
+
+fun norm(x : DoubleVector) : Double {
+    return Math.sqrt(sum(x.map { it * it }))
+}
+
+/** Default is that a, b must be same within about 9 decimal digits.
+ *  Handles NaN and Inf cases.
+ */
+fun isc
