@@ -178,4 +178,8 @@ fun norm(x : DoubleVector) : Double {
 /** Default is that a, b must be same within about 9 decimal digits.
  *  Handles NaN and Inf cases.
  */
-fun isc
+fun isclose(a : Double, b : Double, tolerance: Double = 1e-9) : Boolean {
+    if ( a.isNaN() ) return b.isNaN()
+    if ( a.isInfinite() ) return b.isInfinite()
+    val close = Math.abs(a - b) <= tolerance
+//    println("$a==$b is ${close} with tolerance $tolerance"
