@@ -182,4 +182,11 @@ fun isclose(a : Double, b : Double, tolerance: Double = 1e-9) : Boolean {
     if ( a.isNaN() ) return b.isNaN()
     if ( a.isInfinite() ) return b.isInfinite()
     val close = Math.abs(a - b) <= tolerance
-//    println("$a==$b is ${close} with tolerance $tolerance"
+//    println("$a==$b is ${close} with tolerance $tolerance")
+    return close
+}
+
+/** Are a and b the same to ndec decimal points? Checks for NaN and Inf equality too. */
+//fun isclose(a : Double, b : Double, tolerance: Double = 1e-9) : Boolean {
+//    if ( a.isNaN() && b.isNaN() ) return true
+//    if ( a.isInfinite() &
