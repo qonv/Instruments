@@ -189,4 +189,8 @@ fun isclose(a : Double, b : Double, tolerance: Double = 1e-9) : Boolean {
 /** Are a and b the same to ndec decimal points? Checks for NaN and Inf equality too. */
 //fun isclose(a : Double, b : Double, tolerance: Double = 1e-9) : Boolean {
 //    if ( a.isNaN() && b.isNaN() ) return true
-//    if ( a.isInfinite() &
+//    if ( a.isInfinite() && b.isInfinite() ) return true
+//    // ok, we have real (finite) values to compare.
+//    val abig = BigDecimal(a).setScale(ndec, RoundingMode.HALF_UP)
+//    val bbig = BigDecimal(b).setScale(ndec, RoundingMode.HALF_UP)
+//    println("$abig==$bbig is ${abig==bbig} with
