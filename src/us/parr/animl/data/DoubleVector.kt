@@ -193,4 +193,11 @@ fun isclose(a : Double, b : Double, tolerance: Double = 1e-9) : Boolean {
 //    // ok, we have real (finite) values to compare.
 //    val abig = BigDecimal(a).setScale(ndec, RoundingMode.HALF_UP)
 //    val bbig = BigDecimal(b).setScale(ndec, RoundingMode.HALF_UP)
-//    println("$abig==$bbig is ${abig==bbig} with
+//    println("$abig==$bbig is ${abig==bbig} with scale $ndec")
+//    return abig == bbig
+//}
+
+fun isclose(a : DoubleVector, b: DoubleVector, tolerance: Double = 1e-9) : Boolean {
+    if ( a.dims() != b.dims() ) return false
+    for (i in a.elements.indices) {
+        if ( !isclose(a[i], b[i
