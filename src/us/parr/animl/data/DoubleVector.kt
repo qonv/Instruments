@@ -200,4 +200,12 @@ fun isclose(a : Double, b : Double, tolerance: Double = 1e-9) : Boolean {
 fun isclose(a : DoubleVector, b: DoubleVector, tolerance: Double = 1e-9) : Boolean {
     if ( a.dims() != b.dims() ) return false
     for (i in a.elements.indices) {
-        if ( !isclose(a[i], b[i
+        if ( !isclose(a[i], b[i], tolerance) ) return false
+    }
+    return true
+}
+
+fun isclose(a : List<DoubleVector>, b : List<DoubleVector>, tolerance: Double = 1e-9) : Boolean {
+    if ( a.size != b.size ) return false
+    for (i in a.indices) {
+        if ( !(isclose(a[i], b[i], tolerance)) ) return 
