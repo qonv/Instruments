@@ -208,4 +208,16 @@ fun isclose(a : DoubleVector, b: DoubleVector, tolerance: Double = 1e-9) : Boole
 fun isclose(a : List<DoubleVector>, b : List<DoubleVector>, tolerance: Double = 1e-9) : Boolean {
     if ( a.size != b.size ) return false
     for (i in a.indices) {
-        if ( !(isclose(a[i], b[i], tolerance)) ) return 
+        if ( !(isclose(a[i], b[i], tolerance)) ) return false
+    }
+    return true
+}
+
+fun argmin(v : DoubleVector) : Int {
+    var min_i = -1
+    var min_value = Double.MAX_VALUE
+    for (i in v.elements.indices) {
+        if ( v.elements[i]<min_value ) {
+            min_i = i
+            min_value = v.elements[i]
+        
