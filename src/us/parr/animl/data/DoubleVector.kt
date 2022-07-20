@@ -220,4 +220,13 @@ fun argmin(v : DoubleVector) : Int {
         if ( v.elements[i]<min_value ) {
             min_i = i
             min_value = v.elements[i]
-        
+        }
+    }
+    return min_i
+}
+
+/** Take list of p-dimensional data n-vectors and make list of n-dimensional vectors of len n.
+ *  Each output list is a column of the data.
+ */
+fun transpose(data : List<DoubleVector>) : List<DoubleVector> {
+    if ( data.isEmp
