@@ -229,4 +229,9 @@ fun argmin(v : DoubleVector) : Int {
  *  Each output list is a column of the data.
  */
 fun transpose(data : List<DoubleVector>) : List<DoubleVector> {
-    if ( data.isEmp
+    if ( data.isEmpty() ) return emptyList()
+    val p = data[0].dims() // number of dimensions
+    val transposed = List<DoubleVector>(p, init = {DoubleVector(data.size)})
+    for (row in data.indices) {
+        for (col in 0..p-1) {
+            transposed[col][row] = data
