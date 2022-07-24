@@ -234,4 +234,15 @@ fun transpose(data : List<DoubleVector>) : List<DoubleVector> {
     val transposed = List<DoubleVector>(p, init = {DoubleVector(data.size)})
     for (row in data.indices) {
         for (col in 0..p-1) {
-            transposed[col][row] = data
+            transposed[col][row] = data[row][col]
+        }
+    }
+    return transposed
+}
+
+fun distinct(data : List<DoubleVector>, ndec : Int = NUM_DECIMALS_TOLERANCE_FOR_EQUALS)
+    : Set<DoubleVector>
+{
+    val uniq = mutableSetOf<DoubleVector>()
+    for (v in data) {
+        uniq.add(v.rounded(
