@@ -245,4 +245,15 @@ fun distinct(data : List<DoubleVector>, ndec : Int = NUM_DECIMALS_TOLERANCE_FOR_
 {
     val uniq = mutableSetOf<DoubleVector>()
     for (v in data) {
-        uniq.add(v.rounded(
+        uniq.add(v.rounded(ndec))
+    }
+    return uniq
+}
+
+fun main(args: Array<String>) {
+    val x = DoubleVector(5.2321, 32.021341)
+    val y = DoubleVector(5.2421, 32.02134100003)
+    println(x.hashCode())
+    println(y.hashCode())
+    println(x == y)
+}
