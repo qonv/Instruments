@@ -19,4 +19,13 @@ class FloatVector {
     constructor(v : FloatVector) {
         elements = v.elements.copyOf()
     }
-    constructor(x :
+    constructor(x : List<Number>) {
+        elements = kotlin.FloatArray(x.size)
+        for (i in elements.indices) {
+            elements[i] = x[i].toFloat()
+        }
+    }
+
+    operator fun get(i : Int) : Float = elements.get(i)
+
+    operator fun set(i : Int, v : F
