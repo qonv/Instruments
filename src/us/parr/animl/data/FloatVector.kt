@@ -28,4 +28,16 @@ class FloatVector {
 
     operator fun get(i : Int) : Float = elements.get(i)
 
-    operator fun set(i : Int, v : F
+    operator fun set(i : Int, v : Float) { elements[i] = v }
+
+    fun size() = elements.size
+
+    infix fun dot(b:FloatVector) : Double {
+        var sum : Double = 0.0
+        for(i in elements.indices) {
+            sum += elements[i] * b.elements[i]
+        }
+        return sum
+    }
+
+    fun sum(
