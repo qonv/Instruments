@@ -9,4 +9,14 @@ package us.parr.animl.data
 import java.lang.Math.abs
 import java.lang.Math.max
 
-/** A simple vector to 
+/** A simple vector to learn some Kotlin */
+class FloatVector {
+    var elements: kotlin.FloatArray
+
+    constructor(n : Int) {
+        elements = kotlin.FloatArray(n)
+    }
+    constructor(v : FloatVector) {
+        elements = v.elements.copyOf()
+    }
+    constructor(x :
