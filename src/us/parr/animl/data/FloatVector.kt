@@ -40,4 +40,14 @@ class FloatVector {
         return sum
     }
 
-    fun sum(
+    fun sum() : Double {
+        var sum : Double = 0.0
+        for(i in elements.indices) {
+            sum += elements[i]
+        }
+        return sum
+    }
+
+    operator infix fun plus(b:FloatVector) : FloatVector {
+        val r = FloatVector(b)
+        for(i in elements.indic
