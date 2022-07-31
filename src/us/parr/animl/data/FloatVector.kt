@@ -59,4 +59,15 @@ class FloatVector {
     operator infix fun minus(b:FloatVector) : FloatVector {
         val r = FloatVector(b)
         for(i in elements.indices) {
-            r.elements[i] = elements[i] - b.e
+            r.elements[i] = elements[i] - b.elements[i]
+        }
+        return r
+    }
+
+    infix fun map(transform: (Float) -> Float): FloatVector {
+        val result = FloatVector(size())
+        for (i in this.elements.indices) {
+            result.elements[i] = transform(this.elements[i])
+        }
+        return result
+ 
