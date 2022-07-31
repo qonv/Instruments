@@ -82,4 +82,13 @@ class FloatVector {
     override fun toString() = '[' + elements.joinToString(", ") + ']'
 }
 
-fun sum(v : FloatVector)
+fun sum(v : FloatVector) = v.sum()
+
+fun mean(v : FloatVector) = v.sum() / v.size()
+
+fun argmin(v : FloatVector) : Int {
+    var min_i = -1
+    var min_value = Float.MAX_VALUE
+    for (i in v.elements.indices) {
+        if ( v.elements[i]<min_value ) {
+            min
