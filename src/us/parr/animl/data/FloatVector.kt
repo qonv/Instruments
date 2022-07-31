@@ -91,4 +91,14 @@ fun argmin(v : FloatVector) : Int {
     var min_value = Float.MAX_VALUE
     for (i in v.elements.indices) {
         if ( v.elements[i]<min_value ) {
-            min
+            min_i = i
+            min_value = v.elements[i]
+        }
+    }
+    return min_i
+}
+
+/** Using logic from https://www.python.org/dev/peps/pep-0485/#proposed-implementation */
+fun isclose(a : Float, b : Float) : Boolean {
+    val rel_tol=1e-09
+    val abs_tol=0.0
