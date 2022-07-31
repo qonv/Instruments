@@ -70,4 +70,16 @@ class FloatVector {
             result.elements[i] = transform(this.elements[i])
         }
         return result
- 
+    }
+
+    infix fun isclose(b : FloatVector) : Boolean {
+        for (i in elements.indices) {
+            if ( !isclose(this[i],b[i]) ) return false
+        }
+        return true
+    }
+
+    override fun toString() = '[' + elements.joinToString(", ") + ']'
+}
+
+fun sum(v : FloatVector)
