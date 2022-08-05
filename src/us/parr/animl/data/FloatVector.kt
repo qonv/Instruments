@@ -102,3 +102,11 @@ fun argmin(v : FloatVector) : Int {
 fun isclose(a : Float, b : Float) : Boolean {
     val rel_tol=1e-09
     val abs_tol=0.0
+    return abs(a-b) <= max(rel_tol * max(abs(a), abs(b)), abs_tol)
+}
+
+fun isclose(a : List<FloatVector>, b : List<FloatVector>) : Boolean {
+    if ( a.size != b.size ) return false
+    for (i in a.indices) {
+        if ( !(a[i] isclose b[i]) ) return false
+ 
