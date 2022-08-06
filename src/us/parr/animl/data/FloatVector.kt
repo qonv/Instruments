@@ -121,4 +121,5 @@ fun main(args: Array<String>) {
     val z = x + y
     println(z)
     println(z - y)
-    printl
+    println(z dot y)
+}
