@@ -109,4 +109,16 @@ fun isclose(a : List<FloatVector>, b : List<FloatVector>) : Boolean {
     if ( a.size != b.size ) return false
     for (i in a.indices) {
         if ( !(a[i] isclose b[i]) ) return false
- 
+    }
+    return true
+}
+
+fun main(args: Array<String>) {
+    val x = FloatVector(10)
+    for (i in 0..9) x.elements[i] = i.toFloat()
+    val y = FloatVector(10)
+    for (i in 0..9) y.elements[i] = i.toFloat()
+    val z = x + y
+    println(z)
+    println(z - y)
+    printl
