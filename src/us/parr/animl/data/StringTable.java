@@ -22,4 +22,11 @@ import java.util.List;
  *  Copied from https://github.com/antlr/symtab
  */
 public class StringTable {
-	protected LinkedHashMap<String,
+	protected LinkedHashMap<String,Integer> table = new LinkedHashMap<String,Integer>();
+	protected int index = -1; // index we have just written
+	protected List<String> strings = new ArrayList<>();
+
+	public int add(String s) {
+		Integer I = table.get(s);
+		if ( I!=null ) return I;
+		index+
