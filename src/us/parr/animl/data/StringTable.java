@@ -7,4 +7,11 @@
 package us.parr.animl.data;
 
 import java.util.ArrayList;
-import java.util.LinkedHash
+import java.util.LinkedHashMap;
+import java.util.List;
+
+/** A unique set of strings mapped to a monotonically increasing index.
+ *  These indexes often useful to bytecode interpreters that have instructions
+ *  referring to strings by unique integer. Indexing is from 0.
+ *
+ *  We can also get them back out i
