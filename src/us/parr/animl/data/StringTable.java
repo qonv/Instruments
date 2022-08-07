@@ -14,4 +14,12 @@ import java.util.List;
  *  These indexes often useful to bytecode interpreters that have instructions
  *  referring to strings by unique integer. Indexing is from 0.
  *
- *  We can also get them back out i
+ *  We can also get them back out in original order.
+ *
+ *  Yes, I know that this is similar to {@link String#intern()} but in this
+ *  case, I need the index out not just to make these strings unique.
+ *
+ *  Copied from https://github.com/antlr/symtab
+ */
+public class StringTable {
+	protected LinkedHashMap<String,
