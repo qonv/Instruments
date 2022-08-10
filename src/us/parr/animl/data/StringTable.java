@@ -29,4 +29,18 @@ public class StringTable {
 	public int add(String s) {
 		Integer I = table.get(s);
 		if ( I!=null ) return I;
-		index+
+		index++;
+		table.put(s, index);
+		strings.add(s);
+		return index;
+	}
+
+	/** Get the ith string or null if out of range */
+	public String get(int i) {
+		if ( i<size() && i>=0 ) {
+			return strings.get(i);
+		}
+		return null;
+	}
+
+	public int size() { return table.size(
