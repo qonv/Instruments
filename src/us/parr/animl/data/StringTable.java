@@ -64,4 +64,7 @@ public class StringTable {
 	}
 
 	@Override
-	public String 
+	public String toString() {
+		return table.toString();
+	}
+}
