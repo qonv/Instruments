@@ -43,4 +43,13 @@ public class StringTable {
 		return null;
 	}
 
-	public int size() { return table.size(
+	public int size() { return table.size(); }
+
+	/** Return an array, possibly of length zero, with all strings
+	 *  sitting at their appropriate index within the array.
+	 */
+	public String[] toArray() {
+		return strings.toArray(new String[strings.size()]);
+	}
+
+	/** Return a Li
