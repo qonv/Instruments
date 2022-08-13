@@ -52,4 +52,16 @@ public class StringTable {
 		return strings.toArray(new String[strings.size()]);
 	}
 
-	/** Return a Li
+	/** Return a List, possibly of length zero, with all strings
+	 *  sitting at their appropriate index within the array.
+	 */
+	public List<String> toList() {
+		return strings;
+	}
+
+	public int getNumberOfStrings() {
+		return index + 1;
+	}
+
+	@Override
+	public String 
