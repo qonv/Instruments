@@ -14,4 +14,12 @@ import org.knowm.xchart.demo.charts.ExampleChart;
 import org.knowm.xchart.style.Styler;
 
 import java.util.ArrayList;
-import 
+import java.util.List;
+import java.util.Random;
+
+public class BarChart06 implements ExampleChart<CategoryChart> {
+
+	public static void main(String[] args) {
+
+		ExampleChart<CategoryChart> exampleChart = new BarChart06();
+		CategoryChart chart = exampleChart.getChart(
