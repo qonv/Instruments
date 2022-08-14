@@ -6,4 +6,12 @@
 
 package us.parr.animl.play;
 
-import org.knowm.xch
+import org.knowm.xchart.CategoryChart;
+import org.knowm.xchart.CategoryChartBuilder;
+import org.knowm.xchart.Histogram;
+import org.knowm.xchart.SwingWrapper;
+import org.knowm.xchart.demo.charts.ExampleChart;
+import org.knowm.xchart.style.Styler;
+
+import java.util.ArrayList;
+import 
