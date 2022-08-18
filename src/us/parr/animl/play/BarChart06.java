@@ -22,4 +22,15 @@ public class BarChart06 implements ExampleChart<CategoryChart> {
 	public static void main(String[] args) {
 
 		ExampleChart<CategoryChart> exampleChart = new BarChart06();
-		CategoryChart chart = exampleChart.getChart(
+		CategoryChart chart = exampleChart.getChart();
+		new SwingWrapper<CategoryChart>(chart).displayChart();
+	}
+
+	@Override
+	public CategoryChart getChart() {
+
+		// Create Chart
+		CategoryChart chart = new CategoryChartBuilder().width(800).height(600).title("Score Histogram").xAxisTitle("Mean").yAxisTitle("Count").build();
+
+		// Customize Chart
+		chart
