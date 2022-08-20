@@ -33,4 +33,10 @@ public class BarChart06 implements ExampleChart<CategoryChart> {
 		CategoryChart chart = new CategoryChartBuilder().width(800).height(600).title("Score Histogram").xAxisTitle("Mean").yAxisTitle("Count").build();
 
 		// Customize Chart
-		chart
+		chart.getStyler().setLegendPosition(Styler.LegendPosition.InsideNW);
+		chart.getStyler().setAvailableSpaceFill(.96);
+		chart.getStyler().setOverlapped(true);
+
+		// Series
+		Histogram histogram1 = new Histogram(getGaussianData(10000), 20, -20, 20);
+		chart.addSeries("histogram 1", histo
