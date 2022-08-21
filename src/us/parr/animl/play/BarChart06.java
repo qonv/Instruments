@@ -49,4 +49,9 @@ public class BarChart06 implements ExampleChart<CategoryChart> {
 		List<Double> data = new ArrayList<Double>(count);
 		Random r = new Random();
 		for (int i = 0; i < count; i++) {
-			data.add(r.next
+			data.add(r.nextGaussian() * 10);
+		}
+		return data;
+	}
+
+}
