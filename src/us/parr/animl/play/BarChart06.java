@@ -39,4 +39,14 @@ public class BarChart06 implements ExampleChart<CategoryChart> {
 
 		// Series
 		Histogram histogram1 = new Histogram(getGaussianData(10000), 20, -20, 20);
-		chart.addSeries("histogram 1", histo
+		chart.addSeries("histogram 1", histogram1.getxAxisData(), histogram1.getyAxisData());
+
+		return chart;
+	}
+
+	private List<Double> getGaussianData(int count) {
+
+		List<Double> data = new ArrayList<Double>(count);
+		Random r = new Random();
+		for (int i = 0; i < count; i++) {
+			data.add(r.next
