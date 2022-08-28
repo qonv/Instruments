@@ -16,4 +16,10 @@ import static us.parr.lib.ParrtStats.normal;
 
 public class TestXChart {
 	public static void main(String[] args) {
-		XYChart chart = new XYChartBuilder().
+		XYChart chart = new XYChartBuilder().width(800).height(600).build();
+
+		// Customize Chart
+		chart.getStyler().setDefaultSeriesRenderStyle(XYSeries.XYSeriesRenderStyle.Scatter);
+		chart.getStyler().setChartTitleVisible(false);
+		chart.getStyler().setLegendPosition(Styler.LegendPosition.InsideSW);
+		chart.getStyler().s
