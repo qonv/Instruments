@@ -31,4 +31,7 @@ public class TestXChart {
 		// Series
 		double[] xData = normal(0, 1, 1000);
 		double[] yData = normal(0, 1, 1000);
-		chart.addSeries("Gaussian Bl
+		chart.addSeries("Gaussian Blob", xData, yData);
+		new SwingWrapper<>(chart).displayChart();
+	}
+}
