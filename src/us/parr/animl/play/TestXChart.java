@@ -22,4 +22,13 @@ public class TestXChart {
 		chart.getStyler().setDefaultSeriesRenderStyle(XYSeries.XYSeriesRenderStyle.Scatter);
 		chart.getStyler().setChartTitleVisible(false);
 		chart.getStyler().setLegendPosition(Styler.LegendPosition.InsideSW);
-		chart.getStyler().s
+		chart.getStyler().setXAxisMax(5.0);
+		chart.getStyler().setXAxisMin(-5.0);
+		chart.getStyler().setYAxisMax(5.0);
+		chart.getStyler().setYAxisMin(-5.0);
+		chart.getStyler().setMarkerSize(2);
+
+		// Series
+		double[] xData = normal(0, 1, 1000);
+		double[] yData = normal(0, 1, 1000);
+		chart.addSeries("Gaussian Bl
