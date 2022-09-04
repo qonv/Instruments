@@ -15,4 +15,9 @@ import java.util.Random;
 
 import static us.parr.lib.ParrtStats.mean;
 
-public class V
+public class Validation {
+	public static final int SEED = 333888333; // need randomness but use same seed to get reproducibility
+	public static final Random random = new Random(SEED);
+
+	public static int leaveOneOut(ClassifierModel classifier, DataTable data) {
+		in
