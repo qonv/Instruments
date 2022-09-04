@@ -20,4 +20,8 @@ public class Validation {
 	public static final Random random = new Random(SEED);
 
 	public static int leaveOneOut(ClassifierModel classifier, DataTable data) {
-		in
+		int miss = 0;
+		for (int whichToLeaveOut = 0; whichToLeaveOut<data.size(); whichToLeaveOut++) {
+			DataTable subset = data.subsetNot(whichToLeaveOut); // shallow copy data set
+			int[] leaveOut = data.getRow(whichToLeaveOut);
+			classifier.train(subse
