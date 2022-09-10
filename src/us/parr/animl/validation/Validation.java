@@ -34,4 +34,10 @@ public class Validation {
 		return miss;
 	}
 
-	public static double kFoldCross(ClassifierModel classifier, int k, Da
+	public static double kFoldCross(ClassifierModel classifier, int k, DataTable data) {
+		data.shuffle(random);
+		int n = data.size();
+		int foldSize = n / k;
+		int remainder = n % k;
+//		System.out.printf("%d-fold cross-validation n=%d, size=%d, rem=%d\n", k, n, foldSize, remainder);
+		assert remainder
