@@ -40,4 +40,9 @@ public class Validation {
 		int foldSize = n / k;
 		int remainder = n % k;
 //		System.out.printf("%d-fold cross-validation n=%d, size=%d, rem=%d\n", k, n, foldSize, remainder);
-		assert remainder
+		assert remainder + foldSize * k == n;
+		List<Double> errors = new ArrayList<>();
+		for (int i = 0; i<k; i++) {
+			int start = i * foldSize;
+			int stop = start + foldSize - 1;
+			if ( i==k-1 ) { // last fold gets remainder so it could be bigger than the prev
