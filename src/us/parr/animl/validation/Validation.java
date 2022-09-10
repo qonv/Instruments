@@ -45,4 +45,12 @@ public class Validation {
 		for (int i = 0; i<k; i++) {
 			int start = i * foldSize;
 			int stop = start + foldSize - 1;
-			if ( i==k-1 ) { // last fold gets remainder so it could be bigger than the prev
+			if ( i==k-1 ) { // last fold gets remainder so it could be bigger than the previous k-1 folds.
+				stop += remainder;
+			}
+			DataTable subset = data.subsetNot(start, stop);
+			DataTable leftOut = data.subset(start, stop);
+			long t0 = System.nanoTime();
+			classifier.train(subset); // wipes old data, retrains
+			long t1 = System.nanoTime();
+			int missPerFold 
