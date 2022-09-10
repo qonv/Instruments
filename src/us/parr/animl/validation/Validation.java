@@ -24,4 +24,14 @@ public class Validation {
 		for (int whichToLeaveOut = 0; whichToLeaveOut<data.size(); whichToLeaveOut++) {
 			DataTable subset = data.subsetNot(whichToLeaveOut); // shallow copy data set
 			int[] leaveOut = data.getRow(whichToLeaveOut);
-			classifier.train(subse
+			classifier.train(subset); // wipes old data, retrains
+			int cat = classifier.classify(leaveOut);
+			int trueCat = leaveOut[data.getPredictedCol()];
+			if ( cat!=trueCat ) {
+				miss++;
+			}
+		}
+		return miss;
+	}
+
+	public static double kFoldCross(ClassifierModel classifier, int k, Da
