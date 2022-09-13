@@ -53,4 +53,13 @@ public class Validation {
 			long t0 = System.nanoTime();
 			classifier.train(subset); // wipes old data, retrains
 			long t1 = System.nanoTime();
-			int missPerFold 
+			int missPerFold = 0;
+			long c0 = System.nanoTime();
+			for (int[] row : leftOut) {
+				int cat = classifier.classify(row);
+				int trueCat = row[data.getPredictedCol()];
+				if ( cat!=trueCat ) {
+					missPerFold++;
+				}
+			}
+			long c1 = System.nanoTime()
