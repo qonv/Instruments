@@ -62,4 +62,10 @@ public class Validation {
 					missPerFold++;
 				}
 			}
-			long c1 = System.nanoTime()
+			long c1 = System.nanoTime();
+			errors.add(((double)missPerFold) / (stop-start+1));
+			System.out.printf("train %dms, classify %d records %dms\n",
+			                  (t1-t0)/(1000*1000),
+			                  leftOut.size(), (c1-c0)/(1000*1000));
+		}
+//		System.out.println("missed in fold "+er
