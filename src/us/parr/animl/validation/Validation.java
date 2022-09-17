@@ -68,4 +68,7 @@ public class Validation {
 			                  (t1-t0)/(1000*1000),
 			                  leftOut.size(), (c1-c0)/(1000*1000));
 		}
-//		System.out.println("missed in fold "+er
+//		System.out.println("missed in fold "+errors+"; mu="+mean(errors));
+		return mean(errors);
+	}
+}
