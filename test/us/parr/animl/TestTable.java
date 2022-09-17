@@ -23,3 +23,284 @@ import static us.parr.lib.ParrtCollections.join;
 
 public class TestTable extends BaseTest {
 	public static final String[] colNames3 = {"a", "b", "y"};
+	public static final DataTable.VariableType[] colTypes3 = {
+		CATEGORICAL_INT,
+		NUMERICAL_INT,
+		TARGET_CATEGORICAL_INT
+	};
+	public static final List<int[]> rawData1x3 = new ArrayList<int[]>() {{
+		add(new int[] {1,2,3});
+	}};
+
+	@Test public void testCatPartition1() {
+		List<int[]> rows = new ArrayList<>();
+		rows.add(new int[] {1});
+		DataTable.categoricalPartition(rows, 0, 1, 0, rows.size()-1);
+		DataTable data = DataTable.fromInts(rows, null, null);
+		int[] colValues = data.getColValues(0);
+		assertEquals("[1]", Arrays.toString(colValues));
+	}
+
+	@Test public void testCatPartition2() {
+		List<int[]> rows = new ArrayList<>();
+		rows.add(new int[] {1});
+		rows.add(new int[] {2});
+		DataTable.categoricalPartition(rows, 0, 2, 0, rows.size()-1);
+		DataTable data = DataTable.fromInts(rows, null, null);
+		int[] colValues = data.getColValues(0);
+		assertEquals("[2, 1]", Arrays.toString(colValues));
+
+		DataTable.categoricalPartition(rows, 0, 1, 0, rows.size()-1);
+		data = DataTable.fromInts(rows, null, null);
+		colValues = data.getColValues(0);
+		assertEquals("[1, 2]", Arrays.toString(colValues));
+	}
+
+	@Test public void testCatPartition3() {
+		List<int[]> rows = new ArrayList<>();
+		rows.add(new int[] {1});
+		rows.add(new int[] {2});
+		rows.add(new int[] {3});
+		DataTable.categoricalPartition(rows, 0, 1, 0, rows.size()-1);
+		DataTable data = DataTable.fromInts(rows, null, null);
+		int[] colValues = data.getColValues(0);
+		assertEquals("[1, 2, 3]", Arrays.toString(colValues));
+
+		DataTable.categoricalPartition(rows, 0, 2, 0, rows.size()-1);
+		data = DataTable.fromInts(rows, null, null);
+		colValues = data.getColValues(0);
+		assertEquals("[2, 1, 3]", Arrays.toString(colValues));
+
+		DataTable.categoricalPartition(rows, 0, 3, 0, rows.size()-1);
+		data = DataTable.fromInts(rows, null, null);
+		colValues = data.getColValues(0);
+		assertEquals("[3, 1, 2]", Arrays.toString(colValues));
+	}
+
+	@Test public void testCatPartitionHeartData() {
+		URL url = this.getClass().getClassLoader().getResource("Heart.csv");
+		DataTable t = DataTable.loadCSV(url.getFile().toString(), "excel", null, null, true);
+		int splitCategory = 0;
+		int splitIndex = DataTable.categoricalPartition(t.getRows(), 3, splitCategory, 0, t.getRows().size()-1);
+		int[] colValues = t.getColValues(3);
+		checkCats(splitCategory, splitIndex, colValues);
+
+		splitCategory = 1;
+		splitIndex = DataTable.categoricalPartition(t.getRows(), 3, splitCategory, 0, t.getRows().size()-1);
+		colValues = t.getColValues(3);
+		checkCats(splitCategory, splitIndex, colValues);
+
+		splitCategory = 2;
+		splitIndex = DataTable.categoricalPartition(t.getRows(), 3, splitCategory, 0, t.getRows().size()-1);
+		colValues = t.getColValues(3);
+		checkCats(splitCategory, splitIndex, colValues);
+
+		splitCategory = 3;
+		splitIndex = DataTable.categoricalPartition(t.getRows(), 3, splitCategory, 0, t.getRows().size()-1);
+		colValues = t.getColValues(3);
+		checkCats(splitCategory, splitIndex, colValues);
+	}
+
+	public void checkCats(int splitCategory, int splitIndex, int[] colValues) {
+		for (int i = 0; i<colValues.length; i++) {
+			if ( i<splitIndex ) {
+				assertTrue(colValues[i]==splitCategory);
+			}
+			else {
+				assertTrue(colValues[i]!=splitCategory);
+			}
+		}
+	}
+
+	@Test public void testEmpty() {
+		DataTable t = DataTable.empty(null, null);
+		assertEquals("", t.toTestString());
+	}
+
+	@Test public void testEmptyWithNames() {
+		DataTable t = DataTable.empty(null, colNames3);
+		assertEquals("a, b, y\n", t.toTestString());
+	}
+
+	@Test public void testEmptyWithTypes() {
+		DataTable t = DataTable.empty(colTypes3, null);
+		assertEquals("", t.toTestString());
+	}
+
+	@Test public void testEmptyWithNamesAndTypes() {
+		DataTable t = DataTable.empty(colTypes3, colNames3);
+		assertEquals("a(cat), b(int), y(target)\n", t.toTestString());
+	}
+
+	@Test public void test1x3Row() {
+		DataTable t = DataTable.fromInts(rawData1x3, null, null);
+		String expected =
+			"x0(int), x1(int), y(target)\n"+
+			"1, 2, 3\n";
+		assertEquals(expected, t.toTestString());
+	}
+
+	@Test public void test1x3RowWithTypes() {
+		DataTable t = DataTable.fromInts(rawData1x3, colTypes3, null);
+		String expected =
+			"x0(cat), x1(int), y(target)\n"+
+			"1, 2, 3\n";
+		assertEquals(expected, t.toTestString());
+	}
+
+	@Test public void test1x3RowWithNames() {
+		DataTable t = DataTable.fromInts(rawData1x3, null, colNames3);
+		String expected =
+			"a(int), b(int), y(target)\n"+
+			"1, 2, 3\n";
+		assertEquals(expected, t.toTestString());
+	}
+
+	@Test public void test1x3RowWithNamesAndTypes() {
+		DataTable t = DataTable.fromInts(rawData1x3, colTypes3, colNames3);
+		String expected =
+			"a(cat), b(int), y(target)\n"+
+			"1, 2, 3\n";
+		assertEquals(expected, t.toTestString());
+	}
+
+	@Test public void testFloatAsInt() {
+		final DataTable.VariableType[] colTypes = {
+			DataTable.VariableType.NUMERICAL_FLOAT,
+			DataTable.VariableType.NUMERICAL_FLOAT,
+		};
+		final List<int[]> rawData = new ArrayList<int[]>() {{
+			add(new int[] {Float.floatToIntBits(0.0f),Float.floatToIntBits(1234.560f)});
+		}};
+		DataTable t = DataTable.fromInts(rawData, colTypes, null);
+		String expected =
+			"x0(float), x1(float)\n"+
+			"0.0, 1234.56\n";
+		assertEquals(expected, t.toTestString());
+	}
+
+	@Test public void testEmptyRowFromString() {
+		List<String[]> data = new ArrayList<>();
+		DataTable t = DataTable.fromStrings(data, null, null, false);
+		assertEquals("", t.toTestString());
+	}
+
+	@Test public void test1RowFromString() {
+		List<String[]> data = new ArrayList<>();
+		data.add(new String[]{"1", "9", "2"});
+		DataTable t = DataTable.fromStrings(data, null, null, false);
+		String expected =
+			"x0(int), x1(int), y(target)\n"+
+			"1, 9, 2\n";
+		assertEquals(expected, t.toTestString());
+	}
+
+	@Test public void test1RowFromStringWithHeader() {
+		List<String[]> data = new ArrayList<>();
+		data.add(new String[]{"A", "B", "Y"});
+		data.add(new String[]{"1", "9", "2"});
+		DataTable t = DataTable.fromStrings(data, null, null, true);
+		String expected =
+			"A(int), B(int), Y(target)\n"+
+			"1, 9, 2\n";
+		assertEquals(expected, t.toTestString());
+	}
+
+	@Test public void testFloatFormat() {
+		List<String[]> data = new ArrayList<>();
+		data.add(new String[]{"A", "B", "Y"});
+		data.add(new String[]{"1.4", "9.000000234234e+01", "1.0234234e-02"});
+		DataTable t = DataTable.fromStrings(data);
+		String expected =
+			"A(float), B(float), Y(float)\n"+
+			"1.4, 90.0, 0.010234234\n";
+		assertEquals(expected, t.toTestString());
+	}
+
+	@Test public void testStringCategories() {
+		List<String[]> data = new ArrayList<>();
+		data.add(new String[]{"A", "B", "Y"});
+		data.add(new String[]{"yes", "CA", "go"});
+		data.add(new String[]{"no", "CO", "stay"});
+		data.add(new String[]{"yes", "CO", "stay"});
+		data.add(new String[]{"no", "NV", "go"});
+		final DataTable.VariableType[] colTypes = {
+			CATEGORICAL_STRING,
+			CATEGORICAL_STRING,
+			TARGET_CATEGORICAL_STRING
+		};
+		DataTable t = DataTable.fromStrings(data, colTypes, null, true);
+		String expected =
+			"A(string), B(string), Y(target-string)\n"+
+			"yes, CA, go\n"+
+			"no, CO, stay\n"+
+			"yes, CO, stay\n"+
+			"no, NV, go\n";
+		assertEquals(expected, t.toTestString());
+	}
+
+	@Test public void test1RowFromStringWithHeaderAndNamesOverride() {
+		List<String[]> data = new ArrayList<>();
+		data.add(new String[]{"A", "B", "Y"});
+		data.add(new String[]{"1", "9", "2"});
+		DataTable t = DataTable.fromStrings(data, null, colNames3, true);
+		String expected =
+			"a(int), b(int), y(target)\n"+
+			"1, 9, 2\n";
+		assertEquals(expected, t.toTestString());
+	}
+
+	@Test public void test2RowsFromStringWithHeaderTypes() {
+		List<String[]> data = new ArrayList<>();
+		data.add(new String[]{"A", "B", "Y"});
+		data.add(new String[]{"1000", "123.45", "2"});
+		data.add(new String[]{"99", "0.123456", "2"});
+		final DataTable.VariableType[] colTypes = {
+			CATEGORICAL_INT,
+			NUMERICAL_FLOAT,
+			TARGET_CATEGORICAL_INT
+		};
+		DataTable t = DataTable.fromStrings(data, colTypes, null, true);
+		String expected =
+			"A(cat), B(float), Y(target)\n"+
+			"1000, 123.45, 2\n"+
+			"99, 0.123456, 2\n";
+		assertEquals(expected, t.toTestString());
+	}
+
+	@Test public void testPrint1Row() {
+		List<String[]> data = new ArrayList<>();
+		data.add(new String[]{"First", "Second", "Dependent Variable"});
+		data.add(new String[]{"1", "2", "3"});
+		DataTable t = DataTable.fromStrings(data, null, null, true);
+		String expected =
+			"First Second Dependent Variable\n"+
+			"    1      2                  3\n";
+		assertEquals(expected, t.toString());
+	}
+
+	@Test public void testPrintMultiRows() {
+		URL url = this.getClass().getClassLoader().getResource("quoted-values.csv");
+		final DataTable.VariableType[] colTypes = {
+			CATEGORICAL_INT,
+			NUMERICAL_FLOAT,
+			TARGET_CATEGORICAL_STRING
+		};
+		DataTable t = DataTable.loadCSV(url.getFile().toString(), "excel", colTypes, null, true);
+		String expected =
+			"  Age  Sex\n"+
+			"1 63.0  1 \n"+
+			"2 67.0  1 \n"+
+			"3 67.0  1 \n"+
+			"4 37.0  1 \n"+
+			"5 41.0  0 \n";
+		assertEquals(expected, t.toString());
+	}
+
+	@Test public void testHeartDataSenseTypes() {
+		URL url = this.getClass().getClassLoader().getResource("Heart.csv");
+		DataTable t = DataTable.loadCSV(url.getFile().toString(), "excel", null, null, true);
+		t.setColType(0, UNUSED_INT); // first column is ID
+		final DataTable.VariableType[] expectedColTypes = {
+			UNUSED_INT,
+			NUMERICAL_INT,
