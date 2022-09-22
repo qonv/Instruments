@@ -4,4 +4,14 @@
  * can be found in the LICENSE file in the project root.
  */
 
-package us.parr.animl.c
+package us.parr.animl.cluster
+
+import org.junit.Test
+import us.parr.animl.BaseTest
+import us.parr.animl.data.DoubleVector
+import us.parr.lib.ParrtStats.normal
+import kotlin.test.assertEquals
+
+class TestKMeans: BaseTest() {
+    @Test fun testGrades1Dk3() : Unit {
+        val grades = doubleArrayOf(92.65, 93.8
