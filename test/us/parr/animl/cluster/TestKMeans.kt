@@ -29,4 +29,12 @@ class TestKMeans: BaseTest() {
     @Test fun testGaussianClouds2Dk2() : Unit {
         val n = 1000
         val cluster1: List<DoubleVector> = (1..n).map { DoubleVector(normal(0.0, 1.0), normal(0.0, 1.0)) }
-        val cluster2: List<DoubleVector> = (1..n).map { DoubleVector(normal(6.0, 1.5), normal(4
+        val cluster2: List<DoubleVector> = (1..n).map { DoubleVector(normal(6.0, 1.5), normal(4.0, 1.5)) }
+        val data = cluster1 + cluster2
+
+        val centroids = mutableListOf<DoubleVector>(DoubleVector(0.1,0.1), DoubleVector(4.0,9.0))
+        val (new_centroids, clusters) = kmeans(data, centroids, k=2)
+        println(new_centroids)
+    }
+
+}
