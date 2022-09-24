@@ -26,4 +26,7 @@ class TestKMeans: BaseTest() {
 //        println(clusters)
     }
 
-    @Test fun te
+    @Test fun testGaussianClouds2Dk2() : Unit {
+        val n = 1000
+        val cluster1: List<DoubleVector> = (1..n).map { DoubleVector(normal(0.0, 1.0), normal(0.0, 1.0)) }
+        val cluster2: List<DoubleVector> = (1..n).map { DoubleVector(normal(6.0, 1.5), normal(4
