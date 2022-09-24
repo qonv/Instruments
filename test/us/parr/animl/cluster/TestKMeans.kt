@@ -18,4 +18,12 @@ class TestKMeans: BaseTest() {
                 85.94, 91.79, 95.23, 85.37, 87.85, 87.71, 93.03)
         val data = grades.map { g -> DoubleVector(g) }
         val means  = doubleArrayOf(90.0, 87.5, 70.0)
-        val centroids = means
+        val centroids = means.map { m -> DoubleVector(m) }
+        val (new_centroids, clusters) = kmeans(data, centroids, k=3)
+
+        assertEquals("[[93.23222222222222], [85.74333333333334], [74.06]]", new_centroids.toString())
+//        println(new_centroids)
+//        println(clusters)
+    }
+
+    @Test fun te
