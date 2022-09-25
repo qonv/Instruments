@@ -12,4 +12,5 @@ package us.parr.animl.kde
  *  The gaussian kernel bandwidth, h, is computed using Scott's Rule:
  *  n**(-1./(d+4)) for n vectors of d dimensions.
  */
-//fun gaussian_kde(data : List<DoubleVector>) : (Doubl
+//fun gaussian_kde(data : List<DoubleVector>) : (DoubleVector)->Double {
+//}
