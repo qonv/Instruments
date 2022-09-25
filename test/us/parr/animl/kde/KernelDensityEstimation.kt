@@ -6,4 +6,10 @@
 
 package us.parr.animl.kde
 
-/** Return a function 
+/** Return a function mapping a DoubleVector to a density estimate at
+ *  that point in multi-dimensional space.
+ *
+ *  The gaussian kernel bandwidth, h, is computed using Scott's Rule:
+ *  n**(-1./(d+4)) for n vectors of d dimensions.
+ */
+//fun gaussian_kde(data : List<DoubleVector>) : (Doubl
