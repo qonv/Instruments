@@ -7,4 +7,14 @@
 package us.parr.animl.rf;
 
 import org.junit.Test;
-import us.parr.an
+import us.parr.animl.BaseTest;
+import us.parr.animl.classifiers.trees.DecisionTree;
+import us.parr.animl.data.DataTable;
+import us.parr.lib.ParrtIO;
+
+import java.net.URL;
+import java.util.Arrays;
+import java.util.List;
+
+import static org.junit.Assert.assertArrayEquals;
+i
