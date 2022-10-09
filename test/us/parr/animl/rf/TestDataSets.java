@@ -22,4 +22,7 @@ import static us.parr.animl.data.DataTable.VariableType.UNUSED_INT;
 
 public class TestDataSets extends BaseTest {
 	// Figure 18.3 Examples for the restaurant domain. from Russell and Norvig
-	// has picture of tree: https://people.ee
+	// has picture of tree: https://people.eecs.berkeley.edu/~russell/classes/cs194/f11/lectures/CS194%20Fall%202011%20Lecture%2008.pdf
+	public static final String[][] restaurant = {
+		{"Alt", "Bar", "Fri&Sat", "Hungry", "Patrons", "Price", "Raining", "MadeRez", "Type", "WaitEstimate", "WillWait"},
+		{"Yes", "No",  "No",      "Yes",     "Some
