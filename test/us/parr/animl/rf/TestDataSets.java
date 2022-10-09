@@ -25,4 +25,7 @@ public class TestDataSets extends BaseTest {
 	// has picture of tree: https://people.eecs.berkeley.edu/~russell/classes/cs194/f11/lectures/CS194%20Fall%202011%20Lecture%2008.pdf
 	public static final String[][] restaurant = {
 		{"Alt", "Bar", "Fri&Sat", "Hungry", "Patrons", "Price", "Raining", "MadeRez", "Type", "WaitEstimate", "WillWait"},
-		{"Yes", "No",  "No",      "Yes",     "Some
+		{"Yes", "No",  "No",      "Yes",     "Some", "$$$", "No", "Yes", "French", "0–10", "Yes"},
+		{"Yes", "No",  "No",      "Yes",     "Full", "$", "No", "No", "Thai", "30–60", "No"},
+		{"No",  "Yes", "No",      "No",      "Some", "$", "No", "No", "Burger", "0–10", "Yes"},
+		{"Yes", "No",  "Yes",     "Yes",     "Full", "$", "Yes", "No", "Thai
