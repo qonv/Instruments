@@ -34,4 +34,9 @@ public class TestDataSets extends BaseTest {
 		{"No",  "Yes", "No",      "No",      "None", "$", "Yes", "No", "Burger", "0–10", "No"},
 		{"No",  "No",  "No",      "Yes",     "Some", "$$", "Yes", "Yes", "Thai", "0–10", "Yes"},
 		{"No",  "Yes", "Yes",     "No",      "Full", "$", "Yes", "No", "Burger", ">60", "No"},
-		{"Yes", "Yes", "Yes",     "Yes",     "Full", "$$$", "No", "Yes", "Italian
+		{"Yes", "Yes", "Yes",     "Yes",     "Full", "$$$", "No", "Yes", "Italian", "10–30", "No"},
+		{"No",  "No",  "No",      "No",      "None", "$", "No", "No", "Thai", "0–10", "No"},
+		{"Yes", "Yes", "Yes",     "Yes",     "Full", "$", "No", "No", "Burger", "30–60", "Yes"},
+	};
+
+	// data from chap 7: http://shop.oreilly.com/product/9780596529
