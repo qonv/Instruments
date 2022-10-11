@@ -39,4 +39,11 @@ public class TestDataSets extends BaseTest {
 		{"Yes", "Yes", "Yes",     "Yes",     "Full", "$", "No", "No", "Burger", "30–60", "Yes"},
 	};
 
-	// data from chap 7: http://shop.oreilly.com/product/9780596529
+	// data from chap 7: http://shop.oreilly.com/product/9780596529321.do
+	public static final String[][] signups =
+	{
+		{"referrer", "country", "readfaq", "pageviews", "subscription"},
+		{"slashdot","USA","yes","18","None"},
+		{"google","France","yes","23","Premium"},
+		{"digg","USA","yes","24","Basic"},
+		{"k
