@@ -58,4 +58,13 @@ public class TestDataSets extends BaseTest {
 		{"digg","New Zealand","yes","12","Basic"},
 		{"slashdot","UK","no","21","None"},
 		{"google","UK","yes","18","Basic"},
-		{"kiwitobes","France","yes","19"
+		{"kiwitobes","France","yes","19","Basic"}
+	};
+
+	@Test
+	public void testRestaurant() {
+		DataTable data = DataTable.fromStrings(Arrays.asList(restaurant));
+		DecisionTree.debug = true;
+		DecisionTree tree = new DecisionTree();
+		tree.train(data);
+		// I verified this string by looking a
