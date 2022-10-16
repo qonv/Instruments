@@ -68,4 +68,6 @@ public class TestDataSets extends BaseTest {
 		DecisionTree tree = new DecisionTree();
 		tree.train(data);
 		// I verified this string by looking at DOT output, but similar to Russell and Norvig AI book
-		String expecting = "{'var':'Patrons','cat':'Some','n':12,'E':'1.00','left':{'predict':'Yes','n':4},'right':{'var':'Hungry','cat':'Yes','n':8,'E':'0.81','left':{'var':'Fri&Sat','cat
+		String expecting = "{'var':'Patrons','cat':'Some','n':12,'E':'1.00','left':{'predict':'Yes','n':4},'right':{'var':'Hungry','cat':'Yes','n':8,'E':'0.81','left':{'var':'Fri&Sat','cat':'No','n':4,'E':'1.00','left':{'predict':'No','n':1},'right':{'var':'Price','cat':'$$$','n':3,'E':'0.92','left':{'predict':'No','n':1},'right':{'predict':'Yes','n':2}}},'right':{'predict':'No','n':4}}}";
+		String result = toTestString(tree);
+		Sys
