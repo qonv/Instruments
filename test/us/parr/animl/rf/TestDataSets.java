@@ -78,3 +78,6 @@ public class TestDataSets extends BaseTest {
 	@Test public void testWebsiteSignups() {
 		DataTable data = DataTable.fromStrings(Arrays.asList(signups));
 		DecisionTree tree = new DecisionTree();
+		tree.train(data);
+		// Same tree as shown here; http://www.patricklamle.com/Tutorials/Decision%20tree%20python/tuto_decision%20tree.html
+		String expecting = "{'var':'referrer','cat':'google','n':16,'E':'1.51','left':{'var':'pageviews','val':19.5,'n':5,'E':'1.37
