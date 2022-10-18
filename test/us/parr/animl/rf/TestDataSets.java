@@ -80,4 +80,4 @@ public class TestDataSets extends BaseTest {
 		DecisionTree tree = new DecisionTree();
 		tree.train(data);
 		// Same tree as shown here; http://www.patricklamle.com/Tutorials/Decision%20tree%20python/tuto_decision%20tree.html
-		String expecting = "{'var':'referrer','cat':'google','n':16,'E':'1.51','left':{'var':'pageviews','val':19.5,'n':5,'E':'1.37
+		String expecting = "{'var':'referrer','cat':'google','n':16,'E':'1.51','left':{'var':'pageviews','val':19.5,'n':5,'E':'1.37','left':{'var':'readfaq','cat':'yes','n':2,'E':'1.00','left':{'predict':'Basic','n':1},'right':{'predict':'None','n':1}},'right':{'predict':'Premium','n':3}},'right':{'var':'referrer','cat':'slashdot','n':11,'E':'0.99','left':{'predict':'None','n':3},'right':{'var':'readfaq','ca
