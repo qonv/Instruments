@@ -83,3 +83,10 @@ public class TestDataSets extends BaseTest {
 		String expecting = "{'var':'referrer','cat':'google','n':16,'E':'1.51','left':{'var':'pageviews','val':19.5,'n':5,'E':'1.37','left':{'var':'readfaq','cat':'yes','n':2,'E':'1.00','left':{'predict':'Basic','n':1},'right':{'predict':'None','n':1}},'right':{'predict':'Premium','n':3}},'right':{'var':'referrer','cat':'slashdot','n':11,'E':'0.99','left':{'predict':'None','n':3},'right':{'var':'readfaq','cat':'yes','n':8,'E':'0.95','left':{'predict':'Basic','n':4},'right':{'var':'pageviews','val':20.0,'n':4,'E':'0.81','left':{'predict':'None','n':3},'right':{'predict':'Basic','n':1}}}}}";
 		String result = toTestString(tree);
 		System.out.println(tree.toDOT());
+		assertEquals(expecting, result);
+		checkPredictions(data.getRows(), tree);
+	}
+
+	@Test public void testHeartDataSenseTypes() {
+		URL url = this.getClass().getClassLoader().getResource("Heart-wo-NA.csv");
+		DataTable data = DataTable.loadCSV(url.getFile().toString(), "ex
