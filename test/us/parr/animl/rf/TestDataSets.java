@@ -89,4 +89,9 @@ public class TestDataSets extends BaseTest {
 
 	@Test public void testHeartDataSenseTypes() {
 		URL url = this.getClass().getClassLoader().getResource("Heart-wo-NA.csv");
-		DataTable data = DataTable.loadCSV(url.getFile().toString(), "ex
+		DataTable data = DataTable.loadCSV(url.getFile().toString(), "excel", null, null, true);
+		data.setColType(0, UNUSED_INT); // first column is ID
+		DecisionTree tree = new DecisionTree(0, 20);
+		tree.train(data);
+		// The DOT tree looks pretty good. Similar to first two levels in ISL book's tree; diff than scikit-learn though.
+		String expec
