@@ -94,4 +94,4 @@ public class TestDataSets extends BaseTest {
 		DecisionTree tree = new DecisionTree(0, 20);
 		tree.train(data);
 		// The DOT tree looks pretty good. Similar to first two levels in ISL book's tree; diff than scikit-learn though.
-		String expec
+		String expecting = "{'var':'Thal','cat':'normal','n':297,'E':'1.00','left':{'var':'Ca','val':0.5,'n':164,'E':'0.77','left':{'var':'Age','val':57.5,'n':115,'E':'0.51','left':{'var':'Oldpeak','val':3.200000047683716,'n':80,'E':'0.23','left':{'var':'RestBP','val':109.0,'n':77,'E
