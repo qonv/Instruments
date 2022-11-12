@@ -106,4 +106,11 @@ public class TestDataSets extends BaseTest {
 	    ForestClassifier = FOREST_CLASSIFIERS[name]
 
 	    clf = ForestClassifier(n_estimators=10, criterion=criterion,
-	                           random_st
+	                           random_state=1)
+	    clf.fit(iris.data, iris.target)
+	    score = clf.score(iris.data, iris.target)
+	    assert_greater(score, 0.9, "Failed with criterion %s and score = %f"
+	                               % (criterion, score))
+
+	    clf = ForestClassifier(n_estimators=10, criterion=criterion,
+	                    
