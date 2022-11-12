@@ -113,4 +113,10 @@ public class TestDataSets extends BaseTest {
 	                               % (criterion, score))
 
 	    clf = ForestClassifier(n_estimators=10, criterion=criterion,
-	                    
+	                           max_features=2, random_state=1)
+	    clf.fit(iris.data, iris.target)
+	    score = clf.score(iris.data, iris.target)
+	    assert_greater(score, 0.5, "Failed with criterion %s and score = %f"
+	                               % (criterion, score))
+	 */
+	@Test public void t
