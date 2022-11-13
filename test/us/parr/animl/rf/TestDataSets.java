@@ -119,4 +119,9 @@ public class TestDataSets extends BaseTest {
 	    assert_greater(score, 0.5, "Failed with criterion %s and score = %f"
 	                               % (criterion, score))
 	 */
-	@Test public void t
+	@Test public void testIris() {
+		URL url = this.getClass().getClassLoader().getResource("iris.csv");
+		DataTable data = DataTable.loadCSV(url.getFile().toString(), null, null, null, true);
+		DecisionTree tree = new DecisionTree(0, 1);
+		tree.train(data);
+		// Th
