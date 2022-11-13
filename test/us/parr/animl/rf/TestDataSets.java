@@ -124,4 +124,5 @@ public class TestDataSets extends BaseTest {
 		DataTable data = DataTable.loadCSV(url.getFile().toString(), null, null, null, true);
 		DecisionTree tree = new DecisionTree(0, 1);
 		tree.train(data);
-		// Th
+		// This is exact same tree as shown here http://scikit-learn.org/stable/modules/tree.html
+		String expecting = "{'var':' petal len','val':2.450000047683716,'n':150,'E':'1.58','left':{'predict':'Iris-setosa','n':50},'right':{'var':' petal wid','val':1.75,'n':100,'E':'1.00','left':{'var':' petal len','val':4.949999809265
