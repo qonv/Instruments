@@ -128,4 +128,7 @@ public class TestDataSets extends BaseTest {
 		String expecting = "{'var':' petal len','val':2.450000047683716,'n':150,'E':'1.58','left':{'predict':'Iris-setosa','n':50},'right':{'var':' petal wid','val':1.75,'n':100,'E':'1.00','left':{'var':' petal len','val':4.949999809265137,'n':54,'E':'0.45','left':{'var':' petal wid','val':1.6500000953674316,'n':48,'E':'0.15','left':{'predict':'Iris-versicolor','n':47},'right':{'predict':'Iris-virginica','n':1}},'right':{'var':' petal wid','val':1.5499999523162842,'n':6,'E':'0.92','left':{'predict':'Iris-virginica','n':3},'right':{'var':'sepal len','val':6.949999809265137,'n':3,'E':'0.92','left':{'predict':'Iris-versicolor','n':2},'right':{'predict':'Iris-virginica','n':1}}}},'right':{'var':' petal len','val':4.850000381469727,'n':46,'E':'0.15','left':{'var':'sepal len','val':5.949999809265137,'n':3,'E':'0.92','left':{'predict':'Iris-versicolor','n':1},'right':{'predict':'Iris-virginica','n':2}},'right':{'predict':'Iris-virginica','n':43}}}}";
 		String result = toTestString(tree);
 //		System.out.println(tree.toDOT());
-		assertEquals(e
+		assertEquals(expecting, result);
+		List<Integer> p = predictions(data.getRows(), tree);
+		Integer[] expectedPredictions = new Integer[] {
+			0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
