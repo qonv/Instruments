@@ -20,4 +20,13 @@ public class TestDecisionTreeBasics extends BaseTest {
 	@Test public void testEmptyData() {
 		List<int[]> data = new ArrayList<>();
 		DecisionTree tree = new DecisionTree();
-		tree.train(DataTable.fro
+		tree.train(DataTable.fromInts(data, null, null));
+		String expecting = "{}";
+		String result = toTestString(tree);
+		assertEquals(expecting, result);
+		checkPredictions(data, tree);
+	}
+
+	@Test public void testOneRow() {
+		List<int[]> data = new ArrayList<>();
+		data.add(new int[] {1,99}); // 1 row
