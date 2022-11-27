@@ -12,4 +12,12 @@ import us.parr.animl.classifiers.trees.DecisionTree;
 import us.parr.animl.data.DataTable;
 
 import java.util.ArrayList;
-import 
+import java.util.List;
+
+import static org.junit.Assert.assertEquals;
+
+public class TestDecisionTreeBasics extends BaseTest {
+	@Test public void testEmptyData() {
+		List<int[]> data = new ArrayList<>();
+		DecisionTree tree = new DecisionTree();
+		tree.train(DataTable.fro
