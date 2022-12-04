@@ -44,4 +44,12 @@ public class TestDecisionTreeBasics extends BaseTest {
 		data.add(new int[] {1,100});
 		data.add(new int[] {1,101});
 		data.add(new int[] {1,102});
-		D
+		DecisionTree tree = new DecisionTree();
+		DecisionTree.debug = true;
+		tree.train(DataTable.fromInts(data, null, null));
+		String expecting = "{'predict':99,'n':4,'E':'2.00'}";
+		String result = toTestString(tree);
+		assertEquals(expecting, result);
+	}
+
+	@Test public v
