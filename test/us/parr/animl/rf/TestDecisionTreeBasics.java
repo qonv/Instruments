@@ -52,4 +52,8 @@ public class TestDecisionTreeBasics extends BaseTest {
 		assertEquals(expecting, result);
 	}
 
-	@Test public v
+	@Test public void testTwoRowsSameCat() {
+		List<int[]> data = new ArrayList<>();
+		data.add(new int[] {1,99}); // 1 row with 1 var of value 1 predicting category 99
+		data.add(new int[] {2,99}); // 2nd row with 1 var of value 2 predicting category 99
+		DecisionTree tree = 
