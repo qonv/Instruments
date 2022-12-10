@@ -65,4 +65,11 @@ public class TestDecisionTreeBasics extends BaseTest {
 	}
 
 	@Test public void testCannotPredict() {
-		List<int
+		List<int[]> data = new ArrayList<>();
+		data.add(new int[] {1,99});
+		data.add(new int[] {1,100});
+		data.add(new int[] {2,99});
+		data.add(new int[] {2,100});
+		DecisionTree tree = new DecisionTree();
+		tree.train(DataTable.fromInts(data, null, null));
+		String expecting = "{'pre
