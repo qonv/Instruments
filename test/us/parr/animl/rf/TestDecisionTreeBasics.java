@@ -86,4 +86,11 @@ public class TestDecisionTreeBasics extends BaseTest {
 		tree.train(DataTable.fromInts(data, null, null));
 		String expecting = "{'predict':99,'n':2}";
 		String result = toTestString(tree);
-		assert
+		assertEquals(expecting, result);
+		checkPredictions(data, tree);
+	}
+
+	@Test public void testTwoRowsDiffCat() {
+		List<int[]> data = new ArrayList<>();
+		data.add(new int[] {1,99});  // 1 row with 1 var of value 1 predicting category 99
+		data.add(new i
