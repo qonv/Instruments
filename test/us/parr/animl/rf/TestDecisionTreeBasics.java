@@ -79,4 +79,11 @@ public class TestDecisionTreeBasics extends BaseTest {
 	}
 
 	@Test public void testTwoRowsSameCatMultipleIndepVars() {
-		List<int[]> data = new ArrayList<>
+		List<int[]> data = new ArrayList<>();
+		data.add(new int[] {1,2,3,99});
+		data.add(new int[] {2,4,6,99});
+		DecisionTree tree = new DecisionTree();
+		tree.train(DataTable.fromInts(data, null, null));
+		String expecting = "{'predict':99,'n':2}";
+		String result = toTestString(tree);
+		assert
