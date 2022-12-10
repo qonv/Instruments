@@ -72,4 +72,11 @@ public class TestDecisionTreeBasics extends BaseTest {
 		data.add(new int[] {2,100});
 		DecisionTree tree = new DecisionTree();
 		tree.train(DataTable.fromInts(data, null, null));
-		String expecting = "{'pre
+		String expecting = "{'predict':99,'n':4,'E':'1.00'}";
+		String result = toTestString(tree);
+		assertEquals(expecting, result);
+		// cannot test prediction as it's noise
+	}
+
+	@Test public void testTwoRowsSameCatMultipleIndepVars() {
+		List<int[]> data = new ArrayList<>
