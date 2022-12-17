@@ -93,4 +93,7 @@ public class TestDecisionTreeBasics extends BaseTest {
 	@Test public void testTwoRowsDiffCat() {
 		List<int[]> data = new ArrayList<>();
 		data.add(new int[] {1,99});  // 1 row with 1 var of value 1 predicting category 99
-		data.add(new i
+		data.add(new int[] {2,100}); // 2nd row with 1 var of value 2 predicting category 50
+		DecisionTree tree = new DecisionTree();
+		tree.train(DataTable.fromInts(data, null, null));
+		String expecting = "{'var':'x0','val':1.5,'n':2,'E':'1.00','left':{'predic
