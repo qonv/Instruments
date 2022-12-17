@@ -96,4 +96,12 @@ public class TestDecisionTreeBasics extends BaseTest {
 		data.add(new int[] {2,100}); // 2nd row with 1 var of value 2 predicting category 50
 		DecisionTree tree = new DecisionTree();
 		tree.train(DataTable.fromInts(data, null, null));
-		String expecting = "{'var':'x0','val':1.5,'n':2,'E':'1.00','left':{'predic
+		String expecting = "{'var':'x0','val':1.5,'n':2,'E':'1.00','left':{'predict':99,'n':1},'right':{'predict':100,'n':1}}";
+		String result = toTestString(tree);
+		assertEquals(expecting, result);
+		checkPredictions(data, tree);
+	}
+
+	@Test public void testTwoRowsDiffCatMultipleIndepVars() {
+		List<int[]> data = new ArrayList<>();
+		da
