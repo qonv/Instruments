@@ -104,4 +104,8 @@ public class TestDecisionTreeBasics extends BaseTest {
 
 	@Test public void testTwoRowsDiffCatMultipleIndepVars() {
 		List<int[]> data = new ArrayList<>();
-		da
+		data.add(new int[] {1,2,3,99});
+		data.add(new int[] {2,4,6,100});
+		DecisionTree tree = new DecisionTree();
+		tree.train(DataTable.fromInts(data, null, null));
+		String expecting = "{'var':'x0','val':1.5,'n':2,'E':'1.00','left':{'predict':99,'n':1},'right':{'pre
