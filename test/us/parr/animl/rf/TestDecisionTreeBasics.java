@@ -115,4 +115,11 @@ public class TestDecisionTreeBasics extends BaseTest {
 	}
 
 	@Test public void testTwoVarsOneGoodOneBadSplitVar() {
-		List<int[]> data = new ArrayList<>(); // 1st var is perfect splitter, 2n
+		List<int[]> data = new ArrayList<>(); // 1st var is perfect splitter, 2nd is bad
+		data.add(new int[] {1,4,99});
+		data.add(new int[] {1,5,99});
+		data.add(new int[] {2,4,100});
+		data.add(new int[] {2,5,100});
+		DecisionTree tree = new DecisionTree();
+		tree.train(DataTable.fromInts(data, null, null));
+		String expecting = "{'var':'x0','val':
