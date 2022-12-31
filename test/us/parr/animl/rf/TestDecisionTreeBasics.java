@@ -136,4 +136,8 @@ public class TestDecisionTreeBasics extends BaseTest {
 		data.add(new int[] {5,2,1});
 		DecisionTree tree = new DecisionTree();
 		DecisionTree.debug = true;
-		tree.trai
+		tree.train(DataTable.fromInts(data, null, null));
+		String expecting = "{'var':'x1','val':1.5,'n':4,'E':'1.00','left':{'predict':0,'n':2},'right':{'predict':1,'n':2}}";
+		String result = toTestString(tree);
+		assertEquals(expecting, result);
+		check
