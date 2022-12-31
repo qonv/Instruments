@@ -129,4 +129,11 @@ public class TestDecisionTreeBasics extends BaseTest {
 	}
 
 	@Test public void testTwoVarsOneGoodOneBadSplitVarFlippedOrder() {
-		List<int[]> data = new ArrayList
+		List<int[]> data = new ArrayList<>(); // 2nd var is perfect splitter, 1st is bad
+		data.add(new int[] {4,1,0});
+		data.add(new int[] {5,1,0});
+		data.add(new int[] {4,2,1});
+		data.add(new int[] {5,2,1});
+		DecisionTree tree = new DecisionTree();
+		DecisionTree.debug = true;
+		tree.trai
