@@ -140,4 +140,11 @@ public class TestDecisionTreeBasics extends BaseTest {
 		String expecting = "{'var':'x1','val':1.5,'n':4,'E':'1.00','left':{'predict':0,'n':2},'right':{'predict':1,'n':2}}";
 		String result = toTestString(tree);
 		assertEquals(expecting, result);
-		check
+		checkPredictions(data, tree);
+	}
+
+	@Test public void testNoisePredictions() {
+//		int[] randomCats = new int[] {1, 1, 2, 1, 2, 1, 2, 0}; // randint(8, 3, 999);
+//		System.out.println(Arrays.toString(randomCats));
+		List<int[]> data = new ArrayList<>();
+		// nice split in sole indep
