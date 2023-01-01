@@ -147,4 +147,12 @@ public class TestDecisionTreeBasics extends BaseTest {
 //		int[] randomCats = new int[] {1, 1, 2, 1, 2, 1, 2, 0}; // randint(8, 3, 999);
 //		System.out.println(Arrays.toString(randomCats));
 		List<int[]> data = new ArrayList<>();
-		// nice split in sole indep
+		// nice split in sole independent var but predictions are random.
+		data.add(new int[] {1,1});
+		data.add(new int[] {1,1});
+		data.add(new int[] {1,2});
+		data.add(new int[] {1,1});
+		data.add(new int[] {2,2});
+		data.add(new int[] {2,1});
+		data.add(new int[] {2,2});
+		data.add(new int[] {2,0})
