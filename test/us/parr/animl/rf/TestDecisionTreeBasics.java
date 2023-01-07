@@ -159,4 +159,13 @@ public class TestDecisionTreeBasics extends BaseTest {
 		DecisionTree tree = new DecisionTree();
 		tree.train(DataTable.fromInts(data, null, null));
 		String expecting = "{'var':'x0','val':1.5,'n':8,'E':'1.41','left':{'predict':1,'n':4,'E':'0.81'},'right':{'predict':2,'n':4,'E':'1.50'}}";
-		System.out.pr
+		System.out.println(tree.toDOT());
+		String result = toTestString(tree);
+		assertEquals(expecting, result);
+	}
+
+	@Test public void testNoisePredictor() {
+		List<int[]> data = new ArrayList<>();
+		data.add(new int[] {1,1});
+		data.add(new int[] {1,1});
+		data.add(new int[] {2,1});
