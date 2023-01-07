@@ -169,3 +169,11 @@ public class TestDecisionTreeBasics extends BaseTest {
 		data.add(new int[] {1,1});
 		data.add(new int[] {1,1});
 		data.add(new int[] {2,1});
+		data.add(new int[] {1,1});
+		data.add(new int[] {2,2});
+		data.add(new int[] {1,2});
+		data.add(new int[] {2,2});
+		data.add(new int[] {0,2});
+		DecisionTree tree = new DecisionTree();
+		tree.train(DataTable.fromInts(data, null, null));
+		String expecting = "{'var':'x
