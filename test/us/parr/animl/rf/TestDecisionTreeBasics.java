@@ -199,4 +199,11 @@ public class TestDecisionTreeBasics extends BaseTest {
 		String expecting = "{'var':'x1','val':8.0,'n':8,'E':'1.00','left':{'predict':2,'n':4},'right':{'predict':1,'n':4}}";
 		String result = toTestString(tree);
 //		System.out.println(tree.toDOT(null,null));
-		asser
+		assertEquals(expecting, result);
+		checkPredictions(data, tree);
+	}
+
+	@Test public void testCategoricalNoiseAndGoodPredictor() {
+		List<int[]> rows = new ArrayList<>();
+		rows.add(new int[] {1,9,1}); // x0 is crappy but x1 is perfect predictor of y
+		rows.add(new int[] {1
