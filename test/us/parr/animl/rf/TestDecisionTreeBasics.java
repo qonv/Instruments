@@ -195,4 +195,8 @@ public class TestDecisionTreeBasics extends BaseTest {
 		data.add(new int[] {0,7,2});
 		DecisionTree tree = new DecisionTree();
 		DecisionTree.debug = true;
-		tree.train(DataTable
+		tree.train(DataTable.fromInts(data, null, null));
+		String expecting = "{'var':'x1','val':8.0,'n':8,'E':'1.00','left':{'predict':2,'n':4},'right':{'predict':1,'n':4}}";
+		String result = toTestString(tree);
+//		System.out.println(tree.toDOT(null,null));
+		asser
