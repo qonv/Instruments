@@ -214,4 +214,9 @@ public class TestDecisionTreeBasics extends BaseTest {
 		rows.add(new int[] {2,7,2});
 		rows.add(new int[] {0,7,2});
 		DecisionTree tree = new DecisionTree();
-		DecisionTree.de
+		DecisionTree.debug = true;
+		DataTable data = DataTable.fromInts(rows, null, null);
+		data.setColType(0, DataTable.VariableType.CATEGORICAL_INT);
+		data.setColType(1, DataTable.VariableType.CATEGORICAL_INT);
+		tree.train(data);
+		String expecting = "{'var':'x1','cat':'7','n':8,'E':'1.00','
