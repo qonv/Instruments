@@ -186,4 +186,13 @@ public class TestDecisionTreeBasics extends BaseTest {
 	@Test public void testNoiseAndGoodPredictor() {
 		List<int[]> data = new ArrayList<>();
 		data.add(new int[] {1,9,1}); // x0 is crappy but x1 is perfect predictor of y
-		data.add(new int[] {1,9
+		data.add(new int[] {1,9,1});
+		data.add(new int[] {2,9,1});
+		data.add(new int[] {1,9,1});
+		data.add(new int[] {2,7,2});
+		data.add(new int[] {1,7,2});
+		data.add(new int[] {2,7,2});
+		data.add(new int[] {0,7,2});
+		DecisionTree tree = new DecisionTree();
+		DecisionTree.debug = true;
+		tree.train(DataTable
