@@ -219,4 +219,11 @@ public class TestDecisionTreeBasics extends BaseTest {
 		data.setColType(0, DataTable.VariableType.CATEGORICAL_INT);
 		data.setColType(1, DataTable.VariableType.CATEGORICAL_INT);
 		tree.train(data);
-		String expecting = "{'var':'x1','cat':'7','n':8,'E':'1.00','
+		String expecting = "{'var':'x1','cat':'7','n':8,'E':'1.00','left':{'predict':2,'n':4},'right':{'predict':1,'n':4}}";
+		String result = toTestString(tree);
+//		System.out.println(tree.toDOT(null,null));
+		assertEquals(expecting, result);
+		checkPredictions(rows, tree);
+	}
+
+	@Test public void testFixedAndGoodPredictorWith4PredictorValues() 
