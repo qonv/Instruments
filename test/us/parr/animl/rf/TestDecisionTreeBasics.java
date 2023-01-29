@@ -226,4 +226,11 @@ public class TestDecisionTreeBasics extends BaseTest {
 		checkPredictions(rows, tree);
 	}
 
-	@Test public void testFixedAndGoodPredictorWith4PredictorValues() 
+	@Test public void testFixedAndGoodPredictorWith4PredictorValues() {
+		List<int[]> data = new ArrayList<>();
+		data.add(new int[] {1,9,1}); // x0 is crappy but x1 is perfect predictor of y
+		data.add(new int[] {1,9,1});
+		data.add(new int[] {1,12,1});
+		data.add(new int[] {1,12,1});
+		data.add(new int[] {1,7,2});
+		data.add(new in
