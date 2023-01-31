@@ -233,4 +233,9 @@ public class TestDecisionTreeBasics extends BaseTest {
 		data.add(new int[] {1,12,1});
 		data.add(new int[] {1,12,1});
 		data.add(new int[] {1,7,2});
-		data.add(new in
+		data.add(new int[] {1,7,2});
+		data.add(new int[] {1,11,2});
+		data.add(new int[] {1,11,2});
+		DecisionTree tree = new DecisionTree();
+		tree.train(DataTable.fromInts(data, null, null));
+		String expecting = "{'var':'x1','val':8.0,'n':8,'E':'1.00','left':{'pr
