@@ -248,4 +248,9 @@ public class TestDecisionTreeBasics extends BaseTest {
 	@Test public void testTimestampAndGoodPredictorIgnoresTimestamp() {
 		List<int[]> data = new ArrayList<>();
 		data.add(new int[] {1,9,2}); // x0 is crappy but x1 is perfect predictor of y
-		data.a
+		data.add(new int[] {2,12,1});
+		data.add(new int[] {3,7,2});
+		data.add(new int[] {4,11,1});
+		DecisionTree tree = new DecisionTree();
+		tree.train(DataTable.fromInts(data, null, null));
+		String expecting = "{'var':'x1','val':10.0,'n':4,'E':'1.00','left':{'predict':2,'n':2
