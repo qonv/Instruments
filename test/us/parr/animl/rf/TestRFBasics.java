@@ -9,4 +9,14 @@ package us.parr.animl.rf;
 import org.junit.Assert;
 import org.junit.Ignore;
 import org.junit.Test;
-import us.parr.anim
+import us.parr.animl.BaseTest;
+import us.parr.animl.classifiers.trees.DecisionTree;
+import us.parr.animl.classifiers.trees.RandomForest;
+import us.parr.animl.data.DataTable;
+import us.parr.animl.validation.Validation;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+import static junit.fram
