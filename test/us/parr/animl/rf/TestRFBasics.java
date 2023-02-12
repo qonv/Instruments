@@ -19,4 +19,11 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import static junit.fram
+import static junit.framework.TestCase.assertEquals;
+import static org.junit.Assert.assertArrayEquals;
+
+public class TestRFBasics extends BaseTest {
+	public static final int MIN_LEAF_SIZE = 1;
+
+	@Test public void testEmpty() {
+		RandomForest rf = new RandomFor
