@@ -40,4 +40,11 @@ public class TestRFBasics extends BaseTest {
 		RandomForest rf = new RandomForest(1, MIN_LEAF_SIZE);
 		rf.train(data);
 		String expecting = "{'predict':99,'n':1}";
-		String result
+		String result = toTestString(rf.getTree(0));
+		Assert.assertEquals(expecting, result);
+		checkPredictions(data, rf);
+	}
+
+	@Test public void testNoiseAndGoodPredictor() {
+		List<int[]> rows = new ArrayList<>();
+		rows.add(new int[]{1, 9, 1}); // x0 is crappy but x1 is perfec
