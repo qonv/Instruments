@@ -34,4 +34,10 @@ public class TestRFBasics extends BaseTest {
 	}
 
 	@Test public void testOneRow() {
-		List<int[]> rows = new ArrayList<
+		List<int[]> rows = new ArrayList<>();
+		rows.add(new int[] {1,99}); // 1 row with 1 var of value 1 predicting category 99
+		DataTable data = DataTable.fromInts(rows, null, null);
+		RandomForest rf = new RandomForest(1, MIN_LEAF_SIZE);
+		rf.train(data);
+		String expecting = "{'predict':99,'n':1}";
+		String result
