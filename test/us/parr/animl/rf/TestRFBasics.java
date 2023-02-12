@@ -26,4 +26,12 @@ public class TestRFBasics extends BaseTest {
 	public static final int MIN_LEAF_SIZE = 1;
 
 	@Test public void testEmpty() {
-		RandomForest rf = new RandomFor
+		RandomForest rf = new RandomForest(1, MIN_LEAF_SIZE);
+		rf.train(DataTable.empty(null,null));
+		String expecting = "{}";
+		String result = toTestString(rf.getTree(0));
+		Assert.assertEquals(expecting, result);
+	}
+
+	@Test public void testOneRow() {
+		List<int[]> rows = new ArrayList<
