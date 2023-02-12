@@ -47,4 +47,12 @@ public class TestRFBasics extends BaseTest {
 
 	@Test public void testNoiseAndGoodPredictor() {
 		List<int[]> rows = new ArrayList<>();
-		rows.add(new int[]{1, 9, 1}); // x0 is crappy but x1 is perfec
+		rows.add(new int[]{1, 9, 1}); // x0 is crappy but x1 is perfect predictor of y
+		rows.add(new int[]{1, 9, 1});
+		rows.add(new int[]{2, 9, 1});
+		rows.add(new int[]{1, 9, 1});
+		rows.add(new int[]{2, 7, 2});
+		rows.add(new int[]{1, 7, 2});
+		rows.add(new int[]{2, 7, 2});
+		rows.add(new int[]{0, 7, 2});
+		Dat
