@@ -62,4 +62,13 @@ public class TestRFBasics extends BaseTest {
 		rf.train(data);
 		checkPredictions(data, rf);
 
+		int N = 20;
+		int[] missed = RF_leaveOneOutErrors(data, 1, N, MIN_LEAF_SIZE);
+		System.out.println(Arrays.toString(missed));
+		int[] expected = new int[] {
+			2, 3, 0, 2, 2, 1, 1, 1, 0, 1, 0, 0, 1, 1, 0, 0, 1, 0, 1, 1
+		};
+		assertArrayEquals(expected, missed);
+	}
+
 	
