@@ -55,4 +55,11 @@ public class TestRFBasics extends BaseTest {
 		rows.add(new int[]{1, 7, 2});
 		rows.add(new int[]{2, 7, 2});
 		rows.add(new int[]{0, 7, 2});
-		Dat
+		DataTable data = DataTable.fromInts(rows, null, null);
+		data.setColType(0, DataTable.VariableType.CATEGORICAL_INT);
+		data.setColType(1, DataTable.VariableType.CATEGORICAL_INT);
+		RandomForest rf = new RandomForest(15, MIN_LEAF_SIZE);
+		rf.train(data);
+		checkPredictions(data, rf);
+
+	
