@@ -86,4 +86,10 @@ public class TestRFBasics extends BaseTest {
 		rows.add(new int[]{1, 9, 1});
 		rows.add(new int[]{2, 9, 1});
 		rows.add(new int[]{1, 9, 1});
-		rows.add(
+		rows.add(new int[]{2, 7, 2});
+		rows.add(new int[]{1, 7, 2});
+		rows.add(new int[]{2, 7, 2});
+		rows.add(new int[]{0, 7, 2});
+		DataTable data = DataTable.fromInts(rows, null, null);
+		data.setColType(0, DataTable.VariableType.CATEGORICAL_INT);
+		data.setColType(1, DataTable.VariableType.CATEGORICA
