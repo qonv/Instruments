@@ -100,4 +100,7 @@ public class TestRFBasics extends BaseTest {
 		int missed = Validation.leaveOneOut(rf, data);
 		assertEquals(0, missed, 0.00000001);
 
-		double error = rf.getErrorEstimate(data)
+		double error = rf.getErrorEstimate(data);
+		assertEquals(0.0, error, 0.00000001);
+	}
+}
