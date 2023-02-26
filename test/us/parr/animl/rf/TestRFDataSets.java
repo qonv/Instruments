@@ -203,3 +203,191 @@ public class TestRFDataSets extends BaseTest {
 
 	@Test public void testWinekFoldErrors() {
 		String fileName = "wine.csv";
+		URL url = this.getClass().getClassLoader().getResource(fileName);
+		DataTable data = DataTable.loadCSV(url.getFile(), null, null, null, true);
+		int kfolds = 5;
+		int minLeafSize = 20;
+		RF_kFoldCrossErrors(wine_kfold, fileName, data, scikit_sizes, kfolds, minLeafSize, 0.05);
+	}
+
+	@Ignore @Test public void testConnect4kFoldCrossErrors() {
+		String fileName = "connect-4.csv";
+		URL url = this.getClass().getClassLoader().getResource(fileName);
+		DataTable data = DataTable.loadCSV(url.getFile(), null, null, null, true);
+		int kfolds = 5;
+		int minLeafSize = 20;
+		RF_kFoldCrossErrors(connect_4_kfold, fileName, data, scikit_sizes, kfolds, minLeafSize, 0.035);
+	}
+
+	@Test public void testHouseVoteskFoldCrossErrors() {
+		String fileName = "house-votes-84.csv";
+		URL url = this.getClass().getClassLoader().getResource(fileName);
+		DataTable data = DataTable.loadCSV(url.getFile(), null, null, null, true);
+//		DecisionTree.debug = true;
+		int kfolds = 5;
+		int minLeafSize = MIN_LEAF_SIZE;
+		RF_kFoldCrossErrors(house_votes_84_kfold, fileName, data, scikit_sizes, kfolds, minLeafSize, 0.03);
+	}
+
+	@Test public void testShuttlekFoldCrossErrors() {
+		String fileName = "shuttle.csv";
+		URL url = this.getClass().getClassLoader().getResource(fileName);
+		DataTable data = DataTable.loadCSV(url.getFile(), null, null, null, true);
+//		DecisionTree.debug = true;
+		int kfolds = 5;
+		int minLeafSize = MIN_LEAF_SIZE;
+		RF_kFoldCrossErrors(shuttle_kfold, fileName, data, scikit_sizes, kfolds, minLeafSize, 0.03);
+	}
+
+	@Ignore @Test public void testHiggskFoldCrossErrors() {
+		int kfolds = 5;
+
+		String fileName = "/Users/parrt/data/higgs10000.csv"; // too big to add to resources; intellij copies to target
+		int minLeafSize = 20;
+		DataTable.VariableType[] colTypes = new DataTable.VariableType[28+1];
+		for (int i = 0; i<colTypes.length-1; i++) {
+			colTypes[i] = NUMERICAL_FLOAT;
+		}
+		colTypes[colTypes.length-1] = TARGET_CATEGORICAL_INT;
+		DataTable data = DataTable.loadCSV(fileName, colTypes, true);
+
+//		int[] sizes = {1, 5, 10, 20};
+		int[] sizes = scikit_sizes;
+		RF_kFoldCrossErrors(higgs_kfold, fileName, data, sizes, kfolds, minLeafSize, 0.015);
+	}
+
+	@Test public void testPokerkFoldCrossErrors() {
+		String fileName = "poker-hand-training.csv";
+		URL url = this.getClass().getClassLoader().getResource(fileName);
+		DataTable data = DataTable.loadCSV(url.getFile(), null, null, null, true);
+//		DecisionTree.debug = true;
+		int kfolds = 5;
+		int minLeafSize = MIN_LEAF_SIZE;
+		RF_kFoldCrossErrors(poker_hand_training_kfold, fileName, data, scikit_sizes, kfolds, minLeafSize, 0.03);
+	}
+
+	@Ignore @Test public void testRunWine() {
+		String fileName = "wine.csv";
+		URL url = this.getClass().getClassLoader().getResource(fileName);
+		DataTable data = DataTable.loadCSV(url.getFile(), null, null, null, true);
+//		DecisionTree.debug = true;
+		RandomForest rf = new RandomForest(5000, 5);
+		rf.train(data);
+	}
+
+	@Ignore @Test public void testRunHeart() {
+		String fileName = "Heart-wo-NA.csv";
+		URL url = this.getClass().getClassLoader().getResource(fileName);
+		DataTable data = DataTable.loadCSV(url.getFile(), null, null, null, true);
+//		DecisionTree.debug = true;
+		RandomForest rf = new RandomForest(500, 1);
+		rf.train(data);
+	}
+
+	@Ignore @Test public void testRunIris() {
+		String fileName = "iris.csv";
+		URL url = this.getClass().getClassLoader().getResource(fileName);
+		DataTable data = DataTable.loadCSV(url.getFile(), null, null, null, true);
+		DecisionTree.debug = true;
+		RandomForest rf = new RandomForest(500, 1);
+		rf.train(data);
+	}
+
+	@Ignore @Test public void testRunConnect4() {
+		String fileName = "connect-4.csv";
+		int n_estimators = 50;
+		int minLeafSize = 20;
+		double bootstrapSampleRate = 0.5;
+		URL url = this.getClass().getClassLoader().getResource(fileName);
+		DataTable data = DataTable.loadCSV(url.getFile(), null, null, null, true);
+		int nodeSampleSize = (int)(0.15 * data.size());
+		nodeSampleSize = 111;
+//		DecisionTree.debug = true;
+		long start = System.nanoTime();
+		RandomForest rf = new RandomForest(n_estimators, minLeafSize, nodeSampleSize, bootstrapSampleRate);
+		rf.train(data);
+		long stop = System.nanoTime();
+		System.out.printf("Fitting %d estimators %d min leaf size %dms\n", n_estimators, minLeafSize,
+		                  (stop-start)/(1000*1000));
+	}
+
+	@Ignore @Test public void testRunShuttle() {
+		String fileName = "shuttle.csv";
+		int n_estimators = 100;
+		int minLeafSize = 20;
+		URL url = this.getClass().getClassLoader().getResource(fileName);
+		DataTable data = DataTable.loadCSV(url.getFile(), null, null, null, true);
+//		DecisionTree.debug = true;
+		long start = System.nanoTime();
+		RandomForest rf = new RandomForest(n_estimators, minLeafSize);
+		rf.train(data);
+		long stop = System.nanoTime();
+		System.out.printf("Fitting %d estimators %d min leaf size %dms\n", n_estimators, minLeafSize,
+		                  (stop-start)/(1000*1000));
+	}
+
+	@Ignore @Test public void testRunHiggs() {
+		String fileName = "/Users/parrt/data/higgs400000.csv"; // too big to add to resources; intellij copies to target
+//		String fileName = "/Users/parrt/github/AniML/data/small_higgs.csv";
+		int n_estimators = 50;
+		int minLeafSize = 20;
+		long lstart = System.nanoTime();
+		DataTable.VariableType[] colTypes = new DataTable.VariableType[28+1];
+		for (int i = 0; i<colTypes.length-1; i++) {
+			colTypes[i] = NUMERICAL_FLOAT;
+		}
+		colTypes[colTypes.length-1] = TARGET_CATEGORICAL_INT;
+		DataTable data = DataTable.loadCSV(fileName, colTypes, true);
+		long lstop = System.nanoTime();
+		System.out.printf("Load time %dms\n", (lstop-lstart)/(1000*1000));
+		try {Thread.sleep(5000);} catch (Exception e) { }
+//		DecisionTree.debug = true;
+		long start = System.nanoTime();
+		RandomForest rf = new RandomForest(n_estimators, minLeafSize);
+		rf.train(data);
+		long stop = System.nanoTime();
+		System.out.printf("Fitting %d estimators %d min leaf size %dms\n", n_estimators, minLeafSize,
+		                  (stop-start)/(1000*1000));
+	}
+
+	public static void genPythonResults() {
+		String[] fileNames =
+			{
+				"poker-hand-training.csv",
+				"Heart-wo-NA.csv",
+				"connect-4.csv",
+				"iris.csv",
+				"shuttle.csv",
+				"wine.csv",
+				"house-votes-84.csv"
+			};
+		int[] sizes = {20, 50, 75, 100, 200};
+		System.out.println("public static final int[] scikit_sizes = {"+join(sizes, ",")+"};");
+		int kfolds = 5;
+		int minLeafSize = 20;
+		System.out.println();
+		for (String fileName : fileNames) {
+			python_RF_kFoldCrossErrors(fileName, sizes, kfolds, minLeafSize);
+		}
+	}
+
+	// ---------------------------------
+
+	protected DataTable heartData() {
+		URL url = this.getClass().getClassLoader().getResource("Heart-wo-NA.csv");
+		DataTable data = DataTable.loadCSV(url.getFile().toString(), "excel", null, null, true);
+		data.setColType(0, UNUSED_INT); // first column is ID
+		data.setColType("Thal", CATEGORICAL_STRING);
+		data.setColType("ChestPain", CATEGORICAL_STRING);
+		data.setColType("Fbs", CATEGORICAL_INT);
+		data.setColType("RestECG", CATEGORICAL_INT);
+		data.setColType("ExAng", CATEGORICAL_INT);
+		data.setColType("Slope", CATEGORICAL_INT);
+		data.setColType("AHD", TARGET_CATEGORICAL_STRING);
+		return data;
+	}
+
+	public static void main(String[] args) {
+		genPythonResults();
+	}
+}
