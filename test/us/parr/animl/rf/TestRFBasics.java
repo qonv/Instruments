@@ -92,4 +92,12 @@ public class TestRFBasics extends BaseTest {
 		rows.add(new int[]{0, 7, 2});
 		DataTable data = DataTable.fromInts(rows, null, null);
 		data.setColType(0, DataTable.VariableType.CATEGORICAL_INT);
-		data.setColType(1, DataTable.VariableType.CATEGORICA
+		data.setColType(1, DataTable.VariableType.CATEGORICAL_INT);
+		DecisionTree.debug = true;
+		RandomForest rf = new RandomForest(12, MIN_LEAF_SIZE);
+		rf.train(data);
+
+		int missed = Validation.leaveOneOut(rf, data);
+		assertEquals(0, missed, 0.00000001);
+
+		double error = rf.getErrorEstimate(data)
